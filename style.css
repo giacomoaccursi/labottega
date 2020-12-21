@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
 
 img#logo{
-    width: 55px !important;
+    width: 60px; 
 }
 
 
 h1{
-    font-size: 27px !important; 
+    font-size: 30px !important; 
     padding-top: 10px;
     font-family: 'Ubuntu', sans-serif !important;
 }
@@ -22,8 +22,8 @@ a.icon-link:hover{
 }
 
 div#icon-container > a >i{
-    font-size: 1.10em; 
-    color:rgb(0, 0, 0);
+
+    color:black;
 }
 
 #accordion-footer, #copyright{
@@ -92,23 +92,19 @@ div.newsletter-paragraph > p{
     }
 
     img#logo{
-        width:70px; 
+        width:80px !important; 
     }
     
 }
 
 @media(min-width:768px){
 
-    div#icon-container > a.icon-link >i{
-        font-size: 1.70em; 
-    }
-    
     h1{
         font-size: 45px !important;
     }
 
     img#logo{
-        width:60px; 
+        width:90px !important; 
     }
 
     .nav-link{
@@ -122,6 +118,20 @@ div.newsletter-paragraph > p{
 	.navbar .nav-item:hover .dropdown-menu{ transition: .3s; opacity:1; visibility:visible; top:100%; transform: rotateX(0deg); }
     
 }
+
+@media(max-width:300px){
+    h1{
+        font-size: 25px !important;
+    }
+
+    img#logo{
+        width:60px !important; 
+    }
+    div#icon-container > a.icon-link >i{
+        font-size: 1.10em; 
+    }
+}
+
 
 .nopadding{
     padding:0 !important; 
