@@ -1,0 +1,77 @@
+prodottiInMagazzino(id, quantità, FK:idprodotti)
+prodotti (id, nome, descrizione, prezzo,immagine, FK:idSottoCategoria)
+categorie (id, nome)
+sotto-categorie (id, nome, fk:idCategorie)
+utente (id, nome, cognome, e-mail, password, tipo)
+prodottiInCarrello(PK:(id.prodotti,id.utente), quantità); 
+prodottiInWishList(PK:(id.prodotti,id.utente)); 
+ordine(id, id.utente,dataOrdine, tipoPagamento, totaleOrdine, FK:id.dettagliSpedizione)
+dettagliSpedizione(id, indirizzoSpedizione, cittaSpedizione, nazioneSpedizione)
+dettagliOrdine(id.prodotto, id.ordine,prezzo, quantità)
+
+
+CREATE TABLE `categorie` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `nome` varchar(15) NOT NULL,
+    PRIMARY KEY (`id`)
+); 
+
+CREATE TABLE `sottoCategorie` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `nome` varchar(15) NOT NULL,
+    `idCategoria` int(11) NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (idCategoria) REFERENCES categorie(id)
+); 
+
+CREATE TABLE `prodotti` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `nome` varchar(30) NOT NULL,
+    `marca` varchar(30) NOT NULL,
+    `descrizione` varchar(150) NOT NULL,
+    `prezzo` float(10) NOT NULL,
+    `immagine` blob NOT NULL,
+    `idSottoCategoria` int(11) NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (idSottoCategoria) REFERENCES sottoCategorie(id)
+); 
+
+
+INSERT INTO categorie (nome) VALUES
+('Distillati'),
+('Birre'),
+('Vini');
+
+INSERT INTO sottoCategorie (nome, idCategoria) VALUES
+('Rum', 1),
+('Gin', 1),
+('Vodka', 1),
+('Whisky', 1),
+('Pils', 2),
+('Blanche', 2),
+('Weiss', 2),
+('Stout', 2),
+('IPA', 2),
+
+('Prosecco', 3),
+('Spumante', 3),
+('SanGiovese', 3),
+('Valpolicella', 3),
+('Chianti', 3),
+('Lambrusco', 3);
+
+INSERT INTO `prodotti` (nome, marca, descrizione, prezzo, idSottoCategoria) VALUES
+('Rum Gran Reserva "1888"', 'Brugal', 'Ambrato scuro alla vista, è intenso al naso con sensazioni di frutta secca accompagnate da delicate note legnose. Al palato è avvolgente e lungo, con toni burrosi e zuccherati. Chiude caramellato e sapido.', 45.00, 1),
+('Rum Sailor Jerry', 'Sailor Jerry', 'Un rum cult, che ha fatto successo in tutto il mondo per lo spirito che porta con sè. Caratterizzato da aromi unici, è uno spiced rum di alta qualità, come pochi in circolazione. La sua grande bevibilità lo fa poi un rum adatto a tutti, facile da capire e apprezzare.', 20.50, 1),
+('London Dry Gin', 'Bombay', 'Con questo London Dry, assemblato partendo da un insieme di “botanicals” esotiche, la Bombay Sapphire offre in realtà un Gin dai contorni tradizionali, in cui un forte sapore di ginepro guida il sorso verso un finale potente e secco. La distillazione degli otto ingredienti avviene grazie agli alambicchi “Carter Head”, capaci di catturarne in maniera incredibile gli aromi e di fornire quindi un ventaglio aromatico intenso. La bottiglia ideale quando si vuole sorseggiare il più classico dei Gin&Tonic.', 16.90, 2),
+('London Dry Gin "Bulldog"', 'G&J Distillery', 'Partendo da materie prime eccellenti questo Gin Bulldog proveniente dall’antica distilleria inglese Langley è un prodotto complesso e al contempo sofisticato. Per la sua produzione vengono realizzate quattro diverse distillazioni seguendo il metodo tradizionale con utilizzo esclusivo di alambicchi in rame. Per ottenere un livello di purezza straordinario il processo di filtraggio viene ripetuto 3 volte. Il risultato finale è un gin da intenditori che presenta un olfatto importante, con un gusto particolarmente tropicale e fresco.', 27.50, 2 ),
+('Belvedere Vodka', 'Belvedere', 'Belvedere Vodka rappresenta l'apice della tradizione polacca nella produzione di Vodka. La materia prima viene raccolta esclusivamente dalle migliori piantagioni di segale e distillata per 4 volte al fine di creare il perfetto equilibrio di carattere e purezza, senza nessun tipo di additivo e diluita con acqua pura del pozzo di proprietà della distilleria. Belvedere Vodka è un'icona del mondo moderno, che unisce la storia di oltre 600 anni di esperienza con un impegno senza compromessi per ottenere la massima qualità.', 30.90, 3),
+('Grain Vodka “Moskovskaya”', 'Osobaya Vodka', 'E' la vodka russa più amata dai bartender di tutto il mondo perchè rappresenta l'eccellenza tra le vodke base per cocktail. Un nome simbolo di garanzia per chi cerca il massimo della qualità.', 13.00, 3), 
+('Speyside Single Malt Scotch Whiskey 18 years old', 'Glen Grant', 'Il 18 years old di Glen Grant è il prodotto di punta della storica distilleria dello Speyside. Un single malt veramente eccezionale, caratterizzato da note legnose e fruttate inconfondibili, anche dai palati meno esperti. Un whisky da gustare in ogni occasione, da soli o in compagnia, in totale relax per apprezzarne tutte le caratteristiche che lo rendono unico al mondo. Secondo solo alle “limited edition” della medesima distilleria affina per ben 18 anni in botti di quercia della più pregiata qualità.', 115.00, 4), 
+('Tennessee Whiskey “N°27 Gold”', 'Jack Daniel’s', 'Il “N°27 Gold” è un’edizione limitata del celebre Tennessee Whiskey firmato Jack Daniel’s. Si tratta infatti di un distillato che presenta una particolarità interessante, che riguarda la fase finale di maturazione in legno: l’affinamento si svolge infatti sia in rovere sia in legno di acero, e la successiva filtrazione – prima della messa in bottiglia – è doppia. Un prodotto dal profilo olfattivo elegante, che in bocca colpisce per il sapore dolce e fasciante, ideale per accompagnare i dopo cena più tranquilli, in cui si vuole accompagnare la conversazione con un distillato di tutto rispetto.', 99.00, 4); 
+
+
+
+
+ 
+
