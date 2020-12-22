@@ -27,7 +27,7 @@ class DatabaseHelper{
     }
 
     public function getSubCategories(){
-        $stmt = $this->db->prepare("SELECT nome, idCategoria FROM sottoCategorie");
+        $stmt = $this->db->prepare("SELECT id, nome, idCategoria FROM sottoCategorie");
         $stmt->execute();
         $result = $stmt->get_result();
 
