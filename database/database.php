@@ -19,14 +19,14 @@ class DatabaseHelper{
     }
 
     public function getCategories(){
-        $stmt = $this->db->prepare("SELECT nome FROM categorie");
+        $stmt = $this->db->prepare("SELECT id,nome FROM categorie");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function getSubCategories(){
-        $stmt = $this->db->prepare("SELECT nome,idCategoria FROM sottoCategorie");
+        $stmt = $this->db->prepare("SELECT id,nome,idCategoria FROM sottoCategorie");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
