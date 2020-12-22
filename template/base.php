@@ -28,7 +28,7 @@
         <div class="col-8 col-md-6">
           <div class="row justify-content-md-center">
             <img id="logo" src="public/img/logo.png" alt="" />
-            <h1 class="pt-4"><a href="index.html" id="title-link">LaBottega</a></h1>
+            <h1 class="pt-4"><a href="index.php" id="title-link">LaBottega</a></h1>
           </div>
         </div>
         <div id="icon-container" class="text-right text-md-center col-4 pt-4 col-md-3 ">
@@ -54,15 +54,15 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                   <ul class="navbar-nav text-center col-md-12 nopadding">
                     
-                  <?php foreach $templateParams["categoria"] as $categoria): ?>
+                  <?php foreach ($templateParams["categorie"] as $categoria): ?>
                     <li class="nav-item dropdown col-md-3">
-                      <a class="nav-link" href="prodotti.php?id=<?php echo $categoria["idCategoria"];?>" data-toggle="dropdown"><?php echo $categoria["nomeCategoria"]; ?></a>
+                      <a class="nav-link" href="prodotti.php?id=<?php echo $categoria["idCategoria"];?>" data-toggle="dropdown"><?php echo $categoria["nome"]; ?></a>
                       <ul class="dropdown-menu text-center">
-                      <?php foreach$categoria["subCategoria"] as $subCategoria): ?>
+                      <?php foreach ($templateParams["sottoCategorie"] as $sottoCategoria) :?>
                         <li>
                           <a class="dropdown-item" href="#">
-                            Submenu item 1</a>
-                        </li>
+                            <?php echo $sottoCategoria["nome"]?></a>
+                        </li> 
                         <?php endforeach; ?>
                       </ul>
                     </li>
