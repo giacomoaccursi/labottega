@@ -6,18 +6,17 @@
   <link rel="stylesheet" href="public/css/style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
   <title><?php echo $templateParams["titolo"]; ?></title>
   <?php
-    if(isset($templateParams["js"])):
-        foreach($templateParams["js"] as $script):
-    ?>
-        <script src="<?php echo $script; ?>"></script>
-    <?php
-        endforeach;
-    endif;
-    ?>
+  if (isset($templateParams["js"])) :
+    foreach ($templateParams["js"] as $script) :
+  ?>
+      <script src="<?php echo $script; ?>"></script>
+  <?php
+    endforeach;
+  endif;
+  ?>
 </head>
 
 <body>
@@ -47,27 +46,27 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
               <nav class="navbar navbar-expand-md bg-white navbar-light justify-content-center">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                  aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                   <ul class="navbar-nav text-center col-md-12 nopadding">
-                    
-                  <?php foreach $templateParams["categoria"] as $categoria): ?>
-                    <li class="nav-item dropdown col-md-3">
-                      <a class="nav-link" href="prodotti.php?id=<?php echo $categoria["idCategoria"];?>" data-toggle="dropdown"><?php echo $categoria["nomeCategoria"]; ?></a>
-                      <ul class="dropdown-menu text-center">
-                      <?php foreach$categoria["subCategoria"] as $subCategoria): ?>
-                        <li>
-                          <a class="dropdown-item" href="#">
-                            Submenu item 1</a>
-                        </li>
-                        <?php endforeach; ?>
-                      </ul>
-                    </li>
 
-                   <?php endforeach; ?>
+                    <?php foreach ($templateParams["categorie"] as $categoria) : ?>
+                      <li class="nav-item dropdown col-md-3">
+                        <a class="nav-link" href="prodotti.php?id=<?php echo $categoria["id"]; ?>" data-toggle="dropdown"><?php echo $categoria["nome"]; ?></a>
+                        <ul class="dropdown-menu text-center">
+                          <?php foreach ($templateParams["sottoCategorie"] as $subCategoria) :
+                            if ($subCategoria["idCategoria"] == $categoria["id"]) : ?>
+                              <li>
+                                <a class="dropdown-item" href="#"><?php echo $subCategoria["nome"]; ?></a>
+                              </li>
+                            <?php endif; ?>
+                          <?php endforeach; ?>
+                        </ul>
+                      </li>
+
+                    <?php endforeach; ?>
                     <li class="nav-item col-md-3">
                       <a class="btn nav-link offerte" href="#">OFFERTE</a>
                     </li>
@@ -101,11 +100,11 @@
 
 
     <main>
-    <?php
-      if(isset($templateParams["pagina"])){
-          require($templateParams["pagina"]);
+      <?php
+      if (isset($templateParams["pagina"])) {
+        require($templateParams["pagina"]);
       }
-    ?>
+      ?>
     </main>
 
 
@@ -125,8 +124,7 @@
             <div class="col-12 col-md-6 text-center pt-4">
               <form class="form-inline" action="/action_page.php">
                 <div class="col-1 col-md-1"></div>
-                <input class="form-control col-7 col-md-6" type="text"
-                  placeholder="Inserisci qui il tuo indirizzo email" />
+                <input class="form-control col-7 col-md-6" type="text" placeholder="Inserisci qui il tuo indirizzo email" />
                 <button class="btn btn-search" type="submit">OK</button>
               </form>
             </div>
@@ -144,8 +142,7 @@
           <div id="accordion" role="tablist" aria-multiselectable="true" class="widget">
             <div role="tab" id="headingOne">
               <div class="card-header py-3 border-0 text-uppercase bg-transparent">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false"
-                  aria-controls="collapseOne" class="accordion-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="accordion-title">
                   Supporto e informazioni
                 </a>
               </div>
@@ -166,8 +163,7 @@
           <div id="accordion" role="tablist" aria-multiselectable="true" class="widget">
             <div role="tab" id="headingTwo">
               <div class="card-header py-3 border-0 text-uppercase bg-transparent">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
-                  aria-controls="collapseTwo" class="accordion-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="accordion-title">
                   Contattaci
                 </a>
               </div>
@@ -189,8 +185,7 @@
           <div id="accordion" role="tablist" aria-multiselectable="true" class="widget">
             <div role="tab" id="headingThree">
               <div class="card-header py-3 border-0 text-uppercase bg-transparent">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
-                  aria-controls="collapseThree" class="accordion-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" class="accordion-title">
                   Chi siamo
                 </a>
               </div>
@@ -211,8 +206,7 @@
           <div id="accordion" role="tablist" aria-multiselectable="true" class="widget">
             <div role="tab" id="headingFour">
               <div class="card-header py-3 border-0 text-uppercase bg-transparent">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false"
-                  aria-controls="collapseFour" class="accordion-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour" class="accordion-title">
                   Seguici
                 </a>
               </div>
