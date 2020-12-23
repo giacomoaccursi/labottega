@@ -1,7 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
 
+#home-image{
+    padding: 200px 0; 
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: auto;
+    background-image: url("sfondo2.jpeg");
+}
 img#logo{
     width: 60px; 
+}
+
+#buy-button{
+    background-color: #ffd369;
+    color: #000;
+    font-weight: bold;
+    
+}
+
+#buy-section{
+    position: absolute;
+    bottom: 0 !important;
+    left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+.card-body{
+    height: 200px;
+    position: relative;
+}
+
+#compra-ora{
+    font-size: 25px;
+    padding: 15px 15px; 
+    color: black;
+    font-weight: bold;
+    background-color: #ffd369; 
+}
+#compra-ora:hover{
+    color: black;
+    font-weight: bold;
+    border: solid;
+    background-color: #ffd269ab;; 
 }
 
 
@@ -95,6 +138,8 @@ div.newsletter-paragraph > p{
         width:80px !important; 
     }
     
+
+    
 }
 
 @media(min-width:768px){
@@ -110,6 +155,8 @@ div.newsletter-paragraph > p{
     .nav-link, .offerte{
         font-size: 18px ;
     }
+
+
 
     .navbar .nav-item .dropdown-menu{  display:block; opacity: 0;  visibility: hidden; transition:.3s; margin-top:0;  }
 	.navbar .nav-item:hover .nav-link{ color: #fff;  }
