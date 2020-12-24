@@ -21,7 +21,7 @@ if (isset($_GET["page"])){
 
 }
 
-$numeroProdottiPerPagina = 4; 
+$numeroProdottiPerPagina = 12; 
 $templateParams["prodotti"] = array_chunk($templateParams["prodotti"], $numeroProdottiPerPagina); 
 $templateParams["numPagine"] = count($templateParams["prodotti"]); 
 $templateParams["categorie"] = $dbh->getCategories(); 

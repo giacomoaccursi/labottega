@@ -33,6 +33,10 @@ img#logo{
     position: relative;
 }
 
+#card-img{
+    max-height: 300px;
+}
+
 #compra-ora{
     font-size: 25px;
     padding: 15px 15px; 

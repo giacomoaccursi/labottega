@@ -17,7 +17,7 @@
       <div class="row  col-12 col-lg-8">
           <?php foreach ($templateParams["prodotti"] as $prodotto) : ?>
               <div class="card text-center col-6 col-md-3 nopadding">
-                  <img src="<?php echo IMG_ROOT; ?>/brugal.jpg" class="card-img-top" alt="" />
+                  <img  id="card-img" src="<?php echo IMG_ROOT.$prodotto["immagine"]; ?>" class="card-img-top" alt="" />
                   <div class="card-body nopadding">
                       <h5 class="card-title mt-1"><?php echo $prodotto["nome"]; ?></h5>
                       <h6><?php echo $prodotto["marca"]; ?></h6>
