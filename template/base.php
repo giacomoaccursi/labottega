@@ -32,7 +32,7 @@
         </div>
         <div id="icon-container" class="text-right text-md-center col-4 pt-4 col-md-3 ">
           <a href="wishList.php" class="icon-link pr-md-2"><i class="fas fa-heart fa-lg"></i></a>
-          <a href="cart.php" class="icon-link pr-md-2"><i class="fas fa-shopping-cart fa-lg"></i></a>
+          <a href="carrello.php" class="icon-link pr-md-2"><i class="fas fa-shopping-cart fa-lg"></i></a>
           <a href="login.php" class="icon-link"><i class="fas fa-user-circle fa-lg"></i></a>
         </div>
       </div>

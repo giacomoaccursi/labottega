@@ -1,18 +1,5 @@
-  <div id="home-image" class="container-fluid hover-shadow">
-      <!-- Row -->
-      <div class="row align-items-center">
-          <div class="col-md-12 text-center">
-              <a id="compra-ora" class="btn" href="prodotti.php"><span>COMPRA ORA</span></a>
-          </div>
-      </div>
-      <!-- Row -->
-  </div>
-
-
-  <h2 class="text-center py-5">BEST PRODUCTS</h2>
-
-
-  <div class="row justify-content-center">
+<h2 class="text-center">Tutti i prodotti</h2>
+<div class="row justify-content-center">
       <div class="col-lg-2"></div>
       <div class="row  col-12 col-lg-8">
           <?php foreach ($templateParams["prodotti"] as $prodotto) : ?>

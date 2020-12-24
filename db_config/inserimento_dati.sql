@@ -3,12 +3,12 @@ INSERT INTO `categorie` (`id`,`nome`) VALUES
 (2,'Birre'),
 (3,'Vini');
 
-INSERT INTO `sottoCategorie` (`nome`, `idCategoria`) VALUES
+INSERT INTO `sottoCategorie` (`id`,`nome`, `idCategoria`) VALUES
 (1,'Rum', 1),
 (2,'Gin', 1),
 (3,'Vodka', 1),
 (4,'Whisky', 1),
-(5'Pils', 2),
+(5,'Pils', 2),
 (6,'Blanche', 2),
 (7,'Weiss', 2),
 (8,'Stout', 2),
