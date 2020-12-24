@@ -1,9 +1,10 @@
 <?php
 require_once 'bootstrap.php';
 
-//Base Template
 $templateParams["titolo"] = "LaBottega - Login";
-$templateParams["pagina"] = "login.php";
+$templateParams["pagina"] = "login_template.php";
+$templateParams["categorie"] = $dbh->getCategories(); 
+$templateParams["sottoCategorie"] = $dbh->getSubCategories(); 
 
 require 'template/base.php';
 ?>
