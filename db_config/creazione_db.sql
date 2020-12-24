@@ -29,6 +29,10 @@ CREATE TABLE IF NOT EXISTS `prodotti` (
     `immagine` VARCHAR(100) NOT NULL,
     `quantità` INT(3) NOT NULL,
     `idSottoCategoria` INT(11) NOT NULL,
+    `dataInserimento` DATE DEFAULT CURRENT_DATE,
+    `sconto` INT(3) DEFAULT 0,
+
+
     PRIMARY KEY (`id`),
     FOREIGN KEY (`idSottoCategoria`) REFERENCES `sottoCategorie`(`id`)
 );
