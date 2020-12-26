@@ -107,7 +107,7 @@ class DatabaseHelper{
     }
 
     public function getProductsBySearch($input){
-    $stmt = $this->db->prepare("SELECT prodotti.id, prodotti.nome, marca, descrizione, prezzo, (prezzo - prezzo*sconto/100) as prezzoFin, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti, sottoCategorie, categorie WHERE prodotti.idSottocategoria = sottoCategorie.id && sottoCategorie.idCategoria = categorie.id && (prodotti.nome LIKE CONCAT ('%',?,'%') OR descrizione LIKE CONCAT ('%',?,'%') OR categorie.nome LIKE CONCAT ('%',?,'%') OR sottocategorie.nome LIKE CONCAT ('%',?,'%') OR marca LIKE CONCAT ('%',?,'%')) ");
+    $stmt = $this->db->prepare("SELECT prodotti.id, prodotti.nome, marca, descrizione, prezzo, (prezzo - prezzo*sconto/100) as prezzoFin, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti, sottoCategorie, categorie WHERE prodotti.idSottocategoria = sottoCategorie.id && sottoCategorie.idCategoria = categorie.id && (prodotti.nome LIKE CONCAT ('%',?,'%') OR descrizione LIKE CONCAT ('%',?,'%') OR categorie.nome LIKE CONCAT ('%',?,'%') OR sottoCategorie.nome LIKE CONCAT ('%',?,'%') OR marca LIKE CONCAT ('%',?,'%')) ");
         $stmt -> bind_param('sssss',$input, $input, $input, $input, $input);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -115,7 +115,7 @@ class DatabaseHelper{
     }
 
     public function checkLogin($email, $password){
-        $stmt = $this->db->prepare("SELECT id,nome,cognome,email,password,tipo  FROM utenti WHERE email = ? AND password = ?");
+        $stmt = $this->db->prepare("SELECT * FROM utenti WHERE email = ? AND password = ? ");
         $stmt -> bind_param('ss',$email,$password);
         $stmt -> execute();
         $result = $stmt -> get_result();

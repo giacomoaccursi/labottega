@@ -10,7 +10,7 @@ function isUserLoggedIn(){
 
 function isValidEmail($input_email,$allEmails){
     foreach($allEmails as $email ){
-        if($email == $input_email){
+        if($email["email"] == $input_email){
             return false;
         }
     }

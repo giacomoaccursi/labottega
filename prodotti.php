@@ -64,7 +64,6 @@ if(isset($_GET["sales"])){
 if(isset($_GET["cerca"])){
     $templateParams["titoloCategoria"] = "risultato di ricerca per ".$_GET["cerca"];   
     $templateParams["cerca"] = $_GET["cerca"]; 
-
     foreach($templateParams["prodotti"] as $prodotto){
         if(!in_array($prodotto, $dbh->getProductsBySearch($_GET["cerca"]))){
             $key = array_search($prodotto, $templateParams["prodotti"]);

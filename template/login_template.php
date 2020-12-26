@@ -4,6 +4,9 @@
         <div class="card col-12 login-card">
             <div class="login-box text-center">
                 <div class="login-snip text-center"> 
+                <?php if(isset($templateParams["erroreEmail"])): ?>
+                              <p><?php echo $templateParams["erroreEmail"]; ?></p>
+                <?php endif; ?>     
                 <i class="fas fa-user fa-2x mr-md-3"></i>
                 <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab ml-3">Accedi</label>
                  <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab ml-3">Registrati</label>
@@ -19,7 +22,7 @@
                             <div class="hr"></div>
                         </form>
                         </div>
-                        <div class="sign-up-form">
+                        <div class="sign-up-form">  
                         <form action="login.php?action=register" method="POST">
                              <div class="group"> <label for="nome" class="label mt-3">Nome</label> <input id="nome" name="nome" type="text" class="input col-10" placeholder="Inserisci il tuo nome" required/> </div>
                              <div class="group"> <label for="cognome" class="label mt-3">Cognome</label> <input id="cognome" name="cognome" type="text" class="input col-10" placeholder="Inserisci il tuo cognome" required /> </div>

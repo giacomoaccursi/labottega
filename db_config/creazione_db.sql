@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `utenti`(
     `nome` VARCHAR(20),
     `cognome` VARCHAR(30),
     `email` VARCHAR(30) NOT NULL,
-    `password` VARCHAR(16) NOT NULL,
+    `password` VARCHAR(80) NOT NULL,
     `tipo` INT(2) NOT NULL DEFAULT 0,
     PRIMARY KEY(`id`)
 );

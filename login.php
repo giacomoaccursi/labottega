@@ -19,9 +19,9 @@ if(isset($_GET["action"])){
                 $login_result = $dbh -> checkLogin($_POST["email"],$_POST["pass_1"]);
                 if(count($login_result)>0){
                     registerLoggedUser($login_result[0]);
-                }else{
-                    $templateParams["erroreEmail"] = "L'email inserita è gia presente nel sito!";
                 }
+            }else{
+                $templateParams["erroreEmail"] = "Errore: L'email inserita è gia presente!";
             }
         }
     }
@@ -30,8 +30,6 @@ if(isset($_GET["action"])){
 if(isUserLoggedIn()){
     header("location: dashboard.php");
 }
-
-
 
 $templateParams["titolo"] = "LaBottega - Login";
 $templateParams["pagina"] = "login_template.php";
