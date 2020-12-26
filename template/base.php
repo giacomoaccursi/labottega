@@ -51,12 +51,12 @@
                   <ul class="navbar-nav text-center col-md-12 nopadding">
                     <?php foreach ($templateParams["categorie"] as $categoria) : ?>
                       <li class="nav-item dropdown col-md-3">
-                        <a class="nav-link" href="prodotti.php?id=<?php echo $categoria["id"]; ?>" data-toggle="dropdown"><?php echo $categoria["nome"]; ?></a>
+                        <a class="nav-link" href="prodotti.php?cat=<?php echo $categoria["id"]; ?>"><?php echo $categoria["nome"]; ?></a>
                         <ul class="dropdown-menu text-center">
                           <?php foreach ($templateParams["sottoCategorie"] as $subCategoria) :
                             if ($subCategoria["idCategoria"] == $categoria["id"]) : ?>
                               <li>
-                                <a class="dropdown-item" href="#"><?php echo $subCategoria["nome"]; ?></a>
+                                <a class="dropdown-item" href="prodotti.php?sub=<?php echo $subCategoria["id"]; ?>"><?php echo $subCategoria["nome"]; ?></a>
                               </li>
                             <?php endif; ?>
                           <?php endforeach; ?>
@@ -65,7 +65,7 @@
 
                     <?php endforeach; ?>
                     <li class="nav-item col-md-3">
-                      <a class="btn nav-link offerte" href="#">OFFERTE</a>
+                      <a class="btn nav-link offerte" href="prodotti.php?sales=1">OFFERTE</a>
                     </li>
                   </ul>
                 </div>
@@ -82,9 +82,8 @@
       <div class="row my-3">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-          <form class="form-inline justify-content-center" action="/action_page.php">
-
-            <input class="form-control col-9 col-md-7" type="text" placeholder="Cosa stai cercando ?" />
+          <form class="form-inline justify-content-center" action="prodotti.php" method="GET">
+            <input class="form-control col-9 col-md-7" name="cerca" type="text" placeholder="Cosa stai cercando ?" />
             <button class="btn btn-search" type="submit">
               <i class="fas fa-search"></i>
             </button>

@@ -49,7 +49,49 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getProductsByCategory($categoria){
+        $stmt = $this->db->prepare("SELECT prodotti.id, prodotti.nome, marca, descrizione, prezzo, (prezzo - prezzo*sconto/100) as prezzoFin, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti, sottoCategorie, categorie WHERE prodotti.idSottocategoria = sottoCategorie.id && sottoCategorie.idCategoria = categorie.id && categorie.id = ?");
+        $stmt->bind_param('i',$categoria);
+        $stmt->execute();
+        $result = $stmt->get_result(); 
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getProductsBySubCategory($sottoCategoria){
+        $stmt = $this->db->prepare("SELECT (prezzo - prezzo*sconto/100) as prezzoFin, prodotti.id, prodotti.nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti, sottoCategorie WHERE idSottoCategoria = ?");
+        $stmt->bind_param('i',$sottoCategoria);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     
+    }
+    
+    public function getCategoryById($id){
+        $stmt = $this->db->prepare("SELECT nome from categorie WHERE id = ?");
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        return $result[0]["nome"]; 
+    }
+
+    public function getSubCategoryById($id){
+        $stmt = $this->db->prepare("SELECT nome from sottoCategorie WHERE id = ?");
+        $stmt->bind_param('i',$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        return $result[0]["nome"]; 
+    }
+
+    public function getProductsInSale(){
+        $stmt = $this->db->prepare("SELECT (prezzo - prezzo*sconto/100) as prezzoFin, id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti WHERE sconto > 0");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+
     public function getCategories(){
         $stmt = $this->db->prepare("SELECT id,nome FROM categorie");
         $stmt->execute();
@@ -64,6 +106,13 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getProductsBySearch($input){
+    $stmt = $this->db->prepare("SELECT prodotti.id, prodotti.nome, marca, descrizione, prezzo, (prezzo - prezzo*sconto/100) as prezzoFin, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti, sottoCategorie, categorie WHERE prodotti.idSottocategoria = sottoCategorie.id && sottoCategorie.idCategoria = categorie.id && (prodotti.nome LIKE CONCAT ('%',?,'%') OR descrizione LIKE CONCAT ('%',?,'%') OR categorie.nome LIKE CONCAT ('%',?,'%') OR sottocategorie.nome LIKE CONCAT ('%',?,'%') OR marca LIKE CONCAT ('%',?,'%')) ");
+        $stmt -> bind_param('sssss',$input, $input, $input, $input, $input);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 
     public function checkLogin($email, $password){
         $stmt = $this->db->prepare("SELECT id,nome,cognome,email,password,tipo  FROM utenti WHERE email = ? AND password = ?");
@@ -87,4 +136,3 @@ class DatabaseHelper{
     }
 
 }
-?>
