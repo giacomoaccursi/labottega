@@ -43,10 +43,10 @@ INSERT INTO `prodotti` (`nome`, `marca`, `descrizione`, `prezzo`,`immagine`,`qua
 
 
 INSERT INTO `utenti` (`nome`,`cognome`,`email`,`password`,`tipo`) VALUES
-('Andrea','Acampora','andrea.acampora@gmail.com','andrea99',1),
-('Giacomo','Accursi','giacomo.accursi@gmail.com','giacomo99',1),
-('Marco','Brighi','marco.brighi@outlook.com','marco1992',1),
-('Luca','Rossi','luca.rossi@gmail.com','luca1988',1);
+('Andrea','Acampora','andrea.acampora@gmail.com','Andrea99!',1),
+('Giacomo','Accursi','giacomo.accursi@gmail.com','Giacomo99!',1),
+('Marco','Brighi','marco.brighi@outlook.com','Marco1992?',0),
+('Luca','Rossi','luca.rossi@gmail.com','Luca1988?',0);
 
 INSERT INTO `pagamenti` (`nomeCircuito`) VALUES 
 ('PayPal'),

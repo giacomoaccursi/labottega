@@ -65,5 +65,26 @@ class DatabaseHelper{
     }
 
 
+    public function checkLogin($email, $password){
+        $stmt = $this->db->prepare("SELECT id,nome,cognome,email,password,tipo  FROM utenti WHERE email = ? AND password = ?");
+        $stmt -> bind_param('ss',$email,$password);
+        $stmt -> execute();
+        $result = $stmt -> get_result();
+        return $result -> fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function registerNewUser($nome,$cognome,$email,$password){
+        $stmt = $this->db->prepare("INSERT INTO `utenti`(`nome`, `cognome`, `email`, `password`) VALUES (?,?,?,?)");
+        $stmt -> bind_param('ssss',$nome,$cognome,$email,$password);
+        $stmt -> execute();
+    }
+
+    public function getAllEmails(){
+        $stmt = $this->db->prepare("SELECT email FROM utenti");
+        $stmt -> execute();
+        $result = $stmt -> get_result();
+        return $result -> fetch_all(MYSQLI_ASSOC);
+    }
+
 }
 ?>
