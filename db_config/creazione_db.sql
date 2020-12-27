@@ -20,6 +20,8 @@ CREATE TABLE IF NOT EXISTS `sottoCategorie` (
     FOREIGN KEY (`idCategoria`) REFERENCES `categorie`(`id`)
 );
 
+
+
 CREATE TABLE IF NOT EXISTS `prodotti` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `nome` VARCHAR(50) NOT NULL,
@@ -45,6 +47,17 @@ CREATE TABLE IF NOT EXISTS `utenti`(
     `password` VARCHAR(80) NOT NULL,
     `tipo` INT(2) NOT NULL DEFAULT 0,
     PRIMARY KEY(`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `prodottiInCarrello` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `quantitàDaComprare` INT(3) DEFAULT 1,
+    `idUtente` INT(11) NOT NULL,
+    `idProdotto` INT(11) NOT NULL,
+    
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`idUtente`) REFERENCES `utenti`(`id`),
+    FOREIGN KEY (`idProdotto`) REFERENCES `prodotti`(`id`)
 );
 
 CREATE TABLE IF NOT EXISTS `spedizioni`(

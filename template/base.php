@@ -10,6 +10,7 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="./public/js/carrello.js"></script>
   <title><?php echo $templateParams["titolo"]; ?></title>
   
   <?php  if (isset($templateParams["js"])) : ?>
@@ -43,7 +44,7 @@
           <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8">
-              <nav class="navbar navbar-expand-md bg-white navbar-light justify-content-center">
+              <nav class="navbar navbar-expand-md navbar-fixed-top bg-white navbar-light justify-content-center">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>

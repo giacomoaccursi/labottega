@@ -1,0 +1,3 @@
+link utile per paginazione = https://gabrieleromanato.com/2020/04/creare-i-link-della-paginazione-in-ajax-con-jquery-e-php
+
+link utile per usare bene il select dei prodotti: https://www.alfredocentinaro.it/lista-scuola/item/457-integrare-ajax-con-jquery-e-php.html

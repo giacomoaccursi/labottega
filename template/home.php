@@ -17,18 +17,18 @@
       <div class="row  col-12 col-lg-8">
           <?php foreach ($templateParams["prodotti"] as $prodotto) : ?>
               <div class="card text-center col-6 col-md-3 nopadding">
-                  <img  id="card-img" src="<?php echo IMG_ROOT.$prodotto["immagine"]; ?>" class="card-img-top" alt="" />
+                  <img id="card-img" src="<?php echo IMG_ROOT . $prodotto["immagine"]; ?>" class="card-img-top" alt="" />
                   <div class="card-body nopadding">
                       <h5 class="card-title mt-1"><?php echo $prodotto["nome"]; ?></h5>
                       <h6><?php echo $prodotto["marca"]; ?></h6>
-                      <section id="buy-section">
+                      <form class="addToCartForm">
                           <p class="card-text nopadding text-center">
                               <?php echo $prodotto["prezzo"]; ?>€
                           </p>
-                          <a href="#!" id="buy-button" class="btn  my-2">ACQUISTA ORA</a>
-                          <a href="wishList.php" class="icon-link pr-md-2 text-dark "><i class="far fa-heart fa-lg"></i></a>
-                      </section>
-
+                          <button class="addToCartButton" class="btn my-2">ACQUISTA ORA</a>
+                              <a href="wishList.php" class="icon-link pr-md-2 text-dark "><i class="far fa-heart fa-lg"></i></a>
+                              <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>">
+                      </form>
                   </div>
               </div>
           <?php endforeach; ?>
