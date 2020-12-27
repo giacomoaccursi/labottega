@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
 
+
+ 
 /* CARRELLO*/
 input,
 textarea {
@@ -51,7 +53,7 @@ input::-webkit-inner-spin-button {
   display: inline-block;
   font-size: 13px;
   margin: 0 0 5px;
-  resize: vertical;
+  /* resize: vertical; */
 }
 
 .button-plus {

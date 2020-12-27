@@ -13,6 +13,5 @@ $templateParams["sottoCategorie"] = $dbh->getSubCategories();
 $templateParams["prodottiInCarrello"] = $dbh->getCartProducts(2); 
 
 
-
 require 'template/base.php';
 ?>

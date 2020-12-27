@@ -1,7 +1,8 @@
 <h2 class="text-center py-3">Carrello</h2>
-<div class="row py-3">
+<div id="cartDetails" class="row py-3">
     <div class="col-lg-1"></div>
-    <div class="col-12 col-xl-7">
+    <div class="itemContainer col-12 col-xl-7">
+        <input type="hidden" id="numItemsInCart" value=<?php echo count($templateParams["prodottiInCarrello"]);?>>
         <?php
         $costoProdotti = 0;
         $costoSpedizione = 10;
@@ -14,13 +15,13 @@
                 <div class="col-9 col-sm-4 ">
                     <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle"><?php echo $prodotto["nome"]; ?></a></h5><span class="text-muted font-weight-normal font-italic d-block"><?php echo $prodotto["marca"]; ?></span>
                 </div>
-                <div class="input-group col-5 col-sm-3 pt-1 text-md-center">
+                <div class="input-group col-7 col-sm-4 pt-1 text-md-center">
                     <input type="button" value="-" class="button-minus" data-field="quantity">
                     <input type="number" step="1" max="" value="<?php echo $prodotto["quantitàDaComprare"]; ?>" name="quantity" class="quantity-field">
                     <input type="button" value="+" class="button-plus" data-field="quantity">
                 </div>
-                <div class="col-4 col-sm-1 text-center"><?php echo $prodotto["prezzoFin"]; ?>$</div>
-                <div class="deleteItem col-3 col-sm-2">
+                <div class="col-3 col-sm-1 text-center"><?php echo $prodotto["prezzoFin"]; ?>$</div>
+                <div class="deleteItem col-2 col-sm-1">
                     <i class="fas fa-trash"></i>
                 </div>
                 <input type="hidden" class="productId" value="<?php echo $prodotto["idProdotto"]; ?>">
@@ -43,4 +44,8 @@
         </div>
     </div>
     <div class="col-lg-1"></div>
+</div>
+<div id="noItem" class="text-center">
+    <p >Non ci sono prodotti nel carrello </p>
+    <a href="index.php" class="btn">Torna ad acquistare</a>
 </div>
