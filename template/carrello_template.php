@@ -9,7 +9,7 @@
         ?>
             <div class="productDetails row align-items-center py-3">
                 <div class="col-3 col-sm-2">
-                    <img src=<?php echo IMG_ROOT . $prodotto["immagine"]; ?> alt="" width="70" class="img-fluid">
+                    <img src=<?php echo IMG_ROOT.$prodotto["immagine"]; ?> alt="" width="70" class="img-fluid">
                 </div>
                 <div class="col-9 col-sm-4 ">
                     <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle"><?php echo $prodotto["nome"]; ?></a></h5><span class="text-muted font-weight-normal font-italic d-block"><?php echo $prodotto["marca"]; ?></span>

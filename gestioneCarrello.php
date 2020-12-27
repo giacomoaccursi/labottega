@@ -1,6 +1,8 @@
 <?php
 require_once 'bootstrap.php';
 
+$templateParams["js"] = JS_ROOT."carrello.js";
+
 if (isset($_POST["currentVal"])) {
     $productId = $_POST["productId"];
     $currentVal = $_POST["currentVal"];

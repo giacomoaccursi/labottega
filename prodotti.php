@@ -1,6 +1,7 @@
 <?php
 require_once 'bootstrap.php';
 
+$templateParams["js"] = JS_ROOT."carrello.js";
 $templateParams["titoloCategoria"] = "Tutti i prodotti"; 
 
 if(isset($_GET["order"])){
@@ -28,14 +29,17 @@ if(isset($_GET["cat"])){
     $templateParams["titoloCategoria"] = $dbh->getCategoryById((int)$_GET["cat"]);  
 
     $templateParams["categoriaCorrente"] = $_GET["cat"]; 
- 
-    foreach($templateParams["prodotti"] as $prodotto){
-        if(!in_array($prodotto, $dbh->getProductsByCategory((int)$_GET["cat"]))){
-            $key = array_search($prodotto, $templateParams["prodotti"]);
-            unset($templateParams["prodotti"][$key]); 
-        } 
 
+    foreach($templateParams["prodotti"] as $prodotto){
+        foreach($dbh->getProductsByCategory((int)$_GET["cat"]) as $prodInCategria){
+            if($prodotto["id"] == $prodInCategria["id"]){
+                $prodotti[] = $prodotto; 
+            }
+        }
     }
+    $templateParams["prodotti"] = $prodotti; 
+
+    
 } elseif(isset($_GET["sub"])){
     $templateParams["titoloCategoria"] = $dbh->getSubCategoryById((int)$_GET["sub"]);  
     $templateParams["sottoCategoriaCorrente"] = $_GET["sub"]; 
@@ -45,7 +49,7 @@ if(isset($_GET["cat"])){
             $key = array_search($prodotto, $templateParams["prodotti"]);
             unset($templateParams["prodotti"][$key]);  
         } 
-    }    
+    }
 }
 
 if(isset($_GET["sales"])){

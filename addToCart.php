@@ -1,9 +1,11 @@
 <?php
     require_once 'bootstrap.php';
 
+    $templateParams["js"] = JS_ROOT."carrello.js";
+
     if(isset($_POST["productId"])){
-        $productId = $_POST["productId"]; 
-        $dbh->insertProductInCart(1, $productId); 
+        $productId = $_POST["productId"];
+        $dbh->insertProductInCart(2,  $productId); 
         //da aggiungere anche lo user se esiste
     } 
  
