@@ -81,6 +81,7 @@ CREATE TABLE IF NOT EXISTS `ordini` (
     `idUtente` INT(5) NOT NULL,
     `idSpedizione` INT(5) NOT NULL,
     `tipoPagamento` INT(2) NOT NULL,
+    `stato` VARCHAR(30) NOT NULL,
      PRIMARY KEY(`id`),
      FOREIGN KEY(`idUtente`) REFERENCES `utenti`(`id`),
      FOREIGN KEY(`idSpedizione`) REFERENCES `spedizioni`(`id`),

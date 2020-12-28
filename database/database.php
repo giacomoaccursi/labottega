@@ -208,4 +208,13 @@ class DatabaseHelper
         $stmt->bind_param('i', $id);
         $stmt->execute();
     }
+
+    public function getOrdersByUser($idUtente){
+        $stmt = $this->db->prepare("SELECT *  FROM ordini WHERE idUtente = ? ");
+        $stmt->bind_param('i', $idUtente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
+

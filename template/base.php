@@ -12,9 +12,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
   <title><?php echo $templateParams["titolo"]; ?></title>
-  
-  <?php  if (isset($templateParams["js"])) : ?>
-      <script src="<?php echo $templateParams["js"]; ?>"></script>
+
+  <?php if (isset($templateParams["js"])) : ?>
+    <script src="<?php echo $templateParams["js"]; ?>"></script>
   <?php endif; ?>
 </head>
 
@@ -53,7 +53,7 @@
                     <?php foreach ($templateParams["categorie"] as $categoria) : ?>
                       <li class="nav-item dropdown col-md-3">
                         <a class="nav-link" href="prodotti.php?cat=<?php echo $categoria["id"]; ?>"><?php echo $categoria["nome"]; ?></a>
-                        <ul class="dropdown-menu text-center">
+                        <ul class="dropdown-menu text-center col-12">
                           <?php foreach ($templateParams["sottoCategorie"] as $subCategoria) :
                             if ($subCategoria["idCategoria"] == $categoria["id"]) : ?>
                               <li>
@@ -228,4 +228,5 @@
     </footer>
   </div>
 </body>
+
 </html>

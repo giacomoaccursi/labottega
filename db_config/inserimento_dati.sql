@@ -54,4 +54,13 @@ INSERT INTO `pagamenti` (`nomeCircuito`) VALUES
 ('Visa'),
 ('SatisPay');
 
+INSERT INTO `spedizioni` (`id`, `indrizzo`, `citta`, `nazione`) VALUES 
+('1', 'Via Roma 2', 'Rimini', 'Italia');
+
+INSERT INTO `ordini`(`dataOrdine`,`totaleOrdine`,`idUtente`,`idSpedizione`,`tipoPagamento`,`stato`) VALUES
+('2020-12-10',50,3,1,2,'In lavorazione'),
+('2020-12-09',40,3,1,1,'In lavorazione'),
+('2020-12-08',60,3,1,1,'Spedito');
+
+
 

@@ -1,3 +1,4 @@
+<?php if(isset($_SESSION["user"]) && $_SESSION["user"]["tipo"]==1): ?>
 <H2 class="text-center pt-3">DASHBOARD</H2>
 <div class="row">
 <div class="dashboard-tab">
@@ -19,3 +20,5 @@
 </div>
 
 </div>
+
+<?php endif; ?>
