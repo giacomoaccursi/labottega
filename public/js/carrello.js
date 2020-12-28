@@ -1,14 +1,23 @@
 $(document).ready(function () {
-
-    function addToCart(e){
+    function checkItem(){
+        if($(".productDetails:visible").length < 1){
+            $("#cartDetails").hide(); 
+            $("div#noItem").show(); 
+        }
+    }
+    function addToCart(e) {
         e.preventDefault();
         let productId = $(e.target).find("input.productId").val();
+
         $.ajax({
             url: "addToCart.php",
             type: "POST",
             cache: false,
             data: {
                 productId: productId
+            },
+            success: function () { 
+                toastr.success("Product added to cart!"); 
             }
         });
     }
@@ -47,7 +56,7 @@ $(document).ready(function () {
         let currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
 
         console.log(currentVal);
-        if (!isNaN(currentVal) && currentVal < 1) {
+        if (!isNaN(currentVal) && currentVal > 1) {
             currentVal -= 1;
         } else {
             currentVal = 1;
@@ -76,11 +85,17 @@ $(document).ready(function () {
                 itemToDelete: productId
             }
         });
-        parent.parent().fadeOut(); 
+        parent.parent().fadeOut(function(){
+            checkItem();
+        });
+         
     }
 
+    $("p#noItem").hide(); 
+    checkItem(); 
+
     $(".addToCartForm").submit(function (e) {
-       addToCart(e);  
+        addToCart(e);
     });
 
     $('.input-group').on('click', '.button-plus', function (e) {
