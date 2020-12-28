@@ -1,5 +1,5 @@
 <?php
-require_once 'bootstrap.php';
+require_once 'bootstrap.php'; 
 
 $templateParams["js"] = JS_ROOT."carrello.js";
 $templateParams["titoloCategoria"] = "Tutti i prodotti"; 

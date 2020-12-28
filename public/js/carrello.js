@@ -91,7 +91,7 @@ $(document).ready(function () {
          
     }
 
-    $("p#noItem").hide(); 
+    $("div#noItem").hide(); 
     checkItem(); 
 
     $(".addToCartForm").submit(function (e) {

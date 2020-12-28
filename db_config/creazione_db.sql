@@ -12,6 +12,11 @@ CREATE TABLE IF NOT EXISTS  `categorie` (
     PRIMARY KEY (`id`)
 );
 
+CREATE TABLE IF NOT EXISTS `newsletter` (
+    `email` VARCHAR(30) NOT NULL,
+    PRIMARY KEY (`email`)
+);
+
 CREATE TABLE IF NOT EXISTS `sottoCategorie` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `nome` VARCHAR(15) NOT NULL,
@@ -19,8 +24,6 @@ CREATE TABLE IF NOT EXISTS `sottoCategorie` (
     PRIMARY KEY (`id`),
     FOREIGN KEY (`idCategoria`) REFERENCES `categorie`(`id`)
 );
-
-
 
 CREATE TABLE IF NOT EXISTS `prodotti` (
     `id` INT NOT NULL AUTO_INCREMENT,
