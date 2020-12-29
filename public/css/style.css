@@ -44,7 +44,7 @@ input::-webkit-inner-spin-button {
   position: relative;
 }
 
-.input-group .quantity-field {
+.input-group .itemQuantity {
   position: relative;
   height: 38px;
   left: -6px;

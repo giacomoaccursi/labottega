@@ -1,7 +1,24 @@
 $(document).ready(function () {
-    function checkItem(){
-        if($(".productDetails:visible").length < 1){
-            $("#cartDetails").hide(); 
+
+    function calculateOrderPrice(){
+        let subTotal = 0; 
+        const shippingCost = 10;  
+        $(".productDetails").each(function() { 
+            let itemCost = $(this).find(".itemPrice").text(); 
+            itemCost = Math.round(parseFloat(itemCost.substring(0, itemCost.length - 1)), 4); 
+            itemNumber = $(this).find(".itemQuantity").val(); 
+            subTotal += itemCost * itemNumber; 
+        });
+        let total = subTotal + shippingCost;
+        $("#orderInformation").find("#orderTotal > #totalPrice").text(total + "$"); 
+        $("#orderInformation").find("#orderShippingCost > #shippingCost").text(shippingCost + "$"); 
+        $("#orderInformation").find("#orderSubTotal > #subTotalPrice").text(subTotal + "$"); 
+
+    }
+
+    function checkItem(){ 
+        if($(".productDetails").length < 1){
+            $("#cartDetails").remove(); 
             $("div#noItem").show(); 
         }
     }
@@ -34,8 +51,6 @@ $(document).ready(function () {
         } else {
             currentVal = 1;
         }
-
-        console.log(currentVal);
         parent.find('input[name=' + fieldName + ']').val(currentVal);
         $.ajax({
             url: "gestioneCarrello.php",
@@ -46,6 +61,7 @@ $(document).ready(function () {
                 currentVal: currentVal
             }
         });
+        calculateOrderPrice(); 
     }
 
     function decrementValue(e) {
@@ -54,8 +70,6 @@ $(document).ready(function () {
         let parent = $(e.target).closest('div');
         let productId = parent.siblings("input.productId").val();
         let currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
-
-        console.log(currentVal);
         if (!isNaN(currentVal) && currentVal > 1) {
             currentVal -= 1;
         } else {
@@ -71,6 +85,7 @@ $(document).ready(function () {
             }
         });
         parent.find('input[name=' + fieldName + ']').val(currentVal);
+        calculateOrderPrice(); 
     }
 
 
@@ -85,14 +100,15 @@ $(document).ready(function () {
                 itemToDelete: productId
             }
         });
-        parent.parent().fadeOut(function(){
-            checkItem();
-        });
+        parent.parent().remove(); 
+        checkItem(); 
+        calculateOrderPrice(); 
          
     }
 
     $("div#noItem").hide(); 
     checkItem(); 
+    calculateOrderPrice(); 
 
     $(".addToCartForm").submit(function (e) {
         addToCart(e);
