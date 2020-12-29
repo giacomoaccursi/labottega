@@ -1,6 +1,6 @@
 <div class="row text-center">
-    <div class="col-md-4"></div>
-    <div class="col-12 col-md-4 login-card nopadding">
+    <div class="col-md-2 col-lg-4"></div>
+    <div class="col-12 col-md-8 col-lg-4 login-card nopadding">
         <div class="card col-12 login-card">
             <div class="login-box text-center">
                 <div class="login-snip text-center"> 
@@ -13,11 +13,11 @@
                     <div class="login-space">
                         <div class="login">
                         <form action="login.php?action=login" method="POST">
+                        <?php if(isset($templateParams["errorelogin"])): ?>
+                              <p class="my-3"><?php echo $templateParams["errorelogin"]; ?></p>
+                            <?php endif; ?>
                             <div class="group "> <label for="email" class="label mt-3 mb-0">Email</label> <input type="email"  id="email" name="email" class="input col-10" placeholder="Inserisci la tua email" required  autocomplete="TRUE"/> </div>
                             <div class="group "> <label for="pass" class="label mt-4 mb-0">Password</label> <input type="password" id="pass" name="pass" class="input col-10" data-type="password" placeholder="Inserisci la tua password" required /> </div>
-                            <?php if(isset($templateParams["errorelogin"])): ?>
-                              <p><?php echo $templateParams["errorelogin"]; ?></p>
-                            <?php endif; ?>
                             <div class="group"> <input type="submit" name="submit" class="button mt-3 pt-2 col-5 " value="accedi"></div>
                             <div class="hr"></div>
                         </form>
@@ -38,5 +38,5 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-2 col-lg-4"></div>
 </div>

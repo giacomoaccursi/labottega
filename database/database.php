@@ -140,13 +140,18 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function checkLogin($email, $password)
+    public function checkLogin($email, $input_password)
     {
-        $stmt = $this->db->prepare("SELECT * FROM utenti WHERE email = ? AND password = ? ");
-        $stmt->bind_param('ss', $email, $password);
+        $stmt = $this->db->prepare("SELECT * FROM utenti WHERE email = ? ");
+        $stmt->bind_param('s', $email);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        if(password_verify($input_password,$result[0]["password"])){
+            return $result[0];
+        }else{
+            return -1;
+        }
     }
 
     public function registerNewUser($nome, $cognome, $email, $password)
@@ -210,8 +215,18 @@ class DatabaseHelper
     }
 
     public function getOrdersByUser($idUtente){
-        $stmt = $this->db->prepare("SELECT *  FROM ordini WHERE idUtente = ? ");
+        $stmt = $this->db->prepare("SELECT *  FROM ordini WHERE idUtente = ?  ORDER BY dataOrdine DESC");
         $stmt->bind_param('i', $idUtente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getOrderDetails($idOrdine){
+        $stmt = $this->db->prepare("SELECT prodotti.nome, ordini.id, dettagliOrdini.prezzo
+                                    FROM dettagliOrdini,ordini,prodotti
+                                    WHERE dettagliOrdini.idOrdine = ordini.id AND dettagliOrdini.idProdotto = prodotti.id AND dettagliOrdini.idOrdine = ?");
+        $stmt->bind_param('i', $idOrdine);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);

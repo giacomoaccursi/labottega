@@ -109,7 +109,7 @@
 
 
     <footer>
-      <div class="row footer py-3">
+      <div class="row footer py-3 mt-5">
         <div class="col-sm-1 col-md-2"></div>
         <div class="col-sm-9 col-md-8">
           <div class="row nopadding">

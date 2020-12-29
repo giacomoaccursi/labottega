@@ -6,11 +6,10 @@ if(isUserLoggedIn()){
     $templateParams["titolo"] = "LaBottega - Dashboard";
     $templateParams["categorie"] = $dbh->getCategories(); 
     $templateParams["sottoCategorie"] = $dbh->getSubCategories();
-    $templateParams["js"] = JS_ROOT.'dashboard-manager.js';
-    if($_SESSION['user']['tipo']==0){
+    if($_SESSION['tipo']==0){
         $templateParams["pagina"] = "user_dashboard.php"; 
-        $templateParams["ordini"] = $dbh->getOrdersByUser($_SESSION["user"]["id"]);
-    }elseif($_SESSION['user']['tipo']==1){
+        $templateParams["ordini"] = $dbh->getOrdersByUser($_SESSION["id"]);
+    }elseif($_SESSION['tipo']==1){
         $templateParams["pagina"] = "admin_dashboard.php"; 
     }
 

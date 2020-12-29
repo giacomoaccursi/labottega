@@ -1,11 +1,12 @@
 <?php
 
 function registerLoggedUser($user){
-    $_SESSION["user"]= $user;
+    $_SESSION["id"]= $user["id"];
+    $_SESSION["tipo"]= $user["tipo"];
 }
 
 function isUserLoggedIn(){
-    return !empty($_SESSION['user']['id']);
+    return !empty($_SESSION['id']);
 }
 
 function isValidEmail($input_email,$allEmails){

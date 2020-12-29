@@ -306,50 +306,33 @@ div.login-card > div.card{
 .login-snip .sign-up:checked+.tab+.login-space .sign-up-form {
     transform: rotate(0)
 }
-
-div.dashboard-tab {
-    float: left;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    width: 20%;
-    height: 420px;
-  }
   
-  /* Style the buttons inside the tab */
-  div.dashboard-tab button {
-    display: block;
-    background-color: inherit;
+  div.dashboard-tab a {
     color: black;
-    padding: 22px 16px;
-    width: 100%;
-    border: none;
-    outline: none;
-    text-align: left;
+    text-align: center;
     cursor: pointer;
-    transition: 0.3s;
-    font-size: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    border-style: solid;
+    border-width: thin;
+    border-color:rgb(104, 104, 104);
+    background-color: #ffd369; 
   }
   
   /* Change background color of buttons on hover */
-  div.dashboard-tab button:hover {
-    background-color: rgb(165, 233, 248);
+  div.dashboard-tab a:hover {
+    background-color: #ffd2698a; 
   }
+
+.dashboard-section-title{
+    font-family: 'Ubuntu', sans-serif !important;
+}
+
+div#Ordini> table tr,td {
+    border: 1px solid;
+}
+
   
-  /* Create an active/current "tab button" class */
-  div.dashboard-tab button.active {
-    background-color:rgb(165, 233, 248);
-    font-weight: bold;
-  }
-  
-  /* Style the tab content */
-  .tabcontent {
-    float: left;
-    padding: 0px 12px;
-    border: 1px solid #ccc;
-    width: 80%;
-    border-left: none;
-    height: 420px;
-  }
 
 @media(min-width:576px){
 
@@ -383,9 +366,9 @@ div.dashboard-tab {
 
 
 
-    .navbar .nav-item .dropdown-menu{   display:block; opacity: 0;  visibility: hidden;  }
+    .navbar .nav-item .dropdown-menu{   display:block; opacity: 0;  visibility: hidden; border:none; }
 	.navbar .nav-item:hover .nav-link{ color: #fff;  }
-    .navbar .nav-item:hover .dropdown-menu{ opacity:1; visibility:visible; }
+    .navbar .nav-item:hover .dropdown-menu{ opacity:1; visibility:visible; border:none; }
     
 }
 

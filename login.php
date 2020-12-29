@@ -4,21 +4,22 @@ require_once 'bootstrap.php';
 if(isset($_GET["action"])){
     if($_GET["action"]=="login"){
         if( isset($_POST["email"]) && isset($_POST["pass"])){
-            $login_result = $dbh -> checkLogin($_POST["email"],$_POST["pass"]);
-            if(count($login_result)==0){
-                $templateParams["errorelogin"] = "Errore! Controllare username o password!";
+            $user_login_result = $dbh -> checkLogin($_POST["email"],$_POST["pass"]);
+            if($user_login_result == -1){
+                $templateParams["errorelogin"] = "Errore! Controllare username e password!";
             }else{
-                registerLoggedUser($login_result[0]);
+                registerLoggedUser($user_login_result);
             }
         }
 
     }elseif($_GET["action"]=="register"){
         if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["email"]) && isset($_POST["pass_1"]) && isset($_POST["pass_2"])){
             if(isValidEmail($_POST["email"],$dbh -> getAllEmails())){
-                $dbh-> registerNewUser($_POST["nome"],$_POST["cognome"],$_POST["email"],$_POST["pass_1"]);
-                $login_result = $dbh -> checkLogin($_POST["email"],$_POST["pass_1"]);
-                if(count($login_result)>0){
-                    registerLoggedUser($login_result[0]);
+                $hashedPassword = password_hash($_POST["pass_1"], PASSWORD_DEFAULT);
+                $dbh-> registerNewUser($_POST["nome"],$_POST["cognome"],$_POST["email"],$hashedPassword);
+                $user_login_result = $dbh -> checkLogin($_POST["email"],$_POST["pass_1"]);
+                if($user_login_result != -1){
+                    registerLoggedUser($user_login_result);
                 }
             }else{
                 $templateParams["erroreEmail"] = "Errore: L'email inserita è gia presente!";

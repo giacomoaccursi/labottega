@@ -57,10 +57,20 @@ INSERT INTO `pagamenti` (`nomeCircuito`) VALUES
 INSERT INTO `spedizioni` (`id`, `indrizzo`, `citta`, `nazione`) VALUES 
 ('1', 'Via Roma 2', 'Rimini', 'Italia');
 
+
 INSERT INTO `ordini`(`dataOrdine`,`totaleOrdine`,`idUtente`,`idSpedizione`,`tipoPagamento`,`stato`) VALUES
 ('2020-12-10',50,3,1,2,'In lavorazione'),
-('2020-12-09',40,3,1,1,'In lavorazione'),
-('2020-12-08',60,3,1,1,'Spedito');
+('2020-07-09',40,3,1,1,'In lavorazione'),
+('2020-12-08',60,3,1,4,'Spedito'),
+('2020-06-05',30,3,1,1,'Consegnato'),
+('2020-12-15',50,3,1,2,'Spedito'),
+('2020-10-08',40,3,1,3,'In lavorazione'),
+('2020-12-08',30,3,1,1,'Spedito'),
+('2020-12-08',20,3,1,3,'Consegnato'),
+('2020-12-08',100,3,1,1,'Spedito');
 
+INSERT INTO `dettagliOrdini`(`idProdotto`,`idOrdine`,`prezzo`,`quantita`) VALUES
+(1,3,45,1),
+(5,3,30,1);
 
 
