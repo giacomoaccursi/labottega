@@ -55,7 +55,7 @@
                     <?php foreach ($templateParams["categorie"] as $categoria) : ?>
                       <li class="nav-item dropdown col-md-3">
                         <a class="nav-link" href="prodotti.php?cat=<?php echo $categoria["id"]; ?>"><?php echo $categoria["nome"]; ?></a>
-                        <ul class="dropdown-menu text-center col-12">
+                        <ul class="dropdown-menu text-center col-12 m-0">
                           <?php foreach ($templateParams["sottoCategorie"] as $subCategoria) :
                             if ($subCategoria["idCategoria"] == $categoria["id"]) : ?>
                               <li>
