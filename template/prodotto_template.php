@@ -15,13 +15,20 @@
                         <?php endif; ?>
                         <span class="font-weight-bold"><?php echo $prodotto["prezzoFin"]; ?> $</span>
                     </p>
-
-                    <form class="d-flex justify-content-center justify-content-md-start my-2">
-                        <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
-                            <i class="fas fa-shopping-cart ml-1"></i>
-                        </button>
-                        <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>">
-                    </form>
+                    <div class="buttons">
+                        <form class="d-inline justify-content-center justify-content-md-start">
+                            <button class="btn btn-primary btn-md mt-2 mt-sm-0" type="submit">Aggiungi al carrello
+                                <i class="fas fa-shopping-cart ml-1"></i>
+                            </button>
+                            <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>">
+                        </form>
+                        <form class="d-inline justify-content-center justify-content-md-start">
+                            <button class=" btn btn-primary btn-md mt-2 mt-sm-0" type="submit">Aggiungi ai desideri
+                            <i class="fas fa-heart ml-1"></i>
+                            </button>
+                            <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>">
+                        </form>
+                    </div>
                     <p class="mt-4"><?php echo $prodotto["descrizione"]; ?></p>
                 </div>
             </div>
