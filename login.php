@@ -29,7 +29,13 @@ if(isset($_GET["action"])){
 }
 
 if(isUserLoggedIn()){
-    header("location: dashboard.php");
+    if($_SESSION["tipo"]==0){
+        header("location: dashboard.php");
+    }elseif($_SESSION["tipo"]==1){
+        header("location: admin/index.php");
+    }else{
+        header("location: login.php");
+    }
 }
 
 $templateParams["titolo"] = "LaBottega - Login";
