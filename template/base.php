@@ -23,38 +23,38 @@
 <body>
   <div class="container-fluid">
     <header>
-      <div class="row align-items-center">
+      <div class="prova row align-items-center">
         <div class="col-md-3"></div>
         <div class="col-8 col-md-6">
           <div class="row justify-content-md-center">
-            <img id="logo" src="public/img/logo.png" alt="" />
-            <h1 class="pt-4"><a href="index.php" id="title-link">LaBottega</a></h1>
+            <img id="logo" src="public/img/logo2.png" alt="" />
+            <h1 class="pt-4"><a class="text-white" href="index.php" id="title-link">LaBottega</a></h1>
           </div>
         </div>
         <div id="icon-container" class="text-right text-md-center col-4 pt-4 col-md-3 ">
-          <a href="wishList.php" class="icon-link pr-md-2"><i class="fas fa-heart fa-lg"></i></a>
-          <a href="carrello.php" class="icon-link pr-md-2"><i class="fas fa-shopping-cart fa-lg"></i></a>
-          <a href="login.php" class="icon-link"><i class="fas fa-user-circle fa-lg"></i></a>
+          <a href="wishList.php" class="icon-link pr-md-2"><i class="white-icon fas fa-heart fa-lg"></i></a>
+          <a href="carrello.php" class="icon-link pr-md-2"><i class="white-icon fas fa-shopping-cart fa-lg"></i></a>
+          <a href="login.php" class="icon-link"><i class="white-icon fas fa-user-circle fa-lg"></i></a>
         </div>
       </div>
 
       <!-- 
                 NAVBAR
             -->
-      <div class="row mt-3 nopadding">
+      <div class="row">
         <div class="col-12 col-md-12 p-0">
-          <div class="row">
+          <div class="prova row pt-3 nopadding">
             <div class="col-md-2"></div>
             <div class="col-md-8">
-              <nav class="navbar navbar-expand-md navbar-fixed-top bg-white navbar-light justify-content-center">
+              <nav class="navbar navbar-expand-md navbar-fixed-top justify-content-center">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
+                  <i class="white-icon fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                   <ul class="navbar-nav text-center col-md-12 nopadding">
                     <?php foreach ($templateParams["categorie"] as $categoria) : ?>
                       <li class="nav-item dropdown col-md-3">
-                        <a class="nav-link" href="prodotti.php?cat=<?php echo $categoria["id"]; ?>"><?php echo $categoria["nome"]; ?></a>
+                        <a class="nav-link text-uppercase text-white" href="prodotti.php?cat=<?php echo $categoria["id"]; ?>"><?php echo $categoria["nome"]; ?></a>
                         <ul class="dropdown-menu text-center col-12 m-0">
                           <?php foreach ($templateParams["sottoCategorie"] as $subCategoria) :
                             if ($subCategoria["idCategoria"] == $categoria["id"]) : ?>
@@ -68,7 +68,7 @@
 
                     <?php endforeach; ?>
                     <li class="nav-item col-md-3">
-                      <a class="btn nav-link offerte" href="prodotti.php?sales=1">OFFERTE</a>
+                      <a class="text-white btn nav-link offerte" href="prodotti.php?sales=1">OFFERTE</a>
                     </li>
                   </ul>
                 </div>
@@ -82,7 +82,7 @@
       <!-- 
                 SEARCH FORM
             -->
-      <div class="row my-3">
+      <div class="prova row py-3">
         <div class="col-md-3"></div>
         <div class="col-md-6">
           <form class="form-inline justify-content-center" action="prodotti.php" method="GET">

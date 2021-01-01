@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
 
 
- 
+.prova{
+    background-color: #393e46;
+}
+
+.white-icon{
+    color: white !important; 
+}
 /* CARRELLO*/
 input,
 textarea {
