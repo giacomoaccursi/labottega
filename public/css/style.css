@@ -399,7 +399,17 @@ aside a:hover::after {
     box-shadow: 0 -20px 0 0 #fff;
   }
 
+  form#new-product-form > table tr td{
+    border-color:rgb(134, 133, 133);
+  }
 
+  form#new-product-form > input{
+   width:max-content;
+  }
+
+  form#new-product-form > table{
+    font-weight: bold;
+   }
   
 
 @media(min-width:576px){

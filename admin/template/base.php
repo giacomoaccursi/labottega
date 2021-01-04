@@ -28,11 +28,11 @@
                 <aside>
                     <p id="aside-title" class="pt-3 pl-3 pb-3">Admin</p>
 
-                    <a href="#">
+                    <a href="index.php">
                         <i class="fas fa-list-ul pr-2"></i>
                         Elenco prodotti
                     </a>
-                    <a href="#">
+                    <a href="new-product.php">
                         <i class="fas fa-plus pr-2"></i>
                         Inserimento prodotto
                     </a>
@@ -40,11 +40,11 @@
                         <i class="fas fa-edit pr-2"></i>
                         Modifica prodotto
                     </a>
-                    <a href="#">
+                    <a href="customers.php">
                         <i class="fas fa-users pr-2"></i>
                         Elenco clienti
                     </a>
-                    <a href="#">
+                    <a href="sales.php">
                         <i class="fas fa-euro-sign pr-2"></i>
                         Elenco vendite
                     </a>

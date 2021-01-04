@@ -123,6 +123,23 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+
+    public function getAllCustomers()
+    {
+        $stmt = $this->db->prepare("SELECT * FROM utenti where tipo = 0");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getAllOrders()
+    {
+        $stmt = $this->db->prepare("SELECT * FROM ordini");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function getSubCategories()
     {
         $stmt = $this->db->prepare("SELECT id,nome,idCategoria FROM sottoCategorie");
