@@ -90,10 +90,9 @@ img#logo{
     background-color: #ffd369;
     color: #000;
     font-weight: bold;
-    
 }
 
-.addToCartForm{
+.card-bottom{
     position: absolute;
     bottom: 0 !important;
     left: 0; 
@@ -103,11 +102,11 @@ img#logo{
 }
 
 .card-body{
-    height: 200px;
+    height: 180px;
     position: relative;
 }
 
-.card-img{
+.card-image{
     max-height: 300px;
 }
 
@@ -419,6 +418,12 @@ aside a:hover::after {
     img#logo{
         width:80px !important; 
     }
+
+    .card-body{
+        height: 180px;
+        position: relative;
+    }
+    
     
 }
 
