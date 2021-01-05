@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
 
 
-.prova{
+.header-section{
     background-color: #393e46;
 }
 
@@ -73,8 +73,6 @@ input[type="number"] {
 
 
 /* FINE CARRELLO */
-
-
 #home-image{
     padding: 200px 0; 
     height: 100%;
