@@ -16,7 +16,7 @@ if(isset($_GET["order"])){
 } 
 else{
     $templateParams["order"] = 1; 
-    $templateParams["prodotti"] = $dbh->getAllProducts();  
+    $templateParams["prodotti"] = $dbh->getRandomProducts();  
 }
 
 if (isset($_GET["page"])){

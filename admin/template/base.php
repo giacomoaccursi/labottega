@@ -36,7 +36,7 @@
                         <i class="fas fa-plus pr-2"></i>
                         Inserimento prodotto
                     </a>
-                    <a href="#">
+                    <a href="modify-product.php">
                         <i class="fas fa-edit pr-2"></i>
                         Modifica prodotto
                     </a>

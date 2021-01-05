@@ -12,9 +12,17 @@ class DatabaseHelper
         }
     }
 
-    public function getAllProducts()
+    public function getRandomProducts()
     {
         $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin,id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti WHERE quantità > 0 ORDER BY RAND() ");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getAllProducts()
+    {
+        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin,id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti WHERE quantità > 0 ORDER BY id ");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -175,6 +183,21 @@ class DatabaseHelper
     {
         $stmt = $this->db->prepare("INSERT INTO `utenti`(`nome`, `cognome`, `email`, `password`) VALUES (?,?,?,?)");
         $stmt->bind_param('ssss', $nome, $cognome, $email, $password);
+        $stmt->execute();
+    }
+
+
+    public function insertNewProduct($nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria)
+    {
+        $stmt = $this->db->prepare("INSERT INTO `prodotti`(`nome`, `marca`, `descrizione`, `prezzo`,`immagine`,`quantità`,`idSottoCategoria`) VALUES (?,?,?,?,?,?,?) ");
+        $stmt->bind_param('sssdsii', $nome, $marca, $descrizione,$prezzo, $immagine,$quantita,$categoria);
+        $stmt->execute();
+    }
+
+    public function modifyProduct($id,$nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria)
+    {
+        $stmt = $this->db->prepare("UPDATE `prodotti` SET `nome` = ?, `marca` = ? ,`descrizione` = ?, `prezzo` = ?,`immagine` = ?,`quantità` = ?,`idSottoCategoria` = ? WHERE `prodotti`.`id` = ? ");
+        $stmt->bind_param('sssdsiii', $nome, $marca, $descrizione,$prezzo, $immagine,$quantita,$categoria,$id);
         $stmt->execute();
     }
 

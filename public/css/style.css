@@ -351,7 +351,7 @@ p#aside-title{
 aside {
     color: #000;
     padding-left: 20px;
-    height: 100%;
+    height: 100vh;
     background-color: #ffd369; 
     border-top-right-radius: 80px;
   }
@@ -399,15 +399,11 @@ aside a:hover::after {
     box-shadow: 0 -20px 0 0 #fff;
   }
 
-  form#new-product-form > table tr td{
+  form#new-product-form > table tr td, form#modify-product-form > table tr td{
     border-color:rgb(134, 133, 133);
   }
 
-  form#new-product-form > input{
-   width:max-content;
-  }
-
-  form#new-product-form > table{
+  form#new-product-form, form#modify-product-form > table{
     font-weight: bold;
    }
   
