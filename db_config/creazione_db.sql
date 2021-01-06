@@ -65,7 +65,9 @@ CREATE TABLE IF NOT EXISTS `prodottiInCarrello` (
 
 CREATE TABLE IF NOT EXISTS `spedizioni`(
     `id` INT NOT NULL AUTO_INCREMENT,
-    `indrizzo` VARCHAR(20) NOT NULL,
+    `nome` VARCHAR(20) NOT NULL,
+    `cognome` VARCHAR(20) NOT NULL,
+    `indirizzo` VARCHAR(20) NOT NULL,
     `citta` VARCHAR(20) NOT NULL,
     `nazione` VARCHAR(30) NOT NULL,
     PRIMARY KEY(`id`)
@@ -79,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `pagamenti` (
 
 CREATE TABLE IF NOT EXISTS `ordini` (
     `id` INT NOT NULL AUTO_INCREMENT,
-    `dataOrdine` DATE NOT NULL,
+    `dataOrdine` DATE DEFAULT CURRENT_DATE,
     `totaleOrdine` FLOAT NOT NULL,
     `idUtente` INT(5) NOT NULL,
     `idSpedizione` INT(5) NOT NULL,

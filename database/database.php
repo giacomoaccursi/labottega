@@ -312,5 +312,21 @@ class DatabaseHelper
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function addNewSpedizione($nome, $cognome, $indirizzo, $citta, $nazione){
+
+        $stmt = $this->db->prepare("INSERT INTO `spedizioni`(`nome`, `cognome`, `indirizzo`, `citta`, `nazione`) VALUES (?,?,?,?,?)");
+        $stmt->bind_param('sssss', $nome, $cognome, $indirizzo, $citta, $nazione);
+        $stmt->execute();
+        return $this->db->insert_id;   
+    }
+
+    public function addNewOrder($totaleOrdine, $idUtente, $idSpedizione, $tipoPagamento, $stato, $nome, $cognome, $indirizzo, $citta, $nazione){
+        $idSpedizione = $this->addNewSpedizione($nome, $cognome, $indirizzo, $citta, $nazione); 
+        $stmt = $this->db->prepare("INSERT INTO `ordini`(`totaleOrdine`,`idUtente`, `idSpedizione`, `tipoPagamento`, `stato`) VALUES (?,?,?,?,?)");
+        $stmt->bind_param('sssss', $totaleOrdine, $idUtente, $idSpedizione, $tipoPagamento, $stato);
+        $stmt->execute();
+    }
+
 }
 
