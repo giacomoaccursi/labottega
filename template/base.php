@@ -23,7 +23,7 @@
 <body>
   <div class="container-fluid">
     <header>
-      <div class="prova row align-items-center">
+      <div class="header-section row align-items-center">
         <div class="col-md-3"></div>
         <div class="col-8 col-md-6">
           <div class="row justify-content-md-center">
@@ -43,7 +43,7 @@
             -->
       <div class="row">
         <div class="col-12 col-md-12 p-0">
-          <div class="prova row pt-3 nopadding">
+          <div class="header-section row pt-3 nopadding">
             <div class="col-md-2"></div>
             <div class="col-md-8">
               <nav class="navbar navbar-expand-md navbar-fixed-top justify-content-center">
@@ -82,7 +82,7 @@
       <!-- 
                 SEARCH FORM
             -->
-      <div class="prova row py-3">
+      <div class="header-section row py-3">
         <div class="col-md-3"></div>
         <div class="col-md-6">
           <form class="form-inline justify-content-center" action="prodotti.php" method="GET">

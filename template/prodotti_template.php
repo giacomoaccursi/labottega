@@ -32,32 +32,44 @@
         <div class="col-lg-2"></div>
         <div class="row  col-12 col-lg-8">
             <?php $pagina = (int)$templateParams["page"];
-            foreach ($templateParams["prodotti"][$pagina - 1] as $prodotto) :
-            ?>
-                <div class="card text-center col-6 col-md-3 nopadding">
-                    <div class=" view overlay zoom">
-                        <img class="card-img img-fluid" src="<?php echo IMG_ROOT . $prodotto["immagine"]; ?>" class="card-img-top" alt="" />
-                    </div>
-                    <div class="card-body nopadding">
-                        <h5 class="card-title mt-1"><?php echo $prodotto["nome"]; ?></h5>
-                        <h6><?php echo $prodotto["marca"]; ?></h6>
-                        <form class="addToCartForm">
-                            <div class="row col-12">
+            foreach ($templateParams["prodotti"][$pagina - 1] as $prodotto) : ?>
+                <div class="card col-6 col-md-3 nopadding rounded-0">
+                    <a href="prodotto.php?id=<?php echo $prodotto["id"]; ?>"><img src="<?php echo IMG_ROOT . $prodotto["immagine"]; ?>" class="card-image img-fluid w-100" alt="" /></a>
+                    <div class="card-body text-center px-1 py-1">
+                        <h5 class="font-weight-bold"><?php echo $prodotto["nome"]; ?></h5>
+                        <p class="small text-muted text-uppercase mb-2"><?php echo $prodotto["marca"]; ?></p>
+                        <div class="card-bottom">
+                            <h6 class="mb-3 ">
                                 <?php if ($prodotto["sconto"] > 0) : ?>
-                                    <p class="col-6 card-text nopadding text-right">
-                                        <?php echo $prodotto["prezzoFin"]; ?>€
-                                    </p>
+                                    <span class="text-danger font-weight-bold"><?php echo $prodotto["prezzoFin"]; ?>€</span>
+                                    <span class="text-grey"><s><?php echo $prodotto["prezzo"]; ?>€</s></span>
+                                <?php else : ?>
+                                    <span class="font-weight-bold mx-1"><?php echo $prodotto["prezzo"]; ?>€</span>
                                 <?php endif; ?>
-                                <p class="card-text nopadding col-6 text-right">
-                                    <?php echo $prodotto["prezzo"]; ?>€
-                                </p>
+                            </h6>
+                            <div>
+                                <form class="d-inline addToCartForm">
+                                    <button class="addToCartButton btn btn-sm  mb-2">
+                                        <i class="fas fa-shopping-cart px-4 px-sm-0 pr-2"></i>
+                                        <span class="d-none d-sm-inline button-text font-weight-bold">Aggiungi al carrello</span>
+                                    </button>
+                                    <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>">
+                                </form>
+                                <form class="d-inline addToWishListForm">
+                                    <button type="button" class="btn btn-sm px-3 mb-2 material-tooltip-main" data-toggle="tooltip" data-placement="top" title="Add to wishlist">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>">
+                                </form>
                             </div>
-                            <button class="addToCartButton" type="submit" class="btn my-2">ACQUISTA ORA</button>
-                            <a href="wishList.php" class="icon-link pr-md-2 text-dark "><i class="far fa-heart fa-lg"></i></a>
-                            <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>">
-                        </form>
+
+                        </div>
+
                     </div>
+
                 </div>
+
+
             <?php endforeach; ?>
 
         </div>
