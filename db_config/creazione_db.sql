@@ -102,6 +102,21 @@ CREATE TABLE IF NOT EXISTS `dettagliOrdini` (
      FOREIGN KEY(`idOrdine`) REFERENCES `ordini`(`id`)
 );
 
+CREATE TABLE IF NOT EXISTS `notifiche` (
+
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `idCliente` INT(5) NOT NULL,
+    `messaggio` VARCHAR(500) NOT NULL,
+    `data` DATE NOT NULL DEFAULT CURRENT_DATE,
+    PRIMARY KEY(`id`),
+    FOREIGN KEY(`idCliente`) REFERENCES `utenti`(`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `newsletter` (
+    `email` VARCHAR(50) NOT NULL,
+    PRIMARY KEY(`email`)
+);
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

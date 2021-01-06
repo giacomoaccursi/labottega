@@ -1,6 +1,9 @@
 <?php
 require_once 'bootstrap.php';
 
+if(isset($_POST["newsletter"])){
+    $dbh -> addNewEmail($_POST["newsletter"]);
+}
 $templateParams["titolo"] = "LaBottega - Home";
 $templateParams["pagina"] = "home.php";
 $templateParams["prodotti"] = $dbh->getBestProducts(8); 

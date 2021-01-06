@@ -333,10 +333,6 @@ div.login-card > div.card{
     font-family: 'Ubuntu', sans-serif !important;
 }
 
-div#Ordini> table tr,td {
-    border: 1px solid;
-}
-
 /**         ADMIN                 **/
 h1#admin-dashboard-title{
     font-family: 'Ubuntu', sans-serif !important;
@@ -399,11 +395,14 @@ aside a:hover::after {
     box-shadow: 0 -20px 0 0 #fff;
   }
 
-  form#new-product-form > table tr td, form#modify-product-form > table tr td{
-    border-color:rgb(134, 133, 133);
+  form.admin-basic-form > table tr td{
+    border: 1px solid #000000;    
   }
 
-  form#new-product-form, form#modify-product-form > table{
+  table.admin-basic-table  tr td{
+    border: 1px solid #000000;    
+  }
+  form.admin-basic-form > table{
     font-weight: bold;
    }
   

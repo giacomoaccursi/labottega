@@ -48,7 +48,7 @@
                         <i class="fas fa-euro-sign pr-2"></i>
                         Elenco vendite
                     </a>
-                    <a href="#">
+                    <a href="notifications.php">
                         <i class="fas fa-envelope pr-2"></i>
                         Inserisci Notifica
                     </a>

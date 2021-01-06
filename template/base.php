@@ -121,9 +121,9 @@
               </p>
             </div>
             <div class="col-12 col-md-6 text-center pt-4">
-              <form class="form-inline" action="/action_page.php">
+              <form class="form-inline" action="#" method="POST">
                 <div class="col-1 col-md-1"></div>
-                <input class="form-control col-7 col-md-6" type="text" placeholder="Inserisci qui il tuo indirizzo email" />
+                <input name="newsletter" class="form-control col-7 col-md-6" type="email" placeholder="Inserisci qui il tuo indirizzo email" />
                 <button class="btn btn-search" type="submit">OK</button>
               </form>
             </div>

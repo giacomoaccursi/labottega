@@ -3,7 +3,7 @@
         <div class="col-md-2"></div>
         <div class="col-12 col-md-8 text-center my-4 nopadding">
             <h1>Modifica Prodotto</h1>
-            <form action="#" id="modify-product-form" method="POST" class="text-center" enctype="multipart/form-data">
+            <form action="#" method="POST" class="text-center admin-basic-form" enctype="multipart/form-data">
                 <table class="table mt-5">
                     <tr>
                         <thead class="table-dark">
@@ -12,7 +12,7 @@
                         <select name="prodotto" id="prodotto" class="col-12" onchange="location='modify-product.php?id='+this.value">
                         <option selected disabled value> --- Scegli un prodotto --- </option>
                         <?php foreach ($templateParams["prodotti"] as $prodotto) : ?>
-                                    <option value="<?php echo $prodotto["id"]; ?>"><?php echo $prodotto["nome"]; ?></option>
+                                    <option value="<?php echo $prodotto["id"]; ?>" ><?php echo $prodotto["nome"]; ?></option>
                                 <?php endforeach; ?>
                             </select>
                     </td>

@@ -140,6 +140,16 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getCustomerById($id)
+    {
+        $stmt = $this->db->prepare("SELECT * from utenti WHERE id = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        return $result[0];
+    }
+
     public function getAllOrders()
     {
         $stmt = $this->db->prepare("SELECT * FROM ordini");
@@ -240,6 +250,29 @@ class DatabaseHelper
         }
     }
 
+    public function insertNotification($idCliente,$messaggio){
+        if($idCliente==0){
+            $clienti = $this -> getAllCustomers();
+            foreach($clienti as $cliente){
+                $stmt = $this->db->prepare("INSERT INTO `notifiche`(`idCliente`, `messaggio`) VALUES (?, ?)");
+                $stmt->bind_param('is', $cliente["id"], $messaggio);
+                $stmt->execute();
+            }
+        }else{
+            $stmt = $this->db->prepare("INSERT INTO `notifiche`(`idCliente`, `messaggio`) VALUES (?, ?)");
+            $stmt->bind_param('is', $idCliente, $messaggio);
+            $stmt->execute();
+        }
+
+    }
+
+
+    public function addNewEmail($email){
+        $stmt = $this->db->prepare("INSERT INTO `newsletter`(`email`) VALUES (?)");
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+    }
+
     public function updateCartProductsQuantity($id, $quantita)
     {
         $stmt = $this->db->prepare("UPDATE `prodottiInCarrello` SET `quantitàDaComprare` = ? WHERE `id` = ?");
@@ -257,6 +290,14 @@ class DatabaseHelper
     public function getOrdersByUser($idUtente){
         $stmt = $this->db->prepare("SELECT *  FROM ordini WHERE idUtente = ?  ORDER BY dataOrdine DESC");
         $stmt->bind_param('i', $idUtente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getNotificationsByUser($idCliente){
+        $stmt = $this->db->prepare("SELECT *  FROM notifiche WHERE idCliente = ?  ORDER BY 'data' DESC");
+        $stmt->bind_param('i', $idCliente);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);

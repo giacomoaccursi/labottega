@@ -4,7 +4,7 @@
     <div class="col-12 col-md-8 text-center my-4 nopadding">
         <h1>Elenco Prodotti</h1>
         <?php if (count($templateParams["prodotti"]) > 0) : ?>
-            <table class=" table text-center">
+            <table class=" table text-center admin-basic-table">
                 <div class="row ">
                     <thead class="table-dark">
                         <tr>

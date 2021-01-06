@@ -45,7 +45,14 @@ INSERT INTO `prodotti` (`nome`, `marca`, `descrizione`, `prezzo`,`immagine`,`qua
 INSERT INTO `utenti` (`nome`,`cognome`,`email`,`password`,`tipo`) VALUES
 ('Andrea','Acampora','andrea.acampora@gmail.com','$2y$10$YgUHLwoJCsQ9UkwtMctD9.7vmPCY5e.5bZvS4XpjH.4oqOspodac2',1),
 ('Giacomo','Accursi','giacomo.accursi@gmail.com','$2y$10$vICNB./1J6wK/9ZGFaa6..e0Wl0PYmo6Ob7Hq0RdWagXv2nC4XDKi',1),
-('Marco','Brighi','marco.brighi@outlook.com','$2y$10$kKPWDeQxgbHUeUkfR2CbPuxwakgCGxNTAvQN5YGKcpqT.n2j.aneq',0);
+('Marco','Brighi','marco.brighi@outlook.com','$2y$10$kKPWDeQxgbHUeUkfR2CbPuxwakgCGxNTAvQN5YGKcpqT.n2j.aneq',0),
+('Luca','Rossi','luca.rossi@gmail.com','$2y$10$kKPWDeQxgbHUeUkfR3CbPuxwakgCGxNTAvQN5YGKcpqT.n2j.aneq',0),
+('Giovanni','Verdi','giovanni.verdi@libero.it','$2y$10$kPPWDeQxgbHUeUkfR2CbPuxwakgCGxNTAvQN5YGKcpqT.n2j.aneq',0),
+('Enzo','Bianchi','enzo.bianchi@outlook.com','$2y$11$kKPWDeQxgbHUeUkfR2CbPuxwakgCGxNTAvQN5YGKcpqT.n2j.aneq',0),
+('Paolo','Neri','paolo.neri@yahoo.com','$2y$10$kKPWDeQlgbHUeUkfR2CbPuxwakgCGxNTAvQN5YGKcpqT.n2j.aneq',0),
+('Fabio','Chari','fabio.chari@gmail.com','$2y$10$kKPWDeQxgbHUeUkfR2CfPuxwakgCGxNTAvQN5YGKcpqT.n2j.aneq',0),
+('Enea','Scuri','enea.scuri@virgilio.com','$2y$10$kKPWDeQhgbHUeUkfR2CbPuxwakgCGxNTAvQN5YGKcpqT.n2j.aneq',0);
+
 
 INSERT INTO `pagamenti` (`nomeCircuito`) VALUES 
 ('PayPal'),
@@ -72,4 +79,8 @@ INSERT INTO `dettagliOrdini`(`idProdotto`,`idOrdine`,`prezzo`,`quantita`) VALUES
 (1,3,45,1),
 (5,3,30,1);
 
+
+INSERT INTO `notifiche`(`idCliente`,`messaggio`) VALUES
+(3,'Ordine spedito!'),
+(3,'Hai ricevuto un COUPON di 15 €');
 

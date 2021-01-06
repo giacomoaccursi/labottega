@@ -1,6 +1,6 @@
 <div class="row col-12">
-  <div class="col-lg-1"></div>
-  <div class="dashboard-tab col-lg-10">
+  <div class="col-lg-2 col-md-1"></div>
+  <div class="dashboard-tab col-12 col-lg-8 col-md-10">
     <div class="row ">
       <a href="#Ordini" class="btn tablinks col-3 py-2">ORDINI</a>
       <a href="#Notifiche" class="btn tablinks col-3 py-2">NOTIFICHE</a>
@@ -8,11 +8,11 @@
       <a href="logout.php" class="btn tablinks col-3 py-2">LOGOUT</a>
     </div>
   </div>
-  <div class="col-lg-1"></div>
+  <div class="col-lg-2 col-md-1"></div>
 </div>
 <div class="row text-center pt-4">
-  <div class="col-md-1"></div>
-  <div id="Ordini" class="text-center col-md-10 col-12 pt-3">
+<div class="col-lg-2 col-md-1"></div>
+  <div id="Ordini" class="text-center col-12 col-md-10 col-lg-8 pt-3">
     <h3 class="dashboard-section-title">I miei ordini </h3>
     <?php if (count($templateParams["ordini"]) > 0) : ?>
       <table class=" table text-center col-12">
@@ -42,23 +42,37 @@
       <p> Non ci sono ordini da visualizzare. </p>
     <?php endif; ?>
   </div>
-  <div class="col-md-1"></div>
+  <div class="col-lg-2 col-md-1"></div>
 
 
 </div>
 
 <div class="row text-center mt-2 pt-2">
-  <div id="Notifiche" class="col-12 text-center pt-3">
+  <div class="col-lg-2 col-md-1"></div>
+  <div id="Notifiche" class="col-12 col-lg-8 col-md-10 text-center pt-3">
     <h3 class="dashboard-section-title">Notifiche</h3>
     <?php if (isset($templateParams["notifiche"]) ) : ?>
+      <table class="table text-center">
+      <thead class="table-dark">
+        <tr>
+          <td>Data</td>
+          <td>Messaggio</td>
+        </tr>
+      </thead>
+      <tbody>
       <?php foreach ($templateParams["notifiche"] as $notifica) : ?>
-        <p> <?php echo $templateParams["notifiche"]; ?> </p>
+        <tr>
+          <td> <?php echo $notifica["data"]; ?> </td>
+          <td> <?php echo $notifica["messaggio"]; ?> </td>
+      </tr>
       <?php endforeach; ?>
+      </tbody>
+      </table>
     <?php else : ?>
       <p> Non ci sono notifiche da visualizzare. </p>
     <?php endif; ?>
   </div>
-  <div class="col-md-1"></div>
+  <div class="col-lg-2 col-md-1"></div>
 </div>
 
 <div class="row text-center mt-2 pt-2">
