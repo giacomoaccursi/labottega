@@ -5,9 +5,9 @@
         <?php
         foreach ($templateParams["prodottiInCarrello"] as $prodotto) :
         ?>
-            <div class="productDetails row align-items-center py-3">
+            <div class="productDetails row align-items-center">
                 <div class="col-3 col-sm-2">
-                    <img src=<?php echo IMG_ROOT . $prodotto["immagine"]; ?> alt="" width="70" class="img-fluid">
+                    <img src=<?php echo IMG_ROOT . $prodotto["immagine"]; ?> alt="" width="120" class="img-fluid">
                 </div>
                 <div class="col-9 col-sm-4 ">
                     <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle"><?php echo $prodotto["nome"]; ?></a></h5><span class="text-muted font-weight-normal font-italic d-block"><?php echo $prodotto["marca"]; ?></span>
@@ -23,19 +23,20 @@
                 </div>
                 <input type="hidden" class="productId" value="<?php echo $prodotto["idProdotto"]; ?>">
             </div>
+            <hr/>
         <?php endforeach; ?>
     </div>
 
 
-    <div id="orderInformation" class="col-xl-3 pt-5">
-        <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
+    <div id="orderInformation" class="col-xl-3">
+        <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Riepilogo</div>
         <div class="px-4">
-            <ul class="list-unstyled mb-4">
-                <li id="orderSubTotal" class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><span id="subTotalPrice"></span></li>
-                <li id="orderShippingCost" class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><span id="shippingCost"></span></li>
-                <li id="orderTotal" class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong><span id="totalPrice"></span></li>
+            <ul class="list-unstyled m-0">
+                <li id="orderSubTotal" class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Totale Provvisorio</strong><span id="subTotalPrice"></span></li>
+                <li id="orderShippingCost" class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Costi di spedizione</strong><span id="shippingCost"></span></li>
+                <li id="orderTotal" class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Totale</strong><span id="totalPrice"></span></li>
             </ul>
-            <a href="checkout.php" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+            <a href="checkout.php" class="btn btn-dark rounded-pill py-2 btn-block">Procedi all'ordine</a>
         </div>
     </div>
     <div class="col-lg-1"></div>
