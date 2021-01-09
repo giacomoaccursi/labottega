@@ -70,16 +70,18 @@ input[type="number"] {
   -moz-appearance: textfield;
   -webkit-appearance: none;
 }
-
-
 /* FINE CARRELLO */
+
 #home-image{
     padding: 200px 0; 
     height: 100%;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("sfondo2.jpeg");
+    background-image: url("sfondo2.jpg");
+    
+    
+
 }
 img#logo{
     width: 60px; 
@@ -112,17 +114,18 @@ img#logo{
 
 #compra-ora{
     font-size: 25px;
-    padding: 15px 15px; 
+    padding: 25px 30px; 
     color: black;
     font-weight: bold;
     background-color: #ffd369; 
+    
 }
-#compra-ora:hover{
+/* #compra-ora:hover{
     color: black;
     font-weight: bold;
     border: solid;
     background-color: #ffd269ab;; 
-}
+} */
 
 
 h1{

@@ -1,5 +1,3 @@
-
-
 function validate_form() {
     'use strict'
     window.addEventListener('load', function () {
@@ -18,13 +16,4 @@ function validate_form() {
 
 $(document).ready(function () {
     validate_form();
-    $("form#checkout-form").submit(function (e) {
-        e.preventDefault();
-        const nome = $("#nome").val();
-        const cognome = $("#cognome").val();
-        const indirizzo = $("#indirizzo").val();
-        const citta = $("#città").val();
-        const stato = $("#stato").val();
-        const cap = $("#cap").val();
-    });
 });

@@ -1,4 +1,5 @@
 <?php
+require_once("database/database.php");
 
 function registerLoggedUser($user){
     $_SESSION["id"]= $user["id"];

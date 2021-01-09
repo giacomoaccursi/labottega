@@ -228,6 +228,20 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function deleteCartProducts($idUtente)
+    {
+            $stmt = $this->db->prepare("DELETE FROM `prodottiInCarrello` WHERE idUtente = ?");
+            $stmt->bind_param('i', $idUtente);
+            $stmt->execute();
+    }
+
+    public function removeOrderedItemsFromDisponibility($idProdotto, $quantita)
+    {
+        $stmt = $this->db->prepare("UPDATE `prodotti` SET `quantità` = `quantità`- ? WHERE `id` = ?");
+        $stmt->bind_param('ii', $quantita, $idProdotto);
+        $stmt->execute();
+    }
+
     private function isProductInCart($idProdotto, $idUtente)
     {
         $stmt = $this->db->prepare("SELECT * FROM prodottiInCarrello WHERE idProdotto = ? && idUtente = ?");
@@ -265,8 +279,6 @@ class DatabaseHelper
         }
 
     }
-
-
     public function addNewEmail($email){
         $stmt = $this->db->prepare("INSERT INTO `newsletter`(`email`) VALUES (?)");
         $stmt->bind_param('s', $email);
@@ -321,10 +333,23 @@ class DatabaseHelper
         return $this->db->insert_id;   
     }
 
-    public function addNewOrder($totaleOrdine, $idUtente, $idSpedizione, $tipoPagamento, $stato, $nome, $cognome, $indirizzo, $citta, $nazione){
-        $idSpedizione = $this->addNewSpedizione($nome, $cognome, $indirizzo, $citta, $nazione); 
+    public function addNewOrder($totaleOrdine, $idUtente, $idSpedizione, $tipoPagamento, $stato){
         $stmt = $this->db->prepare("INSERT INTO `ordini`(`totaleOrdine`,`idUtente`, `idSpedizione`, `tipoPagamento`, `stato`) VALUES (?,?,?,?,?)");
         $stmt->bind_param('sssss', $totaleOrdine, $idUtente, $idSpedizione, $tipoPagamento, $stato);
+        $stmt->execute();
+        return $this->db->insert_id; 
+    }
+
+    public function getAllPaymentsType(){
+        $stmt = $this->db->prepare("SELECT * FROM `pagamenti`");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function addNewOrderDetail($idProdotto, $idOrdine, $prezzo, $quantita){
+        $stmt = $this->db->prepare("INSERT INTO `dettagliOrdini`(`idProdotto`,`idOrdine`, `prezzo`, `quantita`) VALUES (?,?,?,?)");
+        $stmt->bind_param('ssss', $idProdotto, $idOrdine, $prezzo, $quantita);
         $stmt->execute();
     }
 

@@ -34,7 +34,8 @@
                 <li id="orderSubTotal" class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><span id="subTotalPrice"></span></li>
                 <li id="orderShippingCost" class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><span id="shippingCost"></span></li>
                 <li id="orderTotal" class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong><span id="totalPrice"></span></li>
-            </ul><a href="checkout.php" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+            </ul>
+            <a href="checkout.php" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
         </div>
     </div>
     <div class="col-lg-1"></div>

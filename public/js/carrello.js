@@ -24,14 +24,14 @@ $(document).ready(function () {
     }
     function addToCart(e) {
         e.preventDefault();
-        let productId = $(e.target).find("input.productId").val();
+        let itemToAdd = $(e.target).find("input.productId").val();
 
         $.ajax({
-            url: "addToCart.php",
+            url: "gestioneCarrello.php",
             type: "POST",
             cache: false,
             data: {
-                productId: productId
+                itemToAdd: itemToAdd
             },
             success: function () { 
                 toastr.success("Product added to cart!"); 
