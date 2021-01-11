@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-sm-10 col-md-8 order-md-1">
             <h4 class="mb-3">Indirizzo di spedizione</h4>
-            <form action="checkout.php?payed=1" method="POST" id="checkout-form" class="needs-validation" novalidate="">
+            <form action="riepilogo_ordine.php" method="POST" id="checkout-form" class="needs-validation" novalidate="">
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="nome">Nome</label>
@@ -38,15 +38,18 @@
                 <hr />
                 <h4 class="mb-3">Pagamento</h4>
                 <div class="d-block my-3">
-                    <?php foreach($templateParams["pagamenti"] as $pagamento):?>
-                    <div class="">
-                        <input id="<?php echo $pagamento["id"];?>" value="<?php echo $pagamento["id"];?>" name="metodoPagamento" type="radio" class="" <?php if($pagamento["id"] == 1){echo "checked";}?> >
-                        <label class="" for="<?php echo $pagamento["id"];?>"><?php echo $pagamento["nomeCircuito"];?></label>
-                    </div>
-                    <?php endforeach;?>
+                    <?php foreach ($templateParams["pagamenti"] as $pagamento) : ?>
+                        <div class="">
+                            <input id="<?php echo $pagamento["id"]; ?>" value="<?php echo $pagamento["id"]; ?>" name="metodoPagamento" type="radio" class="" <?php if ($pagamento["id"] == 1) {
+                                                                                                                                                                echo "checked";
+                                                                                                                                                            } ?>>
+                            <label class="" for="<?php echo $pagamento["id"]; ?>"><?php echo $pagamento["nomeCircuito"]; ?></label>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Concludi Pagamento</button>
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Concludi Pagamento</button>
+                    <input type="hidden" id="payed" name="payed" value="1">
             </form>
         </div>
     </div>

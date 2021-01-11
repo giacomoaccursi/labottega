@@ -5,6 +5,10 @@
     background-color: #393e46;
 }
 
+#checkoutButton{
+    background-color: #ffd369;
+    font-weight: bold;
+}
 .white-icon{
     color: white !important; 
 }
@@ -173,15 +177,12 @@ div#icon-container > a >i{
     
 }
 
-a.offerte{
+span.offerte{
     background-color: rgba(255, 0, 0, 0.733); 
     color: black;
     font-weight: bold;
 }
 
-a.offerte:hover{
-    color: black;
-}
 
 button.btn-search{
     color: #000;

@@ -68,7 +68,7 @@
 
                     <?php endforeach; ?>
                     <li class="nav-item col-md-3">
-                      <a class="text-white btn nav-link offerte" href="prodotti.php?sales=1">OFFERTE</a>
+                      <a class="btn nav-link" href="prodotti.php?sales=1"><span class="rounded offerte px-md-5 px-3 py-2 text-white font-weight-bold">OFFERTE</span></a>
                     </li>
                   </ul>
                 </div>

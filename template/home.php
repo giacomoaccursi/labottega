@@ -32,8 +32,8 @@
                           </h6>
                           <div>
                                 <form class="d-inline addToCartForm">
-                                    <button class="addToCartButton btn btn-sm  mb-2">
-                                        <i class="fas fa-shopping-cart px-4 px-sm-0 pr-2"></i>
+                                    <button class="addToCartButton btn btn-sm mb-2">
+                                        <i class="fas fa-cart-plus px-4 px-sm-0 pr-2"></i>
                                         <span class="d-none d-sm-inline button-text font-weight-bold">Aggiungi al carrello</span>
                                     </button>
                                     <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>">
