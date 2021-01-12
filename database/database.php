@@ -353,5 +353,28 @@ class DatabaseHelper
         $stmt->execute();
     }
 
+    public function addNewDesiredProduct($idProdotto, $idUtente){
+        $stmt = $this->db->prepare("INSERT INTO `prodottiDesiderati`(`idProdotto`,`idUtente`) VALUES (?,?)");
+        $stmt->bind_param('ss', $idProdotto, $idUtente);
+        $stmt->execute();
+    }
+
+    public function removeDesiredProduct($idProdotto, $idUtente){
+        $stmt = $this->db->prepare("DELETE FROM `prodottiDesiderati` WHERE idProdotto = ? && idUtente = ?");
+        $stmt->bind_param('ss', $idProdotto, $idUtente);
+        $stmt->execute();
+    }
+
+    public function getAllUserDesiredProduct($idUtente){
+        $stmt = $this->db->prepare("SELECT *,ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, prodottiDesiderati.id as idProdotto  FROM prodottiDesiderati , prodotti WHERE prodottiDesiderati.idProdotto = prodotti.id && idUtente = ?");
+        $stmt->bind_param('s', $idUtente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+
+
+
 }
 

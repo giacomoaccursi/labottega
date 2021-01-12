@@ -119,6 +119,16 @@ CREATE TABLE IF NOT EXISTS `newsletter` (
     PRIMARY KEY(`email`)
 );
 
+CREATE TABLE IF NOT EXISTS `prodottiDesiderati` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `idProdotto` INT(11) NOT NULL,
+    `idUtente` INT(11) NOT NULL,
+    PRIMARY KEY(`id`),
+    FOREIGN KEY(`idProdotto`) REFERENCES `prodotti`(`id`),
+    FOREIGN KEY(`idUtente`) REFERENCES `utenti`(`id`)
+);
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
