@@ -3,6 +3,7 @@
 
 .header-section{
     background-color: #393e46;
+    /** background: linear-gradient(to right, #424242 0%, #bbaa96 100%); **/
 }
 
 .white-icon{
