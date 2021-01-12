@@ -22,6 +22,9 @@
                             <td header="prezzo"><?php echo ($prodotto["prezzo"]); ?> €</td>
                         </tr>
                     <?php endforeach; ?>
+                    <tr>
+                    <td colspan="4"><a href="dashboard.php" class="btn checkoutButton ounded-pill py-2">TORNA ALLA DASHBOARD</a></td>
+                    </tr>
                 </tbody>
         </table>
     <?php else : ?>

@@ -29,7 +29,7 @@
                         <ul class="navbar-nav text-center col-md-12 nopadding">
                             <?php foreach ($templateParams["categorie"] as $categoria) : ?>
                                 <li class="nav-item dropdown col-md-3">
-                                    <a class="nav-link text-uppercase text-white" href="prodotti.php?cat=<?php echo $categoria["id"]; ?>"><?php echo $categoria["nome"]; ?></a>
+                                    <a class="nav-link text-uppercase " href="prodotti.php?cat=<?php echo $categoria["id"]; ?>"><?php echo $categoria["nome"]; ?></a>
                                     <ul class="dropdown-menu text-center col-12 m-0">
                                         <?php foreach ($templateParams["sottoCategorie"] as $subCategoria) :
                                             if ($subCategoria["idCategoria"] == $categoria["id"]) : ?>

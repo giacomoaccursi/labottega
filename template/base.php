@@ -26,11 +26,11 @@
       <?php
       if (isset($templateParams["header"])) {
         require($templateParams["header"]);
-      }else{
+      } else {
         require("header.php");
       }
       ?>
-</header>
+    </header>
 
     <main>
       <?php
@@ -44,7 +44,7 @@
       <?php
       if (isset($templateParams["footer"])) {
         require($templateParams["footer"]);
-      }else{
+      } else {
         require("footer.php");
       }
       ?>

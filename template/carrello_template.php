@@ -47,7 +47,7 @@
                 <li id="orderTotal" class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Totale</strong><span id="totalPrice"></span></li>
             </ul>
             <form class="my-4" action="checkout.php" method=POST>
-                <button id="checkoutButton" class="btn rounded-pill py-2 btn-block">Procedi all'ordine</button>
+                <button class="btn rounded-pill py-2 btn-block checkoutButton">Procedi all'ordine</button>
                 <input type="hidden" name="checkout" id="checkout" value="1">
             </form>
         </div>
