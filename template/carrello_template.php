@@ -29,7 +29,7 @@
                     <?php endif; ?>
                 </div>
                 <div class="deleteItem col-2 col-sm-1">
-                    <i class="fas fa-trash"></i>
+                    <i class="fas fa-trash fa-lg"></i>
                 </div>
                 <input type="hidden" class="productId" value="<?php echo $prodotto["idProdotto"]; ?>">
             </div>

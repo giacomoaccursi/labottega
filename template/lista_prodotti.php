@@ -16,14 +16,14 @@
             <div>
                 <form class="d-inline addToCartForm">
                     <button class="addToCartButton btn btn-sm mb-2">
-                        <i class="fas fa-cart-plus px-4 px-sm-0 pr-2"></i>
+                        <i class="fas fa-cart-plus fa-lg px-4 px-sm-0 pr-2"></i>
                         <span class="d-none d-sm-inline button-text font-weight-bold">Aggiungi al carrello</span>
                     </button>
                     <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>">
                 </form>
                 <form class="d-inline addToWishListForm">
                     <button type="button" class="btn btn-sm px-3 mb-2 material-tooltip-main" data-toggle="tooltip" data-placement="top" title="Add to wishlist">
-                        <i class="far fa-heart"></i>
+                        <i class="far fa-heart fa-lg"></i>
                     </button>
                     <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>">
                 </form>
