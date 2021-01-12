@@ -16,6 +16,5 @@ if(isUserLoggedIn()){
 } else{
     $templateParams["prodottiInCarrello"] = getCartProducts(); 
 }
-
 require 'template/base.php';
 ?>

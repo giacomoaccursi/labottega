@@ -34,7 +34,7 @@ $(document).ready(function () {
                 itemToAdd: itemToAdd
             },
             success: function () { 
-                toastr.success("Product added to cart!"); 
+                toastr.success("Prodotto aggiunto al carrello!"); 
             }
         });
     }

@@ -22,7 +22,9 @@ function insertProductsInCart($prodotto){
             "immagine" => $prodotto["immagine"],
             "marca" => $prodotto["marca"],
             "prezzoFin" => $prodotto["prezzoFin"], 
-            "id" => $prodotto["id"]
+            "id" => $prodotto["id"],
+            "prezzo" => $prodotto["prezzo"],
+            "sconto" => $prodotto["sconto"]
         ];  
         $carrello[$prodotto["id"]] = $prodottoInCarrello;
         $_SESSION["carrello"] = $carrello; 
