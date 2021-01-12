@@ -23,80 +23,14 @@
 <body>
   <div class="container-fluid">
     <header>
-      <div class="header-section row align-items-center">
-        <div class="col-md-3"></div>
-        <div class="col-8 col-md-6">
-          <div class="row justify-content-md-center">
-            <img id="logo" src="public/img/logo2.png" alt="" />
-            <h1 class="pt-4"><a class="text-white" href="index.php" id="title-link">LaBottega</a></h1>
-          </div>
-        </div>
-        <div id="icon-container" class="text-right text-md-center col-4 pt-4 col-md-3 ">
-          <a href="wishList.php" class="icon-link pr-md-2"><i class="white-icon fas fa-heart fa-lg"></i></a>
-          <a href="carrello.php" class="icon-link pr-md-2"><i class="white-icon fas fa-shopping-cart fa-lg"></i></a>
-          <a href="login.php" class="icon-link"><i class="white-icon fas fa-user-circle fa-lg"></i></a>
-        </div>
-      </div>
-
-      <!-- 
-                NAVBAR
-            -->
-      <div class="row">
-        <div class="col-12 col-md-12 p-0">
-          <div class="header-section row pt-3 nopadding">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-              <nav class="navbar navbar-expand-md navbar-fixed-top justify-content-center">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                  <i class="white-icon fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                  <ul class="navbar-nav text-center col-md-12 nopadding">
-                    <?php foreach ($templateParams["categorie"] as $categoria) : ?>
-                      <li class="nav-item dropdown col-md-3">
-                        <a class="nav-link text-uppercase text-white" href="prodotti.php?cat=<?php echo $categoria["id"]; ?>"><?php echo $categoria["nome"]; ?></a>
-                        <ul class="dropdown-menu text-center col-12 m-0">
-                          <?php foreach ($templateParams["sottoCategorie"] as $subCategoria) :
-                            if ($subCategoria["idCategoria"] == $categoria["id"]) : ?>
-                              <li>
-                                <a class="dropdown-item" href="prodotti.php?sub=<?php echo $subCategoria["id"]; ?>"><?php echo $subCategoria["nome"]; ?></a>
-                              </li>
-                            <?php endif; ?>
-                          <?php endforeach; ?>
-                        </ul>
-                      </li>
-
-                    <?php endforeach; ?>
-                    <li class="nav-item col-md-3">
-                      <a class="btn nav-link" href="prodotti.php?sales=1"><span class="rounded offerte px-md-5 px-3 py-2 text-white font-weight-bold">OFFERTE</span></a>
-                    </li>
-                  </ul>
-                </div>
-              </nav>
-            </div>
-            <div class="col-md-2"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 
-                SEARCH FORM
-            -->
-      <div class="header-section row py-3">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-          <form class="form-inline justify-content-center" action="prodotti.php" method="GET">
-            <input class="form-control col-9 col-md-7" name="cerca" type="text" placeholder="Cosa stai cercando ?" />
-            <button class="btn btn-search" type="submit">
-              <i class="fas fa-search"></i>
-            </button>
-          </form>
-        </div>
-        <div class="col-md-3"></div>
-      </div>
+      <?php
+      if (isset($templateParams["header"])) {
+        require($templateParams["header"]);
+      }else{
+        require("header.php");
+      }
+      ?>
     </header>
-
-
 
     <main>
       <?php
@@ -106,127 +40,14 @@
       ?>
     </main>
 
-
-
     <footer>
-      <div class="row footer py-3 mt-5">
-        <div class="col-sm-1 col-md-2"></div>
-        <div class="col-sm-9 col-md-8">
-          <div class="row nopadding">
-            <div class="col-12 newsletter-paragraph col-md-6 pt-2 text-center">
-              <h2>ISCRIVITI ALLA NOSTRA NEWSLETTER!</h2>
-              <p>
-                Registrati subito per scoprire in anteprima le ultimissime
-                offerte, promozioni ed i nuovi prodotti!
-              </p>
-            </div>
-            <div class="col-12 col-md-6 text-center pt-4">
-              <form class="form-inline" action="#" method="POST">
-                <div class="col-1 col-md-1"></div>
-                <input name="newsletter" class="form-control col-7 col-md-6" type="email" placeholder="Inserisci qui il tuo indirizzo email" />
-                <button class="btn btn-search" type="submit">OK</button>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-1 col-md-2"></div>
-      </div>
-
-      <!--
-                footer accordio
-            -->
-
-      <div id="accordion-footer" class="row text-center">
-        <div class="col-sm-6 col-md-3 nopadding">
-          <div id="accordion" role="tablist" aria-multiselectable="true" class="widget">
-            <div role="tab" id="headingOne">
-              <div class="card-header py-3 border-0 text-uppercase bg-transparent">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="accordion-title">
-                  Supporto e informazioni
-                </a>
-              </div>
-            </div>
-            <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-              <div class="card-block">
-                <ul class="widget-list list-unstyled p-0">
-                  <li>Create Websites</li>
-                  <li>Secure Cloud Hosting</li>
-                  <li>Engage Your Audience</li>
-                  <li>Website Support</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 nopadding">
-          <div id="accordion" role="tablist" aria-multiselectable="true" class="widget">
-            <div role="tab" id="headingTwo">
-              <div class="card-header py-3 border-0 text-uppercase bg-transparent">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="accordion-title">
-                  Contattaci
-                </a>
-              </div>
-            </div>
-            <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-              <div class="card-block">
-                <ul class="widget-list list-unstyled">
-                  <li>About</li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 nopadding">
-          <div id="accordion" role="tablist" aria-multiselectable="true" class="widget">
-            <div role="tab" id="headingThree">
-              <div class="card-header py-3 border-0 text-uppercase bg-transparent">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" class="accordion-title">
-                  Chi siamo
-                </a>
-              </div>
-            </div>
-            <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-              <div class="card-block">
-                <ul class="widget-list list-unstyled p-0">
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3 nopadding">
-          <div id="accordion" role="tablist" aria-multiselectable="true" class="widget">
-            <div role="tab" id="headingFour">
-              <div class="card-header py-3 border-0 text-uppercase bg-transparent">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour" class="accordion-title">
-                  Seguici
-                </a>
-              </div>
-            </div>
-            <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
-              <div class="card-block">
-                <ul class="widget-list list-unstyled p-0">
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="copyright" class="row">
-        <p class="col-12 text-center">© 2020 Copyright</p>
-      </div>
+      <?php
+      if (isset($templateParams["footer"])) {
+        require($templateParams["footer"]);
+      }else{
+        require("footer.php");
+      }
+      ?>
     </footer>
   </div>
 </body>
