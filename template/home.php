@@ -7,7 +7,7 @@
   </div>
 
 
-  <h2 class="text-center py-5">BEST PRODUCTS</h2>
+  <h2 class="text-center py-5 page-title">BEST PRODUCTS</h2>
 
 
   <div class="row justify-content-center">

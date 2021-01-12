@@ -139,6 +139,10 @@ h1{
     font-family: 'Ubuntu', sans-serif !important;
 }
 
+.page-title{
+    font-weight: bold;
+    text-decoration: underline;
+}
 a#title-link{
     color:rgb(0, 0, 0);
     text-decoration: none;
@@ -174,9 +178,14 @@ div#icon-container > a >i{
 
 .nav-link{
     font-weight: bold;
-    color:black !important; 
-    
+    color:rgb(255, 255, 255); 
+    font-size: 18px;
 }
+
+.nav-link:hover{
+    color:rgb(207, 23, 23);
+}
+
 
 span.offerte{
     background-color: rgba(255, 0, 0, 0.733); 
@@ -448,7 +457,7 @@ aside a:hover::after {
 
 
     .navbar .nav-item .dropdown-menu{   display:block; opacity: 0;  visibility: hidden; border:none; }
-	.navbar .nav-item:hover .nav-link{ color: #fff;  }
+	.navbar .nav-item:hover .nav-link{ color: #ffd369;  }
     .navbar .nav-item:hover .dropdown-menu{ opacity:1; visibility:visible; border:none; }
     
 }

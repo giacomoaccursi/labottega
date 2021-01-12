@@ -20,7 +20,7 @@ if (isset($_POST["payed"])) {
     $totaleOrdine += $speseDiSpedizione;
     $idOrdine = $dbh->addNewOrder($totaleOrdine, $_SESSION["id"], $idSpedizione, $_POST["metodoPagamento"], "Inlavorazione");
     foreach ($prodotti as $prodotto) {
-        $dbh->addNewOrderDetail($prodotto["idProdotto"], $idOrdine, $totaleOrdine, $prodotto["quantitàDaComprare"]);
+        $dbh->addNewOrderDetail($prodotto["idProdotto"], $idOrdine, $prodtto["prezzoFin"], $prodotto["quantitàDaComprare"]);
     }
     $dbh->deleteCartProducts($_SESSION["id"]);
     require 'template/base.php';

@@ -33,7 +33,7 @@
                 <td header="data"><?php echo ($ordine["dataOrdine"]); ?></td>
                 <td header="stato"><?php echo ($ordine["stato"]); ?></td>
                 <td header="totale"><?php echo ($ordine["totaleOrdine"]); ?> €</td>
-                <td header="dettagli"><a href="#">Visualizza articoli </a></td>
+                <td header="dettagli"><a href="order_details.php?id=<?php echo $ordine["id"]?>">Visualizza articoli </a></td>
               </tr>
             <?php endforeach; ?>
           </tbody>

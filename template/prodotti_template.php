@@ -1,5 +1,5 @@
 <?php if (count($templateParams["prodotti"]) > 0) : ?>
-    <h2 class="text-center mt-2"><?php echo ($templateParams["titoloCategoria"]); ?></h2>
+    <h2 class="text-center mt-2 page-title p-3 text-uppercase"><?php echo ($templateParams["titoloCategoria"]); ?></h2>
     <div class="col-12 text-center py-3">
         <select onchange="location = 'prodotti.php?page=1&order='+this.value+
     '<?php if (isset($templateParams['categoriaCorrente'])) {

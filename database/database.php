@@ -316,7 +316,7 @@ class DatabaseHelper
     }
 
     public function getOrderDetails($idOrdine){
-        $stmt = $this->db->prepare("SELECT prodotti.nome, ordini.id, dettagliOrdini.prezzo
+        $stmt = $this->db->prepare("SELECT prodotti.nome, prodotti.immagine, ordini.id, dettagliOrdini.prezzo, dettagliOrdini.quantita
                                     FROM dettagliOrdini,ordini,prodotti
                                     WHERE dettagliOrdini.idOrdine = ordini.id AND dettagliOrdini.idProdotto = prodotti.id AND dettagliOrdini.idOrdine = ?");
         $stmt->bind_param('i', $idOrdine);

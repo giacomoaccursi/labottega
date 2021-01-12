@@ -54,7 +54,7 @@
                   <ul class="navbar-nav text-center col-md-12 nopadding">
                     <?php foreach ($templateParams["categorie"] as $categoria) : ?>
                       <li class="nav-item dropdown col-md-3">
-                        <a class="nav-link text-uppercase text-white" href="prodotti.php?cat=<?php echo $categoria["id"]; ?>"><?php echo $categoria["nome"]; ?></a>
+                        <a class="nav-link text-uppercase" href="prodotti.php?cat=<?php echo $categoria["id"]; ?>"><?php echo $categoria["nome"]; ?></a>
                         <ul class="dropdown-menu text-center col-12 m-0">
                           <?php foreach ($templateParams["sottoCategorie"] as $subCategoria) :
                             if ($subCategoria["idCategoria"] == $categoria["id"]) : ?>
@@ -67,8 +67,8 @@
                       </li>
 
                     <?php endforeach; ?>
-                    <li class="nav-item col-md-3">
-                      <a class="btn nav-link" href="prodotti.php?sales=1"><span class="rounded offerte px-md-5 px-3 py-2 text-white font-weight-bold">OFFERTE</span></a>
+                    <li class="col-md-3">
+                      <a class="btn" href="prodotti.php?sales=1"><span class="rounded offerte px-md-5 px-3 py-2 text-white font-weight-bold">OFFERTE</span></a>
                     </li>
                   </ul>
                 </div>
@@ -148,11 +148,9 @@
             </div>
             <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
               <div class="card-block">
-                <ul class="widget-list list-unstyled p-0">
-                  <li>Create Websites</li>
-                  <li>Secure Cloud Hosting</li>
-                  <li>Engage Your Audience</li>
-                  <li>Website Support</li>
+                <ul class="widget-list list-unstyled p-0 text-white">
+                  <li>Assistenza: 0541-778090</li>
+                  <li>Spedizioni: 0541-778070</li>
                 </ul>
               </div>
             </div>
@@ -169,12 +167,9 @@
             </div>
             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
               <div class="card-block">
-                <ul class="widget-list list-unstyled">
-                  <li>About</li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
+                <ul class="widget-list list-unstyled  p-0 text-white text-center ">
+                  <li>Mail: labottega@gmail.com</li>
+                  <li>Tel: 0541-778050</li>
                 </ul>
               </div>
             </div>
@@ -191,10 +186,10 @@
             </div>
             <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
               <div class="card-block">
-                <ul class="widget-list list-unstyled p-0">
-                  <li></li>
-                  <li></li>
-                  <li></li>
+                <ul class="widget-list list-unstyled p-0 text-white">
+                  <li>LaBottega s.r.l</li>
+                  <li>Via Bertola, 13</li>
+                  <li>Rimini - IT</li>
                   <li></li>
                 </ul>
               </div>
@@ -212,10 +207,10 @@
             </div>
             <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
               <div class="card-block">
-                <ul class="widget-list list-unstyled p-0">
-                  <li></li>
-                  <li></li>
-                  <li></li>
+                <ul class="widget-list list-unstyled p-0 text-white">
+                  <li><i class="fab fa-facebook"> Facebook</i></li>
+                  <li><i class="fab fa-instagram"> Instagram</i></li>
+                  <li><i class="fab fa-twitter"> Twitter</i></li>
                   <li></li>
                 </ul>
               </div>
