@@ -1,6 +1,6 @@
 <div class="container">
     <div class="py-5 text-center">
-        <h2>Checkout</h2>
+        <h2 class="page-title">CHECKOUT</h2>
     </div>
     <div class="row justify-content-center">
         <div class="col-sm-10 col-md-8 order-md-1">

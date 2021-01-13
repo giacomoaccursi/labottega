@@ -2,13 +2,13 @@
 
 
 .header-section{
-    background-color: #393e46;
-    /** background: linear-gradient(to right, #424242 0%, #bbaa96 100%); **/
+   background-color: #393e46;
+  /* background: linear-gradient(90deg, rgba(147,145,145,1) 0%, rgba(84,84,84,1) 52%, rgba(48,48,51,1) 100%); */
 }
 
 .checkoutButton{
     background-color: #ffd369;
-    font-weight: bold;
+    font-weight: bold !important;
     color: #000;
 }
 
@@ -187,6 +187,10 @@ div#icon-container > a >i{
     font-weight: bold;
     color:rgb(255, 255, 255); 
     font-size: 18px;
+}
+
+.nav-link:hover{
+    color:#ffd369;
 }
 
 

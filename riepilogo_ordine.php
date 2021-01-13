@@ -19,7 +19,7 @@ if (isset($_POST["payed"])) {
     }
 
     $totaleOrdine += $speseDiSpedizione;
-    $idOrdine = $dbh->addNewOrder($totaleOrdine, $_SESSION["id"], $idSpedizione, $_POST["metodoPagamento"], "Inlavorazione");
+    $idOrdine = $dbh->addNewOrder($totaleOrdine, $_SESSION["id"], $idSpedizione, $_POST["metodoPagamento"], "In lavorazione");
     foreach ($prodotti as $prodotto) {
         $dbh->addNewOrderDetail($prodotto["idProdotto"], $idOrdine, $prodotto["prezzoFin"], $prodotto["quantitàDaComprare"]);
     }

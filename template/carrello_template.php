@@ -1,4 +1,4 @@
-<h2 class="text-center py-3">Carrello</h2>
+<h2 class="text-center page-title py-3">Carrello</h2>
 <div id="cartDetails" class="row py-3">
     <div class="col-lg-1"></div>
     <div class="itemContainer col-12 col-xl-7">

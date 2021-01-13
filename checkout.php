@@ -1,8 +1,8 @@
 <?php
 require_once 'bootstrap.php';
+var_dump($_POST["payed"]);
 if(isUserLoggedIn()){
     if (isset($_POST["checkout"])) {
-    
         $templateParams["js"] = JS_ROOT . "checkout.js";
         $templateParams["titolo"] = "LaBottega - Checkout";
         $templateParams["pagina"] = "checkout_template.php";

@@ -51,7 +51,7 @@
   <div class="col-lg-2 col-md-1"></div>
   <div id="Notifiche" class="col-12 col-lg-8 col-md-10 text-center pt-3">
     <h3 class="dashboard-section-title">Notifiche</h3>
-    <?php if (isset($templateParams["notifiche"]) ) : ?>
+    <?php if (count($templateParams["notifiche"])>0 ) : ?>
       <table class="table text-center">
       <thead class="table-dark">
         <tr>

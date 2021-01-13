@@ -7,7 +7,7 @@
         </div>
     </div>
     <div id="icon-container" class="text-right text-md-center col-4 pt-4 col-md-3 ">
-        <a href="lista_desideri.php" class="icon-link pr-md-2"><i class="white-icon fas fa-heart fa-lg"></i></a>
+        <a href="wishList.php" class="icon-link pr-md-2"><i class="white-icon fas fa-heart fa-lg"></i></a>
         <a href="carrello.php" class="icon-link pr-md-2"><i class="white-icon fas fa-shopping-cart fa-lg"></i></a>
         <a href="login.php" class="icon-link"><i class="white-icon fas fa-user-circle fa-lg"></i></a>
     </div>
@@ -29,7 +29,7 @@
                         <ul class="navbar-nav text-center col-md-12 nopadding">
                             <?php foreach ($templateParams["categorie"] as $categoria) : ?>
                                 <li class="nav-item dropdown col-md-3">
-                                    <a class="nav-link text-uppercase " href="prodotti.php?cat=<?php echo $categoria["id"]; ?>"><?php echo $categoria["nome"]; ?></a>
+                                    <a class="nav-link text-uppercase" href="prodotti.php?cat=<?php echo $categoria["id"]; ?>"><?php echo $categoria["nome"]; ?></a>
                                     <ul class="dropdown-menu text-center col-12 m-0">
                                         <?php foreach ($templateParams["sottoCategorie"] as $subCategoria) :
                                             if ($subCategoria["idCategoria"] == $categoria["id"]) : ?>
