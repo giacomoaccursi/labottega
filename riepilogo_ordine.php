@@ -14,7 +14,7 @@ if (isset($_POST["payed"])) {
     $speseDiSpedizione = 10;
     $totaleOrdine = 0;
     foreach ($prodotti as $prodotto) {
-        $totaleOrdine += $prodotto["prezzoFin"];
+        $totaleOrdine += $prodotto["prezzoFin"]*$prodotto["quantitàDaComprare"];
         $dbh->removeOrderedItemsFromDisponibility($prodotto["id"], $prodotto["quantitàDaComprare"]);
     }
 
