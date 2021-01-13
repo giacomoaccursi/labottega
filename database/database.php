@@ -359,9 +359,9 @@ class DatabaseHelper
         $stmt->execute();
     }
 
-    public function removeDesiredProduct($idProdotto, $idUtente){
-        $stmt = $this->db->prepare("DELETE FROM `prodottiDesiderati` WHERE idProdotto = ? && idUtente = ?");
-        $stmt->bind_param('ss', $idProdotto, $idUtente);
+    public function removeDesiredProduct($id){
+        $stmt = $this->db->prepare("DELETE FROM `prodottiDesiderati` WHERE id = ?");
+        $stmt->bind_param('s', $id);
         $stmt->execute();
     }
 

@@ -1,7 +1,7 @@
 <?php
 require_once 'bootstrap.php';
 if (isUserLoggedIn()) {
-    // $templateParams["js"] = JS_ROOT . "checkout.js";
+    $templateParams["js"] = JS_ROOT . "wishlist.js";
     $templateParams["titolo"] = "LaBottega - Lista dei desideri";
     $templateParams["pagina"] = "lista_desideri_template.php";
     $templateParams["categorie"] = $dbh->getCategories();
@@ -10,5 +10,5 @@ if (isUserLoggedIn()) {
    
     require 'template/base.php';
 } else {
-    header("location: index.php");
+    header("location: login.php");
 }

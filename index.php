@@ -9,7 +9,7 @@ $templateParams["pagina"] = "home.php";
 $templateParams["prodotti"] = $dbh->getBestProducts(8); 
 $templateParams["categorie"] = $dbh->getCategories(); 
 $templateParams["sottoCategorie"] = $dbh->getSubCategories(); 
-$templateParams["js"] = JS_ROOT."carrello.js";
+$templateParams["js"] = JS_ROOT."prodotti.js";
 
 require 'template/base.php';
 ?>

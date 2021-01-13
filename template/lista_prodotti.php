@@ -22,7 +22,7 @@
                     <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>">
                 </form>
                 <form class="d-inline addToWishListForm">
-                    <button type="button" class="btn btn-sm px-3 mb-2 material-tooltip-main" data-toggle="tooltip" data-placement="top" title="Add to wishlist">
+                    <button class="btn btn-sm px-3 mb-2 material-tooltip-main">
                         <i class="far fa-heart fa-lg"></i>
                     </button>
                     <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>">

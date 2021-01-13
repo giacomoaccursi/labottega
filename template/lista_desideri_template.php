@@ -27,27 +27,25 @@
                         <?php endif; ?>
                     </div>
                     <div class="col-8 col-md-4">
-                        <form class=" d-inline addToCartForm">
+                        <form class="d-inline addToCartForm">
                             <button class=" btn btn-sm mb-2">
                                 <i class="fas fa-cart-plus fa-lg px-1 px-sm-0 pr-2"></i>
                             </button>
                             <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>">
                         </form>
-                        <form class=" d-inline pl-2">
+                        <form class="deleteItemFromWishList d-inline pl-2">
                             <button class=" btn btn-sm mb-2">
-                                <div class="deleteItem">
-                                    <i class="fas fa-trash fa-lg px-1 px-sm-0"></i>
-                                </div>
+
+                                <i class="fas fa-trash fa-lg px-1 px-sm-0"></i>
+
                             </button>
-                            <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>">
+                            <input type="hidden" class="productId" value="<?php echo $prodotto["idProdotto"]; ?>">
                         </form>
                     </div>
-                    
-                    <input type="hidden" class="productId" value="<?php echo $prodotto["idProdotto"]; ?>">
                 </div>
                 <hr />
             </div>
-            <hr/>
+            <hr />
         <?php endforeach; ?>
     </div>
 

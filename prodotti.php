@@ -1,7 +1,7 @@
 <?php
 require_once 'bootstrap.php'; 
 
-$templateParams["js"] = JS_ROOT."carrello.js";
+$templateParams["js"] = JS_ROOT."prodotti.js";
 $templateParams["titoloCategoria"] = "Tutti i prodotti"; 
 
 if(isset($_GET["order"])){
