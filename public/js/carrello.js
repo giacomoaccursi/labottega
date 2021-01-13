@@ -6,13 +6,17 @@ $(document).ready(function () {
         $(".productDetails").each(function() { 
             let itemCost = $(this).find(".itemPrice").text();
             itemCost = parseFloat(itemCost.substring(0, itemCost.length - 1)); 
-            itemNumber = $(this).find(".itemQuantity").val(); 
-            subTotal += itemCost * itemNumber; 
+            itemNumber = parseInt($(this).find(".itemQuantity").val()); 
+            subTotal += ((itemCost*10) * itemNumber)/10; 
+            console.log(itemNumber);
+            console.log(itemCost);
+
         });
+        
         let total = subTotal + shippingCost;
-        $("#orderInformation").find("#orderTotal > #totalPrice").text(total + " €"); 
+        $("#orderInformation").find("#orderTotal > #totalPrice").text(Math.round(total*10)/10 + " €"); 
         $("#orderInformation").find("#orderShippingCost > #shippingCost").text(shippingCost + " €"); 
-        $("#orderInformation").find("#orderSubTotal > #subTotalPrice").text(subTotal + " €"); 
+        $("#orderInformation").find("#orderSubTotal > #subTotalPrice").text(Math.round(subTotal*10)/10  + " €"); 
 
     }
 
