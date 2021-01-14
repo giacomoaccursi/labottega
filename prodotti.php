@@ -4,6 +4,17 @@ require_once 'bootstrap.php';
 $templateParams["js"] = JS_ROOT."prodotti.js";
 $templateParams["titoloCategoria"] = "Tutti i prodotti"; 
 
+if(isUserLoggedIn()){
+
+    $templateParams["wishlist"] = $dbh->getAllUserDesiredProductId($_SESSION["id"]); 
+    if(count($templateParams["wishlist"]) > 0){
+        foreach($templateParams["wishlist"] as $prodotto){
+            $prodottiWishlist[] = $prodotto["idProdotto"]; 
+        }
+        $templateParams["wishlist"] = $prodottiWishlist; 
+    }
+}
+
 if(isset($_GET["order"])){
     $templateParams["order"] = $_GET["order"]; 
     switch($templateParams["order"]){

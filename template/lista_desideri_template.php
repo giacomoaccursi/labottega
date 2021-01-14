@@ -39,7 +39,7 @@
                                 <i class="fas fa-trash fa-lg px-1 px-sm-0"></i>
 
                             </button>
-                            <input type="hidden" class="productId" value="<?php echo $prodotto["idProdotto"]; ?>">
+                            <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>">
                         </form>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
 
     <div class="col-lg-2"></div>
 </div>
-<!-- <div id="noItem" class="text-center">
-    <p>Non ci sono prodotti nel carrello </p>
+<div id="noItem" class="text-center">
+    <p>Non ci sono prodotti nella lista dei desideri </p>
     <a href="index.php" class="btn">Torna ad acquistare</a>
-</div> -->
+</div>
