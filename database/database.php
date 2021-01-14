@@ -221,7 +221,7 @@ class DatabaseHelper
 
     public function getCartProducts($idUtente)
     {
-        $stmt = $this->db->prepare("SELECT *,ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, prodottiInCarrello.id as idProdotto  FROM prodottiInCarrello , prodotti WHERE prodottiInCarrello.idProdotto = prodotti.id && idUtente = ? ");
+        $stmt = $this->db->prepare("SELECT *,ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, prodottiInCarrello.id as idProdotto  FROM prodottiInCarrello , prodotti WHERE prodottiInCarrello.idProdotto = prodotti.id && idUtente = ? AND quantità >0");
         $stmt->bind_param('i', $idUtente);
         $stmt->execute();
         $result = $stmt->get_result();

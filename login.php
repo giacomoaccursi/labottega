@@ -30,6 +30,14 @@ if(isset($_GET["action"])){
 
 if(isUserLoggedIn()){
     if($_SESSION["tipo"]==0){
+        $templateParams["prodottiInCarrello"] = $dbh->getCartProducts($_SESSION["id"]);
+        foreach($templateParams["prodottiInCarrello"] as $prodotto){
+            if($prodotto["quantità"]==0){
+                $dbh->insertNotification($_SESSION["id"],"Il prodotto ".$prodotto["nome"]." non è più disponibile.");
+            }elseif($prodotto["quantità"] > 0 && $prodotto["quantità"]<5){
+                $dbh->insertNotification($_SESSION["id"],"Il prodotto ".$prodotto["nome"]." sta per terminare, compralo ora !");
+            }
+        }
         header("location: dashboard.php");
     }elseif($_SESSION["tipo"]==1){
         header("location: admin/index.php");
