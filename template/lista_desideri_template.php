@@ -43,9 +43,9 @@
                         </form>
                     </div>
                 </div>
-                <hr />
+                <hr/>
             </div>
-            <hr />
+            
         <?php endforeach; ?>
     </div>
 

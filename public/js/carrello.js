@@ -26,23 +26,7 @@ $(document).ready(function () {
             $("div#noItem").show(); 
         }
     }
-    // function addToCart(e) {
-    //     e.preventDefault();
-    //     let itemToAdd = $(e.target).find("input.productId").val();
-
-    //     $.ajax({
-    //         url: "gestioneCarrello.php",
-    //         type: "POST",
-    //         cache: false,
-    //         data: {
-    //             itemToAdd: itemToAdd
-    //         },
-    //         success: function () { 
-    //             toastr.success("Prodotto aggiunto al carrello!"); 
-    //         }
-    //     });
-    // }
-
+   
     function incrementValue(e) {
         e.preventDefault();
         let fieldName = $(e.target).data('field');
@@ -114,9 +98,6 @@ $(document).ready(function () {
     checkItem(); 
     calculateOrderPrice(); 
 
-    // $(".addToCartForm").submit(function (e) {
-    //     addToCart(e);
-    // });
 
     $('.input-group').on('click', '.button-plus', function (e) {
         incrementValue(e);

@@ -9,7 +9,6 @@ $(document).ready(function () {
     function addToCart(e) {
         e.preventDefault();
         let itemToAdd = $(e.target).find("input.productId").val();
-        console.log(itemToAdd); 
 
         $.ajax({
             url: "gestioneCarrello.php",
@@ -34,7 +33,7 @@ $(document).ready(function () {
                 itemToDelete: itemToDelete
             }
         });
-        e.target.closest("itemContainer").remove(); 
+        e.target.closest(".productDetails").remove(); 
         checkItem();
 
     }

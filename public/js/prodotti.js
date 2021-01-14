@@ -20,7 +20,6 @@ $(document).ready(function () {
     function addToWishList(e) {
         e.preventDefault();
         let itemToAdd = $(e.target).find("input.productId").val();
-        console.log(itemToAdd); 
 
         $.ajax({
             url: "gestione_wishlist.php",
