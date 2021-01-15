@@ -9,11 +9,11 @@
                 <div class="text-center text-md-left">
                     <p class="lead">
                         <?php if ($prodotto["sconto"] > 0) : ?>
-                            <span class="mr-1">
-                                <del><?php echo $prodotto["prezzo"]; ?> $</del>
-                            </span>
+                            <span class="text-danger font-weight-bold"><?php echo $prodotto["prezzoFin"]; ?>€</span>
+                            <span class="text-grey"><s><?php echo $prodotto["prezzo"]; ?>€</s></span>
+                        <?php else : ?>
+                            <span class="font-weight-bold mx-1"><?php echo $prodotto["prezzo"]; ?>€</span>
                         <?php endif; ?>
-                        <span class="font-weight-bold"><?php echo $prodotto["prezzoFin"]; ?> $</span>
                     </p>
                     <div class="buttons">
                         <form class="d-inline justify-content-center justify-content-md-start">
@@ -24,7 +24,7 @@
                         </form>
                         <form class="d-inline justify-content-center justify-content-md-start">
                             <button class=" btn btn-primary btn-md mt-2 mt-sm-0" type="submit">Aggiungi ai desideri
-                            <i class="fas fa-heart ml-1"></i>
+                                <i class="fas fa-heart ml-1"></i>
                             </button>
                             <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>">
                         </form>
