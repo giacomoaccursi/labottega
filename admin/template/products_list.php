@@ -4,7 +4,7 @@
     <div class="col-12 col-md-8 text-center my-4 nopadding">
         <h1>Elenco Prodotti</h1>
         <?php if (count($templateParams["prodotti"]) > 0) : ?>
-            <table class=" table text-center admin-basic-table">
+            <!-- <table class=" table text-center admin-basic-table">
                 <div class="row ">
                     <thead class="table-dark">
                         <tr>
@@ -26,7 +26,24 @@
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
-            </table>
+            </table> -->
+            <div class="row pt-2 pb-2 mt-3 admin-products-list-title text-center">
+            <div class="col-1">ID</div>
+            <div class="col-4">Nome</div>
+            <div class="col-3">Marca</div>
+            <div class="col-2">Quantità</div>
+            <div class="col-2">Prezzo</div>
+            </div>
+            <?php foreach ($templateParams["prodotti"] as $prodotto) : ?>
+            <div class="row pt-2 text-center">
+            <div class="col-1"><?php echo ($prodotto["id"]); ?></div>
+            <div class="col-4"><?php echo ($prodotto["nome"]); ?></div>
+            <div class="col-3"><?php echo ($prodotto["marca"]); ?></div>
+            <div class="col-2"><?php echo ($prodotto["quantità"]); ?></div>
+            <div class="col-2"><?php echo ($prodotto["prezzo"]); ?> €</div>
+            </div>
+            <?php endforeach; ?>
+
         <?php else : ?>
             <p> Non ci sono prodotti da visualizzare. </p>
         <?php endif; ?>

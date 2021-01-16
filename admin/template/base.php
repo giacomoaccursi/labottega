@@ -52,6 +52,10 @@
                         <i class="fas fa-envelope pr-2"></i>
                         Inserisci Notifica
                     </a>
+                    <a href="logout.php">
+                        <i class="fas fa-user pr-2"></i>
+                        LOGOUT
+                    </a>
                 </aside>
             </div>
             <div class="col-12 col-md-10">

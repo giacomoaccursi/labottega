@@ -308,7 +308,7 @@ class DatabaseHelper
     }
 
     public function getNotificationsByUser($idCliente){
-        $stmt = $this->db->prepare("SELECT *  FROM notifiche WHERE idCliente = ?  ORDER BY 'data' DESC");
+        $stmt = $this->db->prepare("SELECT messaggio,data  FROM notifiche WHERE idCliente = ?  ORDER BY data DESC");
         $stmt->bind_param('i', $idCliente);
         $stmt->execute();
         $result = $stmt->get_result();

@@ -38,6 +38,7 @@ if(isUserLoggedIn()){
                 $dbh->insertNotification($_SESSION["id"],"Il prodotto ".$prodotto["nome"]." sta per terminare, compralo ora !");
             }
         }
+        sendEmail('aropmaca9991@gmail.com','Benvenuto','benvenuto nella bottega');
         header("location: dashboard.php");
     }elseif($_SESSION["tipo"]==1){
         header("location: admin/index.php");
