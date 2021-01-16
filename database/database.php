@@ -359,9 +359,9 @@ class DatabaseHelper
         $stmt->execute();
     }
 
-    public function removeDesiredProduct($id){
-        $stmt = $this->db->prepare("DELETE FROM `prodottiDesiderati` WHERE id = ?");
-        $stmt->bind_param('s', $id);
+    public function removeDesiredProduct($idProdotto, $idUtente){
+        $stmt = $this->db->prepare("DELETE FROM `prodottiDesiderati` WHERE idProdotto = ? && idUtente = ?");
+        $stmt->bind_param('ss', $idProdotto, $idUtente);
         $stmt->execute();
     }
 
@@ -373,6 +373,21 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getAllUserDesiredProductId($idUtente){
+        $stmt = $this->db->prepare("SELECT idProdotto FROM `prodottiDesiderati` WHERE idUtente = ?");
+        $stmt->bind_param('s', $idUtente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC); 
+    }
+
+    public function isProductInWishList($idProdotto, $idUtente){
+        $stmt = $this->db->prepare("SELECT * FROM `prodottiDesiderati` WHERE idProdotto = ? && idUtente = ?");
+        $stmt->bind_param('ss', $idProdotto, $idUtente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return mysqli_num_rows($result) > 0;
+    }
 
 
 

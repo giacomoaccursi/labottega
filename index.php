@@ -10,6 +10,16 @@ $templateParams["prodotti"] = $dbh->getBestProducts(8);
 $templateParams["categorie"] = $dbh->getCategories(); 
 $templateParams["sottoCategorie"] = $dbh->getSubCategories(); 
 $templateParams["js"] = JS_ROOT."prodotti.js";
+if(isUserLoggedIn()){
+
+    $templateParams["wishlist"] = $dbh->getAllUserDesiredProductId($_SESSION["id"]); 
+    if(count($templateParams["wishlist"]) > 0){
+        foreach($templateParams["wishlist"] as $prodotto){
+            $prodottiWishlist[] = $prodotto["idProdotto"]; 
+        }
+        $templateParams["wishlist"] = $prodottiWishlist; 
+    }
+}
 
 require 'template/base.php';
 ?>

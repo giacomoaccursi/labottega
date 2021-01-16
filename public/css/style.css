@@ -20,6 +20,10 @@
 .white-icon{
     color: white !important; 
 }
+
+.red-icon{
+    color: red !important; 
+}
 /* CARRELLO*/
 input,
 textarea {
