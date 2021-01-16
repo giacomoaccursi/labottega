@@ -26,14 +26,14 @@
                         <?php if (isUserLoggedIn()) : ?>
                             <?php if (!in_array($prodotto["id"], $templateParams["wishlist"])) : ?>
                                 <form class="d-inline addToWishListForm">
-                                    <button class="btn px-3 material-tooltip-main">
+                                    <button class="btn bg-transparent px-3 material-tooltip-main">
                                         <i class="far fa-heart fa-lg"></i>
                                     </button>
                                     <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>" />
                                 </form>
                             <?php else : ?>
                                 <form class="d-inline removeFromWishListForm">
-                                    <button class="btn px-3 material-tooltip-main">
+                                    <button class="btn bg-transparent px-3 material-tooltip-main">
                                         <i class="red-icon fas fa-heart fa-lg"></i>
                                     </button>
                                     <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>" />
