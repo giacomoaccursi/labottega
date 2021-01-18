@@ -14,7 +14,7 @@ class DatabaseHelper
 
     public function getRandomProducts()
     {
-        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin,id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti WHERE quantità > 0 ORDER BY RAND() ");
+        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin,id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti ORDER BY RAND() ");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -22,7 +22,7 @@ class DatabaseHelper
 
     public function getAllProducts()
     {
-        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin,id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti WHERE quantità > 0 ORDER BY id ");
+        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin,id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti ORDER BY id ");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -30,7 +30,7 @@ class DatabaseHelper
 
     public function getBestProducts($n)
     {
-        $stmt = $this->db->prepare("SELECT  ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti WHERE quantità > 0 ORDER BY RAND() LIMIT ?");
+        $stmt = $this->db->prepare("SELECT  ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti  ORDER BY RAND() LIMIT ?");
         $stmt->bind_param('i', $n);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -38,21 +38,21 @@ class DatabaseHelper
     }
     public function getProductsByDate()
     {
-        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti WHERE quantità > 0 ORDER BY dataInserimento");
+        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti  ORDER BY dataInserimento");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function getProductsByPriceAsc()
     {
-        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti WHERE quantità > 0 ORDER BY prezzoFin ASC");
+        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti ORDER BY prezzoFin ASC");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function getProductsByPriceDesc()
     {
-        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti WHERE quantità > 0 ORDER BY prezzoFin DESC");
+        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti  ORDER BY prezzoFin DESC");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -60,7 +60,7 @@ class DatabaseHelper
 
     public function getProductsByPopularity()
     {
-        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti WHERE quantità > 0");
+        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti ");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -68,7 +68,7 @@ class DatabaseHelper
 
     public function getProductsByCategory($categoria)
     {
-        $stmt = $this->db->prepare("SELECT  prodotti.id, prodotti.nome, marca, descrizione, prezzo, ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti, sottoCategorie, categorie WHERE prodotti.idSottocategoria = sottoCategorie.id && sottoCategorie.idCategoria = categorie.id && categorie.id = ? && quantità > 0");
+        $stmt = $this->db->prepare("SELECT  prodotti.id, prodotti.nome, marca, descrizione, prezzo, ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti, sottoCategorie, categorie WHERE prodotti.idSottocategoria = sottoCategorie.id && sottoCategorie.idCategoria = categorie.id && categorie.id = ?");
         $stmt->bind_param('i', $categoria);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -76,7 +76,7 @@ class DatabaseHelper
     }
     public function getProductsBySubCategory($sottoCategoria)
     {
-        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, prodotti.id, prodotti.nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti, sottoCategorie WHERE idSottoCategoria = ? AND quantità > 0");
+        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, prodotti.id, prodotti.nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti, sottoCategorie WHERE idSottoCategoria = ?");
         $stmt->bind_param('i', $sottoCategoria);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -91,7 +91,6 @@ class DatabaseHelper
         $result = $stmt->get_result();
         $result = $result->fetch_all(MYSQLI_ASSOC);
         return $result[0];
-        
     }
 
     public function getCategoryById($id)
@@ -116,7 +115,7 @@ class DatabaseHelper
 
     public function getProductsInSale()
     {
-        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti WHERE sconto > 0 AND quantità > 0");
+        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti WHERE sconto > 0 ");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -182,9 +181,9 @@ class DatabaseHelper
         $stmt->execute();
         $result = $stmt->get_result();
         $result = $result->fetch_all(MYSQLI_ASSOC);
-        if(password_verify($input_password,$result[0]["password"])){
+        if (password_verify($input_password, $result[0]["password"])) {
             return $result[0];
-        }else{
+        } else {
             return -1;
         }
     }
@@ -200,14 +199,14 @@ class DatabaseHelper
     public function insertNewProduct($nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria)
     {
         $stmt = $this->db->prepare("INSERT INTO `prodotti`(`nome`, `marca`, `descrizione`, `prezzo`,`immagine`,`quantità`,`idSottoCategoria`) VALUES (?,?,?,?,?,?,?) ");
-        $stmt->bind_param('sssdsii', $nome, $marca, $descrizione,$prezzo, $immagine,$quantita,$categoria);
+        $stmt->bind_param('sssdsii', $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria);
         $stmt->execute();
     }
 
-    public function modifyProduct($id,$nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria)
+    public function modifyProduct($id, $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria)
     {
         $stmt = $this->db->prepare("UPDATE `prodotti` SET `nome` = ?, `marca` = ? ,`descrizione` = ?, `prezzo` = ?,`immagine` = ?,`quantità` = ?,`idSottoCategoria` = ? WHERE `prodotti`.`id` = ? ");
-        $stmt->bind_param('sssdsiii', $nome, $marca, $descrizione,$prezzo, $immagine,$quantita,$categoria,$id);
+        $stmt->bind_param('sssdsiii', $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria, $id);
         $stmt->execute();
     }
 
@@ -230,9 +229,9 @@ class DatabaseHelper
 
     public function deleteCartProducts($idUtente)
     {
-            $stmt = $this->db->prepare("DELETE FROM `prodottiInCarrello` WHERE idUtente = ?");
-            $stmt->bind_param('i', $idUtente);
-            $stmt->execute();
+        $stmt = $this->db->prepare("DELETE FROM `prodottiInCarrello` WHERE idUtente = ?");
+        $stmt->bind_param('i', $idUtente);
+        $stmt->execute();
     }
 
     public function removeOrderedItemsFromDisponibility($idProdotto, $quantita)
@@ -251,46 +250,94 @@ class DatabaseHelper
         return mysqli_num_rows($result) > 0;
     }
 
+
+    public function getProductQuantity($productId)
+    {
+        $stmt = $this->db->prepare("SELECT quantità FROM prodotti WHERE id = ?");
+        $stmt->bind_param('i', $productId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        return $result[0]["quantità"];
+    }
+
+    public function getProductCartQuantity($productId, $idUtente)
+    {
+        $stmt = $this->db->prepare("SELECT quantitàDaComprare FROM prodottiInCarrello WHERE idProdotto = ? && idUtente = ?");
+        $stmt->bind_param('ii', $productId, $idUtente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        return $result[0]["quantitàDaComprare"];
+    }
+
     public function insertProductInCart($idUtente, $idProdotto)
     {
         if ($this->isProductInCart($idProdotto, $idUtente)) {
-            $stmt = $this->db->prepare("UPDATE `prodottiInCarrello` SET `quantitàDaComprare` = `quantitàDaComprare` + 1 WHERE `idProdotto` = ? && `idUtente` = ?");
-            $stmt->bind_param('ii', $idProdotto, $idUtente);
-            $stmt->execute();
+            if ($this->getProductQuantity($idProdotto) > $this->getProductCartQuantity($idProdotto, $idUtente)) {
+                $stmt = $this->db->prepare("UPDATE `prodottiInCarrello` SET `quantitàDaComprare` = `quantitàDaComprare` + 1 WHERE `idProdotto` = ? && `idUtente` = ?");
+                $stmt->bind_param('ii', $idProdotto, $idUtente);
+                $stmt->execute();
+                return true;
+            } else {
+                return false;
+            }
         } else {
             $stmt = $this->db->prepare("INSERT INTO `prodottiInCarrello`(`idUtente`, `idProdotto`) VALUES (?, ?)");
             $stmt->bind_param('ii', $idUtente, $idProdotto);
             $stmt->execute();
+            return true;
         }
     }
 
-    public function insertNotification($idCliente,$messaggio){
-        if($idCliente==0){
-            $clienti = $this -> getAllCustomers();
-            foreach($clienti as $cliente){
+
+
+    public function updateCartProductsQuantity($id, $quantita)
+    {
+        $prodotto = $this->getDataFromCartProductId($id); 
+        if($this->getProductQuantity($prodotto["idProdotto"]) >= $quantita){
+            $stmt = $this->db->prepare("UPDATE `prodottiInCarrello` SET `quantitàDaComprare` = ? WHERE `id` = ?");
+            $stmt->bind_param('ii', $quantita, $id);
+            $stmt->execute();
+            return true; 
+        }
+        return false; 
+
+
+    }
+
+    public function getDataFromCartProductId($id)
+    {
+        $stmt = $this->db->prepare("SELECT idProdotto, idUtente FROM prodottiInCarrello WHERE id = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        return $result[0]; 
+    }
+
+    public function insertNotification($idCliente, $messaggio)
+    {
+        if ($idCliente == 0) {
+            $clienti = $this->getAllCustomers();
+            foreach ($clienti as $cliente) {
                 $stmt = $this->db->prepare("INSERT INTO `notifiche`(`idCliente`, `messaggio`) VALUES (?, ?)");
                 $stmt->bind_param('is', $cliente["id"], $messaggio);
                 $stmt->execute();
             }
-        }else{
+        } else {
             $stmt = $this->db->prepare("INSERT INTO `notifiche`(`idCliente`, `messaggio`) VALUES (?, ?)");
             $stmt->bind_param('is', $idCliente, $messaggio);
             $stmt->execute();
         }
-
     }
-    public function addNewEmail($email){
+    public function addNewEmail($email)
+    {
         $stmt = $this->db->prepare("INSERT INTO `newsletter`(`email`) VALUES (?)");
         $stmt->bind_param('s', $email);
         $stmt->execute();
     }
 
-    public function updateCartProductsQuantity($id, $quantita)
-    {
-        $stmt = $this->db->prepare("UPDATE `prodottiInCarrello` SET `quantitàDaComprare` = ? WHERE `id` = ?");
-        $stmt->bind_param('ii', $quantita, $id);
-        $stmt->execute();
-    }
 
     public function deleteItemFromCart($id)
     {
@@ -299,7 +346,8 @@ class DatabaseHelper
         $stmt->execute();
     }
 
-    public function getOrdersByUser($idUtente){
+    public function getOrdersByUser($idUtente)
+    {
         $stmt = $this->db->prepare("SELECT *  FROM ordini WHERE idUtente = ?  ORDER BY dataOrdine DESC");
         $stmt->bind_param('i', $idUtente);
         $stmt->execute();
@@ -307,7 +355,8 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getNotificationsByUser($idCliente){
+    public function getNotificationsByUser($idCliente)
+    {
         $stmt = $this->db->prepare("SELECT messaggio,data  FROM notifiche WHERE idCliente = ?  ORDER BY data DESC");
         $stmt->bind_param('i', $idCliente);
         $stmt->execute();
@@ -315,7 +364,8 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getOrderDetails($idOrdine){
+    public function getOrderDetails($idOrdine)
+    {
         $stmt = $this->db->prepare("SELECT prodotti.nome, prodotti.immagine, ordini.id, dettagliOrdini.prezzo, dettagliOrdini.quantita
                                     FROM dettagliOrdini,ordini,prodotti
                                     WHERE dettagliOrdini.idOrdine = ordini.id AND dettagliOrdini.idProdotto = prodotti.id AND dettagliOrdini.idOrdine = ?");
@@ -325,47 +375,54 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function addNewSpedizione($nome, $cognome, $indirizzo, $citta, $nazione){
+    public function addNewSpedizione($nome, $cognome, $indirizzo, $citta, $nazione)
+    {
 
         $stmt = $this->db->prepare("INSERT INTO `spedizioni`(`nome`, `cognome`, `indirizzo`, `citta`, `nazione`) VALUES (?,?,?,?,?)");
         $stmt->bind_param('sssss', $nome, $cognome, $indirizzo, $citta, $nazione);
         $stmt->execute();
-        return $this->db->insert_id;   
+        return $this->db->insert_id;
     }
 
-    public function addNewOrder($totaleOrdine, $idUtente, $idSpedizione, $tipoPagamento, $stato){
+    public function addNewOrder($totaleOrdine, $idUtente, $idSpedizione, $tipoPagamento, $stato)
+    {
         $stmt = $this->db->prepare("INSERT INTO `ordini`(`totaleOrdine`,`idUtente`, `idSpedizione`, `tipoPagamento`, `stato`) VALUES (?,?,?,?,?)");
         $stmt->bind_param('sssss', $totaleOrdine, $idUtente, $idSpedizione, $tipoPagamento, $stato);
         $stmt->execute();
-        return $this->db->insert_id; 
+        return $this->db->insert_id;
     }
 
-    public function getAllPaymentsType(){
+    public function getAllPaymentsType()
+    {
         $stmt = $this->db->prepare("SELECT * FROM `pagamenti`");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function addNewOrderDetail($idProdotto, $idOrdine, $prezzo, $quantita){
+    public function addNewOrderDetail($idProdotto, $idOrdine, $prezzo, $quantita)
+    {
         $stmt = $this->db->prepare("INSERT INTO `dettagliOrdini`(`idProdotto`,`idOrdine`, `prezzo`, `quantita`) VALUES (?,?,?,?)");
         $stmt->bind_param('ssss', $idProdotto, $idOrdine, $prezzo, $quantita);
         $stmt->execute();
     }
 
-    public function addNewDesiredProduct($idProdotto, $idUtente){
+    public function addNewDesiredProduct($idProdotto, $idUtente)
+    {
         $stmt = $this->db->prepare("INSERT INTO `prodottiDesiderati`(`idProdotto`,`idUtente`) VALUES (?,?)");
         $stmt->bind_param('ss', $idProdotto, $idUtente);
         $stmt->execute();
     }
 
-    public function removeDesiredProduct($idProdotto, $idUtente){
+    public function removeDesiredProduct($idProdotto, $idUtente)
+    {
         $stmt = $this->db->prepare("DELETE FROM `prodottiDesiderati` WHERE idProdotto = ? && idUtente = ?");
         $stmt->bind_param('ss', $idProdotto, $idUtente);
         $stmt->execute();
     }
 
-    public function getAllUserDesiredProduct($idUtente){
+    public function getAllUserDesiredProduct($idUtente)
+    {
         $stmt = $this->db->prepare("SELECT *,ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, prodottiDesiderati.id as idProdotto  FROM prodottiDesiderati , prodotti WHERE prodottiDesiderati.idProdotto = prodotti.id && idUtente = ?");
         $stmt->bind_param('s', $idUtente);
         $stmt->execute();
@@ -373,23 +430,21 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getAllUserDesiredProductId($idUtente){
+    public function getAllUserDesiredProductId($idUtente)
+    {
         $stmt = $this->db->prepare("SELECT idProdotto FROM `prodottiDesiderati` WHERE idUtente = ?");
         $stmt->bind_param('s', $idUtente);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC); 
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function isProductInWishList($idProdotto, $idUtente){
+    public function isProductInWishList($idProdotto, $idUtente)
+    {
         $stmt = $this->db->prepare("SELECT * FROM `prodottiDesiderati` WHERE idProdotto = ? && idUtente = ?");
         $stmt->bind_param('ss', $idProdotto, $idUtente);
         $stmt->execute();
         $result = $stmt->get_result();
         return mysqli_num_rows($result) > 0;
     }
-
-
-
 }
-

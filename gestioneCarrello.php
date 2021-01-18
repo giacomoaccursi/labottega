@@ -5,10 +5,12 @@ if (isset($_POST["currentVal"])) {
     $productId = $_POST["productId"];
     $currentVal = $_POST["currentVal"];
     if (isUserLoggedIn()) {
-        $dbh->updateCartProductsQuantity($productId, $currentVal);
+        $update = $dbh->updateCartProductsQuantity($productId, $currentVal);
+        print($update); 
     } else {
         updateCartProductsQuantity($productId, $currentVal);
     }
+    
 }
 
 if (isset($_POST["itemToDelete"])) {

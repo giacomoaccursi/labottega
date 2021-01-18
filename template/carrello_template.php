@@ -5,6 +5,9 @@
         <?php
         foreach ($templateParams["prodottiInCarrello"] as $prodotto) :
         ?>
+            <div class="notAvailableQuantity bg-warning font-weight-bold text-center">
+                Quantità selezionatà non disponibile
+            </div>
             <div class="productDetails row align-items-center">
                 <div class="col-3 col-sm-2">
                     <a href="<?php echo ("prodotto.php?id=" . $prodotto["id"]); ?>">
@@ -36,7 +39,6 @@
             <hr />
         <?php endforeach; ?>
     </div>
-
 
     <div id="orderInformation" class="col-xl-3">
         <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Riepilogo</div>

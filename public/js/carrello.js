@@ -8,8 +8,6 @@ $(document).ready(function () {
             itemCost = parseFloat(itemCost.substring(0, itemCost.length - 1)); 
             itemNumber = parseInt($(this).find(".itemQuantity").val()); 
             subTotal += ((itemCost*10) * itemNumber)/10; 
-            console.log(itemNumber);
-            console.log(itemCost);
 
         });
         
@@ -39,7 +37,6 @@ $(document).ready(function () {
         } else {
             currentVal = 1;
         }
-        parent.find('input[name=' + fieldName + ']').val(currentVal);
         $.ajax({
             url: "gestioneCarrello.php",
             type: "POST",
@@ -47,9 +44,17 @@ $(document).ready(function () {
             data: {
                 productId: productId,
                 currentVal: currentVal
+            },
+            success: function(data){
+                if(data == false){
+                    currentVal-=1; 
+                    // $(".notAvailableQuantity").fadeIn(); 
+                    $(e.target).closest(".productDetails").prev(".notAvailableQuantity").fadeIn().delay(3000).fadeOut(); 
+                }
+                parent.find('input[name=' + fieldName + ']').val(currentVal);
+                calculateOrderPrice(); 
             }
         });
-        calculateOrderPrice(); 
     }
 
     function decrementValue(e) {
@@ -77,6 +82,37 @@ $(document).ready(function () {
     }
 
 
+
+    function changeValue(e) {
+        e.preventDefault();
+        let parent = $(e.target).closest('div');
+        let productId = parent.siblings("input.productId").val();
+        let currentVal = parseInt($(e.target).val(), 10); 
+
+        if (isNaN(currentVal)) {
+            currentVal = 1;
+        }
+
+        $.ajax({
+            url: "gestioneCarrello.php",
+            type: "POST",
+            cache: false,
+            data: {
+                productId: productId,
+                currentVal: currentVal
+            },
+            success: function(data){
+                if(data == false){
+                    $(e.target).closest(".productDetails").prev(".notAvailableQuantity").fadeIn().delay(3000).fadeOut(); 
+                    currentVal = 1; 
+                }
+                $(e.target).val(currentVal);
+                calculateOrderPrice(); 
+            }
+        });
+    }
+
+
     function deleteItem(e) {
         let parent = $(e.target).closest('div');
         let productId = parent.siblings("input.productId").val();
@@ -95,6 +131,7 @@ $(document).ready(function () {
     }
 
     $("div#noItem").hide(); 
+    $(".notAvailableQuantity").hide(); 
     checkItem(); 
     calculateOrderPrice(); 
 
@@ -106,6 +143,11 @@ $(document).ready(function () {
     $('.input-group').on('click', '.button-minus', function (e) {
         decrementValue(e);
     });
+    
+    $('.input-group').on('focusout', '.itemQuantity', function (e) {
+        changeValue(e);
+    });
+
 
     $('.deleteItem').click(function (e) {
         deleteItem(e);
