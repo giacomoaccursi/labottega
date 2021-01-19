@@ -47,8 +47,8 @@ $(document).ready(function () {
             },
             success: function(data){
                 if(data == false){
+
                     currentVal-=1; 
-                    // $(".notAvailableQuantity").fadeIn(); 
                     $(e.target).closest(".productDetails").prev(".notAvailableQuantity").fadeIn().delay(3000).fadeOut(); 
                 }
                 parent.find('input[name=' + fieldName + ']').val(currentVal);
@@ -88,7 +88,6 @@ $(document).ready(function () {
         let parent = $(e.target).closest('div');
         let productId = parent.siblings("input.productId").val();
         let currentVal = parseInt($(e.target).val(), 10); 
-
         if (isNaN(currentVal)) {
             currentVal = 1;
         }

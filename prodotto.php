@@ -6,7 +6,7 @@ $templateParams["titolo"] = "LaBottega - Prodotto";
 $templateParams["pagina"] = "prodotto_template.php";
 $templateParams["categorie"] = $dbh->getCategories(); 
 $templateParams["sottoCategorie"] = $dbh->getSubCategories();
-
+$templateParams["prodottiConsigliati"] = []; 
 if(isUserLoggedIn()){
 
     $templateParams["wishlist"] = $dbh->getAllUserDesiredProductId($_SESSION["id"]); 
@@ -19,7 +19,15 @@ if(isUserLoggedIn()){
 }
 
 if (isset($_GET["id"])){
-    $prodotto = $dbh->getProductById((int)$_GET["id"]);  
+    $prodotto = $dbh->getProductById((int)$_GET["id"]);
+    $consigli = $dbh->getBestProductInOrdersByCategory($prodotto["id"], $prodotto["idCategoria"]);
+    $consigliati = []; 
+    foreach($consigli as $prodottoConsigliato){
+        $consigliati[] = $dbh->getProductById($prodottoConsigliato["idProdotto"]);
+
+    }
+    $templateParams["prodottiConsigliati"] = $consigliati; 
+
 }
 
 require 'template/base.php';

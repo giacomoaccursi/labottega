@@ -53,4 +53,7 @@
             </div>
         </div>
     </div>
+    <?php
+    require("prodotti_consigliati.php");
+    ?>
 </div>
