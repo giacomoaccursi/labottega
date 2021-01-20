@@ -85,7 +85,7 @@ class DatabaseHelper
 
     public function getProductById($productId)
     {
-        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti WHERE id = ?");
+        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, prodotti.id as id, prodotti.nome as nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento, idCategoria FROM prodotti, sottoCategorie WHERE prodotti.idSottoCategoria = sottoCategorie.id && prodotti.id = ?");
         $stmt->bind_param('i', $productId);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -313,12 +313,14 @@ class DatabaseHelper
 
     public function updateCartProductsQuantity($id, $quantita)
     {
-        $prodotto = $this->getDataFromCartProductId($id); 
-        if($this->getProductQuantity($prodotto["idProdotto"]) >= $quantita){
+        $prodotto = $this->getDataFromCartProductId($id);
+        if ($this->getProductQuantity($prodotto["idProdotto"]) >= $quantita) {
             $stmt = $this->db->prepare("UPDATE `prodottiInCarrello` SET `quantitàDaComprare` = ? WHERE `id` = ?");
             $stmt->bind_param('ii', $quantita, $id);
             $stmt->execute();
-            return true; 
+            return true;
+        } else {
+            return false;
         }
         return false; 
     }
@@ -330,7 +332,7 @@ class DatabaseHelper
         $stmt->execute();
         $result = $stmt->get_result();
         $result = $result->fetch_all(MYSQLI_ASSOC);
-        return $result[0]; 
+        return $result[0];
     }
 
     public function insertNotification($idCliente, $messaggio)
@@ -474,4 +476,19 @@ class DatabaseHelper
         $result = $stmt->get_result();
         return mysqli_num_rows($result) > 0;
     }
+
+    /************************** */
+    // PROVA ARTICOLI CHE POTREBBERO PIACERTI
+
+    public function getBestProductInOrdersByCategory($productId, $categoria)
+    {
+        $stmt = $this->db->prepare("SELECT idProdotto, SUM(quantita) as quantitàTotale FROM dettagliOrdini WHERE idOrdine in (SELECT idOrdine FROM dettagliOrdini WHERE idProdotto = ?) && idProdotto in (SELECT prodotti.id FROM prodotti, sottoCategorie WHERE idSottoCategoria = sottoCategorie.id && idCategoria = ?) GROUP BY idProdotto ORDER BY quantitàTotale LIMIT 3");
+        $stmt->bind_param('ss', $productId, $categoria);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    //FINE PROVA
+    /**************************************** */
 }

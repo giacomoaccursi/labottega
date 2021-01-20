@@ -20,7 +20,7 @@ if (isset($_POST["payed"])) {
     $totaleOrdine += $speseDiSpedizione;
     $idOrdine = $dbh->addNewOrder($totaleOrdine, $_SESSION["id"], $idSpedizione, $_POST["metodoPagamento"], "In lavorazione");
     foreach ($prodotti as $prodotto) {
-        $dbh->addNewOrderDetail($prodotto["idProdotto"], $idOrdine, $prodotto["prezzoFin"], $prodotto["quantitàDaComprare"]);
+        $dbh->addNewOrderDetail($prodotto["id"], $idOrdine, $prodotto["prezzoFin"], $prodotto["quantitàDaComprare"]);
     }
     $dbh->deleteCartProducts($_SESSION["id"]);
     require 'template/base.php';
@@ -28,3 +28,4 @@ if (isset($_POST["payed"])) {
 } else {
     header("location: index.php");
 }
+?>

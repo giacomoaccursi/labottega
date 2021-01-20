@@ -9,6 +9,7 @@ if (isset($_POST["currentVal"])) {
         print($update); 
     } else {
         updateCartProductsQuantity($productId, $currentVal);
+        print(true); 
     }
     
 }
