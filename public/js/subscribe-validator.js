@@ -2,7 +2,7 @@ const pattern =/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/i
 
 $(document).ready(function(){
 
-    $("div.sign-up-form > form").submit(function(e){
+    $("div.sign-up-form > form, div.new-password-form > form").submit(function(e){
         e.preventDefault();
 
     const pass_1_field = $("input#pass_1");

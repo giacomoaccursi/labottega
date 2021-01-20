@@ -93,6 +93,16 @@ class DatabaseHelper
         return $result[0];
     }
 
+    public function getEmailById($id)
+    {
+        $stmt = $this->db->prepare("SELECT email FROM utenti WHERE id = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        return $result[0]["email"];
+    }
+
     public function getCategoryById($id)
     {
         $stmt = $this->db->prepare("SELECT nome from categorie WHERE id = ?");
@@ -218,6 +228,7 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+
     public function getCartProducts($idUtente)
     {
         $stmt = $this->db->prepare("SELECT *,ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, prodottiInCarrello.id as idProdotto  FROM prodottiInCarrello , prodotti WHERE prodottiInCarrello.idProdotto = prodotti.id && idUtente = ? AND quantità >0");
@@ -240,6 +251,14 @@ class DatabaseHelper
         $stmt->bind_param('ii', $quantita, $idProdotto);
         $stmt->execute();
     }
+
+    public function changePwd($email, $pwd)
+    {
+        $stmt = $this->db->prepare("UPDATE `utenti` SET `password` =  ? WHERE `email` = ?");
+        $stmt->bind_param('ss', $pwd, $email);
+        $stmt->execute();
+    }
+    
 
     private function isProductInCart($idProdotto, $idUtente)
     {
@@ -302,8 +321,6 @@ class DatabaseHelper
             return true; 
         }
         return false; 
-
-
     }
 
     public function getDataFromCartProductId($id)
@@ -318,19 +335,29 @@ class DatabaseHelper
 
     public function insertNotification($idCliente, $messaggio)
     {
-        if ($idCliente == 0) {
-            $clienti = $this->getAllCustomers();
-            foreach ($clienti as $cliente) {
-                $stmt = $this->db->prepare("INSERT INTO `notifiche`(`idCliente`, `messaggio`) VALUES (?, ?)");
-                $stmt->bind_param('is', $cliente["id"], $messaggio);
-                $stmt->execute();
-            }
-        } else {
             $stmt = $this->db->prepare("INSERT INTO `notifiche`(`idCliente`, `messaggio`) VALUES (?, ?)");
             $stmt->bind_param('is', $idCliente, $messaggio);
             $stmt->execute();
-        }
     }
+    
+    public function insertPwdToken($email, $token)
+    {
+            $stmt = $this->db->prepare("INSERT INTO `tokens`(`email`, `token`) VALUES (?, ?)");
+            $stmt->bind_param('ss', $email, $token);
+            $stmt->execute();
+    }
+
+    public function getTokenByEmail($email)
+    {
+            $stmt = $this->db->prepare("SELECT `token` FROM `tokens` WHERE email = ? ORDER BY id DESC");
+            $stmt->bind_param('s', $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $result = $result->fetch_all(MYSQLI_ASSOC);
+            return $result[0]["token"]; 
+    }
+
+
     public function addNewEmail($email)
     {
         $stmt = $this->db->prepare("INSERT INTO `newsletter`(`email`) VALUES (?)");

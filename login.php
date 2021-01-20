@@ -9,17 +9,29 @@ if(isset($_GET["action"])){
                 $templateParams["errorelogin"] = "Errore! Controllare username e password!";
             }else{
                 registerLoggedUser($user_login_result);
+                //CHECK-NOTIFICATIONS
+                $templateParams["prodottiInCarrello"] = $dbh->getCartProducts($_SESSION["id"]);
+                foreach($templateParams["prodottiInCarrello"] as $prodotto){
+                    if($prodotto["quantità"]==0){
+                        $dbh->insertNotification($_SESSION["id"],"Il prodotto ".$prodotto["nome"]." non è più disponibile.");
+                        sendEMail($dbh->getEmailById($_SESSION["id"]),'Prodotto Esaurito','Ti informiamo che il prodotto: '.$prodotto["nome"].' presente nel carrello è esaurito.');
+                    }elseif($prodotto["quantità"] > 0 && $prodotto["quantità"]<5){
+                        $dbh->insertNotification($_SESSION["id"],"Il prodotto ".$prodotto["nome"]." sta per terminare, compralo ora !");
+                        sendEMail($dbh->getEmailById($_SESSION["id"]),'Affrettati, il prodotto sta per terminare','Ti informiamo che il prodotto: '.$prodotto["nome"].' presente nel carrello sta per terminare: COMPRALO ORA!');
+                    }
+               }   
             }
         }
 
     }elseif($_GET["action"]=="register"){
         if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["email"]) && isset($_POST["pass_1"]) && isset($_POST["pass_2"])){
-            if(isValidEmail($_POST["email"],$dbh -> getAllEmails())){
+            if(!isPresentEmail($_POST["email"],$dbh -> getAllEmails())){
                 $hashedPassword = password_hash($_POST["pass_1"], PASSWORD_DEFAULT);
                 $dbh-> registerNewUser($_POST["nome"],$_POST["cognome"],$_POST["email"],$hashedPassword);
                 $user_login_result = $dbh -> checkLogin($_POST["email"],$_POST["pass_1"]);
                 if($user_login_result != -1){
                     registerLoggedUser($user_login_result);
+                    sendEMail($dbh->getEmailById($_SESSION["id"]),'Benvenuto!','Ti diamo il benvenuto nel nostro sito. Scopri ora tutti i prodotti!');
                 }
             }else{
                 $templateParams["erroreEmail"] = "Errore: L'email inserita è gia presente!";
@@ -30,15 +42,6 @@ if(isset($_GET["action"])){
 
 if(isUserLoggedIn()){
     if($_SESSION["tipo"]==0){
-        $templateParams["prodottiInCarrello"] = $dbh->getCartProducts($_SESSION["id"]);
-        foreach($templateParams["prodottiInCarrello"] as $prodotto){
-            if($prodotto["quantità"]==0){
-                $dbh->insertNotification($_SESSION["id"],"Il prodotto ".$prodotto["nome"]." non è più disponibile.");
-            }elseif($prodotto["quantità"] > 0 && $prodotto["quantità"]<5){
-                $dbh->insertNotification($_SESSION["id"],"Il prodotto ".$prodotto["nome"]." sta per terminare, compralo ora !");
-            }
-        }
-        sendEmail('aropmaca9991@gmail.com','Benvenuto','benvenuto nella bottega');
         header("location: dashboard.php");
     }elseif($_SESSION["tipo"]==1){
         header("location: admin/index.php");
@@ -53,5 +56,8 @@ $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["sottoCategorie"] = $dbh->getSubCategories(); 
 $templateParams["js"] = JS_ROOT.'subscribe-validator.js';
 
+function checkNotifications(){
+
+}
 require 'template/base.php';
 ?>

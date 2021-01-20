@@ -9,20 +9,22 @@ function isUserLoggedIn(){
     return !empty($_SESSION['id']);
 }
 
-function isValidEmail($input_email,$allEmails){
+function isPresentEmail($input_email,$allEmails){
     foreach($allEmails as $email ){
         if($email["email"] == $input_email){
-            return false;
+            return true;
         }
     }
-    return true;
+    return false;
 }
 
-function sendEmail($to,$subject,$message){
-    $headers =  'From: webmaster@example.com' . "\r\n" .
-                'Reply-To: webmaster@example.com' . "\r\n" .
-                'X-Mailer: PHP/' . phpversion();
-    mail($to,$subject,$message,$headers);
+function sendEMail($to_email,$subject,$message){
+    $headers = 'From: labottega@amministrazione.com';
+    mail($to_email,$subject,$message,$headers);
+}
+
+function generateRandomCode(){
+    return rand(10000,99999);
 }
 
 ?>

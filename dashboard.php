@@ -12,6 +12,4 @@ if (isUserLoggedIn()) {
     header("location: login.php");
 }
 
-
-
 require 'template/base.php';
