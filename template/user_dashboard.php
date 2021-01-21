@@ -1,12 +1,6 @@
 <div class="row col-12">
   <div class="col-lg-2 col-md-1"></div>
   <div class="dashboard-tab col-12 col-lg-8 col-md-10">
-    <div class="row ">
-      <a href="#Ordini" class="btn tablinks col-3 py-2">ORDINI</a>
-      <a href="#Notifiche" class="btn tablinks col-3 py-2">NOTIFICHE</a>
-      <a href="#Account" class="btn tablinks col-3 py-2">ACCOUNT</a>
-      <a href="logout.php" class="btn tablinks col-3 py-2">LOGOUT</a>
-    </div>
   </div>
   <div class="col-lg-2 col-md-1"></div>
 </div>
@@ -73,12 +67,4 @@
     <?php endif; ?>
   </div>
   <div class="col-lg-2 col-md-1"></div>
-</div>
-
-<div class="row text-center mt-2 pt-2">
-  <div id="Account" class="col-12 text-center">
-    <h3 class="dashboard-section-title">Account</h3>
-    <a href="logout.php" class=" btn btn-dark mt-3" >LOGOUT</a>
-    <a href="#" class="btn btn-dark mt-3" >CAMBIA PASSWORD</a>
-  </div>
 </div>

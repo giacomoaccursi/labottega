@@ -3,7 +3,6 @@
 
 .header-section{
    background-color: #393e46;
-  /* background: linear-gradient(90deg, rgba(147,145,145,1) 0%, rgba(84,84,84,1) 52%, rgba(48,48,51,1) 100%); */
 }
 
 .checkoutButton{
@@ -103,7 +102,7 @@ img#logo{
     width: 60px; 
 }
 
-/* non funzia perchè va in conflitto con altra roba da spostare */
+
 .addToCartButton{
     background-color: #ffd369;
     color: #000;
@@ -136,12 +135,6 @@ img#logo{
     background-color: #ffd369; 
     
 }
-/* #compra-ora:hover{
-    color: black;
-    font-weight: bold;
-    border: solid;
-    background-color: #ffd269ab;; 
-} */
 
 
 h1{
@@ -152,7 +145,7 @@ h1{
 
 .page-title{
     font-weight: bold;
-    text-decoration: underline;
+
 }
 a#title-link{
     color:rgb(0, 0, 0);

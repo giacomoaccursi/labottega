@@ -17,7 +17,7 @@
                     </p>
                     <div class="buttons">
                         <form class="addToCartForm d-inline justify-content-center justify-content-md-start">
-                            <button class="btn btn-primary " type="submit">Aggiungi al carrello
+                            <button class="btn addToCartButton" type="submit">Aggiungi al carrello
                                 <i class="fas fa-shopping-cart ml-1"></i>
                             </button>
                             <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>">

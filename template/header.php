@@ -7,9 +7,18 @@
         </div>
     </div>
     <div id="icon-container" class="text-right text-md-center col-4 pt-4 col-md-3 ">
+        <?php if (isUserLoggedIn()) : ?>
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="white-icon fas fa-user-circle fa-lg"></i></a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+                <a class="dropdown-item" href="dashboard.php">Dashboard</a>
+                <a class="dropdown-item" href="logout.php">Logout</a>
+            </div>
+        <?php else : ?>
+            <a href="login.php" class="icon-link"><i class="white-icon fas fa-user-circle fa-lg"></i></a>
+        <?php endif; ?>
         <a href="lista_desideri.php" class="icon-link pr-md-2"><i class="white-icon fas fa-heart fa-lg"></i></a>
         <a href="carrello.php" class="icon-link pr-md-2"><i class="white-icon fas fa-shopping-cart fa-lg"></i></a>
-        <a href="login.php" class="icon-link"><i class="white-icon fas fa-user-circle fa-lg"></i></a>
     </div>
 </div>
 
