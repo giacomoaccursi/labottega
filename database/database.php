@@ -85,7 +85,7 @@ class DatabaseHelper
 
     public function getProductById($productId)
     {
-        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, prodotti.id as id, prodotti.nome as nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento, idCategoria FROM prodotti, sottoCategorie WHERE prodotti.idSottoCategoria = sottoCategorie.id && prodotti.id = ?");
+        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, prodotti.id as id, prodotti.nome as nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento, idCategoria, gradazione, formato, categorie.nome as nomeCategoria FROM prodotti, sottoCategorie, categorie WHERE prodotti.idSottoCategoria = sottoCategorie.id && sottoCategorie.idCategoria = categorie.id && prodotti.id = ?");
         $stmt->bind_param('i', $productId);
         $stmt->execute();
         $result = $stmt->get_result();
