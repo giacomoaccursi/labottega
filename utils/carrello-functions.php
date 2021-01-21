@@ -56,3 +56,6 @@ function updateCartProductsQuantity($productId, $currentVal)
     $carrello[$productId]["quantitàDaComprare"] = $currentVal;
     $_SESSION["carrello"] = $carrello;
 }
+
+
+
