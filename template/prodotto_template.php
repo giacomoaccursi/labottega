@@ -41,7 +41,7 @@
                             <?php endif; ?>
                         <?php else : ?>
                             <a href="login.php">
-                                <button class="btn px-3 material-tooltip-main">
+                                <button class="btn bg-transparent px-3 material-tooltip-main">
                                     <i class="far fa-heart fa-lg"></i>
                                 </button>
                                 <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>" />
@@ -52,7 +52,9 @@
                 </div>
             </div>
         </div>
+        <hr/>
     </div>
+    
     <?php
     require("prodotti_consigliati.php");
     ?>
