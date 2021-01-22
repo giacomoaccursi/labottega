@@ -38,7 +38,7 @@ class DatabaseHelper
     }
     public function getProductsByDate()
     {
-        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti  ORDER BY dataInserimento");
+        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti  ORDER BY dataInserimento DESC");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -60,7 +60,7 @@ class DatabaseHelper
 
     public function getProductsByPopularity()
     {
-        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, id, nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti ");
+        $stmt = $this->db->prepare("SELECT prodotti.id , sum(dettagliOrdini.quantita) from prodotti,dettagliOrdini where prodotti.id in (select dettagliOrdini.idProdotto from dettagliOrdini) group by prodotti.id");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -159,6 +159,26 @@ class DatabaseHelper
         return $result[0];
     }
 
+    public function getCustomerEmailByOrder($id)
+    {
+        $stmt = $this->db->prepare("SELECT utenti.email from ordini,utenti WHERE ordini.idUtente=utenti.id && ordini.id = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        return $result[0]["email"];
+    }
+
+    public function getCustomerIdByOrder($id)
+    {
+        $stmt = $this->db->prepare("SELECT utenti.id from ordini,utenti WHERE ordini.idUtente=utenti.id && ordini.id = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        return $result[0]["id"];
+    }
+
     public function getAllOrders()
     {
         $stmt = $this->db->prepare("SELECT * FROM ordini");
@@ -206,17 +226,17 @@ class DatabaseHelper
     }
 
 
-    public function insertNewProduct($nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria)
+    public function insertNewProduct($nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria,$sconto)
     {
-        $stmt = $this->db->prepare("INSERT INTO `prodotti`(`nome`, `marca`, `descrizione`, `prezzo`,`immagine`,`quantità`,`idSottoCategoria`) VALUES (?,?,?,?,?,?,?) ");
-        $stmt->bind_param('sssdsii', $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria);
+        $stmt = $this->db->prepare("INSERT INTO `prodotti`(`nome`, `marca`, `descrizione`, `prezzo`,`immagine`,`quantità`,`idSottoCategoria`,`sconto`) VALUES (?,?,?,?,?,?,?,?) ");
+        $stmt->bind_param('sssdsiii', $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria,$sconto);
         $stmt->execute();
     }
 
-    public function modifyProduct($id, $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria)
+    public function modifyProduct($id, $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria, $sconto)
     {
-        $stmt = $this->db->prepare("UPDATE `prodotti` SET `nome` = ?, `marca` = ? ,`descrizione` = ?, `prezzo` = ?,`immagine` = ?,`quantità` = ?,`idSottoCategoria` = ? WHERE `prodotti`.`id` = ? ");
-        $stmt->bind_param('sssdsiii', $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria, $id);
+        $stmt = $this->db->prepare("UPDATE `prodotti` SET `nome` = ?, `marca` = ? ,`descrizione` = ?, `prezzo` = ?,`immagine` = ?,`quantità` = ?,`idSottoCategoria` = ?, `sconto` = ? WHERE `prodotti`.`id` = ? ");
+        $stmt->bind_param('sssdsiiii', $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria,$sconto, $id);
         $stmt->execute();
     }
 
@@ -249,6 +269,13 @@ class DatabaseHelper
     {
         $stmt = $this->db->prepare("UPDATE `prodotti` SET `quantità` = `quantità`- ? WHERE `id` = ?");
         $stmt->bind_param('ii', $quantita, $idProdotto);
+        $stmt->execute();
+    }
+
+    public function changeOrderState($id, $stato)
+    {
+        $stmt = $this->db->prepare("UPDATE `ordini` SET `stato` = ? WHERE `id` = ?");
+        $stmt->bind_param('si', $stato, $id);
         $stmt->execute();
     }
 
@@ -492,3 +519,5 @@ class DatabaseHelper
     //FINE PROVA
     /**************************************** */
 }
+
+?>

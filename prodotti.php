@@ -97,3 +97,5 @@ $templateParams["titolo"] = "LaBottega - Prodotti";
 $templateParams["pagina"] = "prodotti_template.php";
 
 require 'template/base.php';
+
+?>

@@ -12,3 +12,5 @@ if (isUserLoggedIn()) {
 } else {
     header("location: login.php");
 }
+
+?>

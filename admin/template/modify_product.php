@@ -3,7 +3,7 @@
         <div class="col-md-2"></div>
         <div class="col-12 col-md-8 text-center my-4 nopadding">
             <h1>Modifica Prodotto</h1>
-            <form action="#" method="POST" class="text-center admin-basic-form" enctype="multipart/form-data">
+            <form action="#" id="modify-product-form" method="POST" class="text-center admin-basic-form" enctype="multipart/form-data">
                 <table class="table mt-5">
                     <tr>
                         <thead class="table-dark">
@@ -33,6 +33,10 @@
                     <tr>
                         <td><label for="prezzo">Prezzo:</label></td>
                         <td><input type="number" id="prezzo" step="any" name="prezzo" class="col-12" value="<?php if (isset($templateParams['prodotto'])) echo $templateParams['prodotto']['prezzo'] ?>" required /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sconto">Sconto:</label></td>
+                        <td><input type="number" id="sconto" step="any" name="sconto" class="col-12" value="<?php if (isset($templateParams['prodotto'])) echo $templateParams['prodotto']['sconto'] ?>" required /></td>
                     </tr>
                     <tr>
                         <td> <label for="immagine">Immagine:</label></td>

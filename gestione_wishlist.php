@@ -13,3 +13,5 @@ if (isset($_POST["itemToAdd"])) {
     $dbh->addNewDesiredProduct($productId, $_SESSION["id"]); 
     
 }
+
+?>

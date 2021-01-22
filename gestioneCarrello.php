@@ -35,3 +35,5 @@ if (isset($_POST["itemToAdd"])) {
         insertProductsInCart($prodottoDB);
     }
 }
+
+?>

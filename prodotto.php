@@ -31,3 +31,5 @@ if (isset($_GET["id"])){
 }
 
 require 'template/base.php';
+
+?>

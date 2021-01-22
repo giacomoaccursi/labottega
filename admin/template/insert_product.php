@@ -3,7 +3,7 @@
         <div class="col-md-2"></div>
         <div class="col-12 col-md-8 text-center my-4 nopadding">
             <h1>Inserimento Prodotto</h1>
-            <form action="#"  method="POST" class="text-center admin-basic-form" enctype="multipart/form-data">
+            <form action="#"  method="POST" class="text-center admin-basic-form" id="new-product-form" enctype="multipart/form-data">
                 <table class="table mt-5">
                     <tr>
                         <td class="table-dark"><label for="nome">Nome:</label></td>
@@ -20,6 +20,10 @@
                     <tr>
                         <td class="table-dark"><label for="prezzo">Prezzo:</label></td>
                         <td><input type="number" id="prezzo" step="any" name="prezzo" class="col-12" value="" required /></td>
+                    </tr>
+                    <tr>
+                        <td class="table-dark"><label for="sconto">Sconto:</label></td>
+                        <td><input type="number" id="sconto" step="any" name="sconto" class="col-12" value="" required /></td>
                     </tr>
                     <tr>
                         <td class="table-dark"> <label for="immagine">Immagine:</label></td>
