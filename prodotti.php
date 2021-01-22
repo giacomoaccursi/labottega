@@ -79,12 +79,15 @@ if(isset($_GET["sales"])){
 if(isset($_GET["cerca"])){
     $templateParams["titoloCategoria"] = "risultato di ricerca per ".$_GET["cerca"];   
     $templateParams["cerca"] = $_GET["cerca"]; 
+    $prodotti=[];
     foreach($templateParams["prodotti"] as $prodotto){
-        if(!in_array($prodotto, $dbh->getProductsBySearch($_GET["cerca"]))){
-            $key = array_search($prodotto, $templateParams["prodotti"]);
-            unset($templateParams["prodotti"][$key]);  
-        } 
-    }    
+        foreach($dbh->getProductsBySearch($_GET["cerca"]) as $prodTrovato){
+            if($prodotto["id"] == $prodTrovato["id"]){
+                $prodotti[] = $prodotto; 
+            }
+        }
+    } 
+    $templateParams["prodotti"]=$prodotti;
 }
 
 

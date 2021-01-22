@@ -60,7 +60,7 @@ class DatabaseHelper
 
     public function getProductsByPopularity()
     {
-        $stmt = $this->db->prepare("SELECT prodotti.id , sum(dettagliOrdini.quantita) from prodotti,dettagliOrdini where prodotti.id in (select dettagliOrdini.idProdotto from dettagliOrdini) group by prodotti.id");
+        $stmt = $this->db->prepare("SELECT prodotti.*,sum(dettagliOrdini.quantita) as totale from dettagliOrdini,prodotti WHERE prodotti.id = dettagliOrdini.idProdotto GROUP BY idProdotto ORDER BY totale DESC");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -197,7 +197,7 @@ class DatabaseHelper
 
     public function getProductsBySearch($input)
     {
-        $stmt = $this->db->prepare("SELECT prodotti.id, prodotti.nome, marca, descrizione, prezzo, (prezzo - prezzo*sconto/100) as prezzoFin, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti, sottoCategorie, categorie WHERE prodotti.idSottocategoria = sottoCategorie.id && sottoCategorie.idCategoria = categorie.id && (prodotti.nome LIKE CONCAT ('%',?,'%') OR descrizione LIKE CONCAT ('%',?,'%') OR categorie.nome LIKE CONCAT ('%',?,'%') OR sottoCategorie.nome LIKE CONCAT ('%',?,'%') OR marca LIKE CONCAT ('%',?,'%')) ");
+        $stmt = $this->db->prepare("SELECT prodotti.id, prodotti.nome, marca, descrizione, prezzo, (prezzo - prezzo*sconto/100) as prezzoFin, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti, sottoCategorie, categorie WHERE prodotti.idSottocategoria = sottoCategorie.id && sottoCategorie.idCategoria = categorie.id && ( LOWER(prodotti.nome) LIKE CONCAT ('%',?,'%') OR LOWER(descrizione) LIKE CONCAT ('%',?,'%') OR LOWER(categorie.nome) LIKE CONCAT ('%',?,'%') OR LOWER(sottoCategorie.nome) LIKE CONCAT ('%',?,'%') OR LOWER(marca) LIKE CONCAT ('%',?,'%') ) ");
         $stmt->bind_param('sssss', $input, $input, $input, $input, $input);
         $stmt->execute();
         $result = $stmt->get_result();
