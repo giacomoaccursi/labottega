@@ -9,6 +9,7 @@ if(isset($_GET["action"])){
                 $templateParams["errorelogin"] = "Errore! Controllare username e password!";
             }else{
                 registerLoggedUser($user_login_result);
+                addSessionCartToLoggedUser($dbh); 
                 //CHECK-NOTIFICATIONS
                 $templateParams["prodottiInCarrello"] = $dbh->getCartProducts($_SESSION["id"]);
                 foreach($templateParams["prodottiInCarrello"] as $prodotto){
@@ -58,6 +59,14 @@ $templateParams["js"] = JS_ROOT.'subscribe-validator.js';
 
 function checkNotifications(){
 
+}
+
+function addSessionCartToLoggedUser($dbh)
+{
+    $carrello = getCartProducts(); 
+    foreach($carrello as $prodotto){
+        $dbh->insertProductInCart($_SESSION["id"], $prodotto["idProdotto"]); 
+    }
 }
 require 'template/base.php';
 ?>

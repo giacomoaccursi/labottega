@@ -41,19 +41,37 @@
                             <?php endif; ?>
                         <?php else : ?>
                             <a href="login.php">
-                                <button class="btn px-3 material-tooltip-main">
+                                <button class="btn bg-transparent px-3 material-tooltip-main">
                                     <i class="far fa-heart fa-lg"></i>
                                 </button>
                                 <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>" />
                             </a>
                         <?php endif; ?>
                     </div>
-                    <p class="mt-4"><?php echo $prodotto["descrizione"]; ?></p>
-                </div>
+                    <ul class="mt-4 list-unstyled">
+                        <li class="mt-3 ">
+                            <i class="fas fa-lg fa-wine-bottle"></i>
+                            <p class="d-inline">Formato: <?php echo $prodotto["formato"]; ?></p>
+                        </li>
+                        <li class="mt-3">
+                            <i class="pr-2 fas fa-lg fa-wine-glass-alt"></i>
+                            <p class="d-inline">Gradazione: <?php echo $prodotto["gradazione"]; ?>%</p>
+                        </li>
+                        <li class="mt-3">
+                            <i class="fas fa-lg fa-pen"></i>
+                            <p class="d-inline">Categoria: <?php echo $prodotto["nomeCategoria"]; ?></p>
+                        </li>
+                    </ul>
+
+                    
+                <p class="mt-4"><?php echo $prodotto["descrizione"]; ?></p>
             </div>
         </div>
     </div>
-    <?php
-    require("prodotti_consigliati.php");
-    ?>
+    <hr />
+</div>
+
+<?php
+require("prodotti_consigliati.php");
+?>
 </div>

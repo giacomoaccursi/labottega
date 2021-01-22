@@ -36,8 +36,8 @@ CREATE TABLE IF NOT EXISTS `prodotti` (
     `idSottoCategoria` INT(11) NOT NULL,
     `dataInserimento` DATE DEFAULT CURRENT_DATE,
     `sconto` INT(3) DEFAULT 0,
-
-
+    `gradazione` VARCHAR(20),
+    `formato` VARCHAR(20),
     PRIMARY KEY (`id`),
     FOREIGN KEY (`idSottoCategoria`) REFERENCES `sottoCategorie`(`id`)
 );
