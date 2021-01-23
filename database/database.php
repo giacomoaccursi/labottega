@@ -226,17 +226,17 @@ class DatabaseHelper
     }
 
 
-    public function insertNewProduct($nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria,$sconto)
+    public function insertNewProduct($nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria,$sconto,$gradazione,$formato)
     {
-        $stmt = $this->db->prepare("INSERT INTO `prodotti`(`nome`, `marca`, `descrizione`, `prezzo`,`immagine`,`quantità`,`idSottoCategoria`,`sconto`) VALUES (?,?,?,?,?,?,?,?) ");
-        $stmt->bind_param('sssdsiii', $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria,$sconto);
+        $stmt = $this->db->prepare("INSERT INTO `prodotti`(`nome`, `marca`, `descrizione`, `prezzo`,`immagine`,`quantità`,`idSottoCategoria`,`sconto`,`gradazione`,`formato`) VALUES (?,?,?,?,?,?,?,?,?,?) ");
+        $stmt->bind_param('sssdsiiiss', $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria,$sconto,$gradazione,$formato);
         $stmt->execute();
     }
 
-    public function modifyProduct($id, $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria, $sconto)
+    public function modifyProduct($id, $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria, $sconto,$gradazione,$formato)
     {
-        $stmt = $this->db->prepare("UPDATE `prodotti` SET `nome` = ?, `marca` = ? ,`descrizione` = ?, `prezzo` = ?,`immagine` = ?,`quantità` = ?,`idSottoCategoria` = ?, `sconto` = ? WHERE `prodotti`.`id` = ? ");
-        $stmt->bind_param('sssdsiiii', $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria,$sconto, $id);
+        $stmt = $this->db->prepare("UPDATE `prodotti` SET `nome` = ?, `marca` = ? ,`descrizione` = ?, `prezzo` = ?,`immagine` = ?,`quantità` = ?,`idSottoCategoria` = ?, `sconto` = ?,  `gradazione` = ? ,  `formato` = ? WHERE `prodotti`.`id` = ? ");
+        $stmt->bind_param('sssdsiiissi', $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria,$sconto,$gradazione,$formato, $id);
         $stmt->execute();
     }
 

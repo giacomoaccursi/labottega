@@ -111,6 +111,10 @@ img#logo{
     font-weight: bold;
 }
 
+.product-row{
+    border: 1px solid #393e46;
+    padding: 2px;
+}
 .card-bottom{
     position: absolute;
     bottom: 0 !important;

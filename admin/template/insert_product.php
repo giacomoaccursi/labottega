@@ -1,10 +1,10 @@
 <?php if (isset($_SESSION["id"]) && $_SESSION["tipo"] == 1) : ?>
     <div class="row">
         <div class="col-md-2"></div>
-        <div class="col-12 col-md-8 text-center my-4 nopadding">
+        <div class="col-12 col-md-8 text-center my-2 nopadding">
             <h1>Inserimento Prodotto</h1>
             <form action="#"  method="POST" class="text-center admin-basic-form" id="new-product-form" enctype="multipart/form-data">
-                <table class="table mt-5">
+                <table class="table mt-2">
                     <tr>
                         <td class="table-dark"><label for="nome">Nome:</label></td>
                         <td><input type="text" id="nome" name="nome" class="col-12" value="" required /></td>
@@ -19,7 +19,7 @@
                     </tr>
                     <tr>
                         <td class="table-dark"><label for="prezzo">Prezzo:</label></td>
-                        <td><input type="number" id="prezzo" step="any" name="prezzo" class="col-12" value="" required /></td>
+                        <td><input type="number" id="prezzo" step="any" name="prezzo" class="col-11" value="" required />€</td>
                     </tr>
                     <tr>
                         <td class="table-dark"><label for="sconto">Sconto:</label></td>
@@ -42,6 +42,14 @@
                                 <?php endforeach; ?>
                             </select>
                         </td>
+                    </tr>
+                    <tr>
+                        <td class="table-dark"><label for="gradazione">Gradazione:</label></td>
+                        <td><input type="number" id="gradazione" name="gradazione" class="col-11" value="" required />%</td>
+                    </tr>
+                    <tr>
+                        <td class="table-dark"><label for="formato">Formato:</label></td>
+                        <td><input type="number" id="formato" name="formato" class="col-11" value="" required />cl</td>
                     </tr>
                     <tr>
                         <td colspan="2" class="text-center"> <input type="submit" name="submit" class="btn-success" value="Inserisci" /> </td>

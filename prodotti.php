@@ -34,8 +34,8 @@ if (isset($_GET["page"])){
     $templateParams["page"] = $_GET["page"];
 } else{
     $templateParams["page"] = 1;
-
 }
+
 if(isset($_GET["cat"])){
     $templateParams["titoloCategoria"] = $dbh->getCategoryById((int)$_GET["cat"]);  
 

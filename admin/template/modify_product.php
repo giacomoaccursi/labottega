@@ -1,10 +1,10 @@
 <?php if (isset($_SESSION["id"]) && $_SESSION["tipo"] == 1) : ?>
     <div class="row">
         <div class="col-md-2"></div>
-        <div class="col-12 col-md-8 text-center my-4 nopadding">
+        <div class="col-12 col-md-8 text-center nopadding">
             <h1>Modifica Prodotto</h1>
             <form action="#" id="modify-product-form" method="POST" class="text-center admin-basic-form" enctype="multipart/form-data">
-                <table class="table mt-5">
+                <table class="table">
                     <tr>
                         <thead class="table-dark">
                         <td>Prodotto:</td>
@@ -28,15 +28,15 @@
                     </tr>
                     <tr>
                         <td><label for="descrizione">Descrizione:</label></td>
-                        <td><textarea id="descrizione" name="descrizione" class="col-12" rows="5" lang="it" required><?php if (isset($templateParams['prodotto'])) echo $templateParams['prodotto']['descrizione'] ?></textarea></td>
+                        <td><textarea id="descrizione" name="descrizione" class="col-12" rows="3" lang="it" required><?php if (isset($templateParams['prodotto'])) echo $templateParams['prodotto']['descrizione']; ?></textarea></td>
                     </tr>
                     <tr>
                         <td><label for="prezzo">Prezzo:</label></td>
-                        <td><input type="number" id="prezzo" step="any" name="prezzo" class="col-12" value="<?php if (isset($templateParams['prodotto'])) echo $templateParams['prodotto']['prezzo'] ?>" required /></td>
+                        <td><input type="number" id="prezzo" step="any" name="prezzo" class="col-12" value="<?php if (isset($templateParams['prodotto'])) echo $templateParams['prodotto']['prezzo']; ?>" required /></td>
                     </tr>
                     <tr>
                         <td><label for="sconto">Sconto:</label></td>
-                        <td><input type="number" id="sconto" step="any" name="sconto" class="col-12" value="<?php if (isset($templateParams['prodotto'])) echo $templateParams['prodotto']['sconto'] ?>" required /></td>
+                        <td><input type="number" id="sconto" step="any" name="sconto" class="col-12" value="<?php if (isset($templateParams['prodotto'])) echo $templateParams['prodotto']['sconto']; ?>" required /></td>
                     </tr>
                     <tr>
                         <td> <label for="immagine">Immagine:</label></td>
@@ -44,7 +44,7 @@
                     </tr>
                     <tr>
                         <td><label for="quantita">Quantità:</label></td>
-                        <td><input type="number" id="quantita" name="quantita" class="col-12" value="<?php if (isset($templateParams['prodotto'])) echo $templateParams['prodotto']['quantità'] ?>" required /></td>
+                        <td><input type="number" id="quantita" name="quantita" class="col-12" value="<?php if (isset($templateParams['prodotto'])) echo $templateParams['prodotto']['quantità']; ?>" required /></td>
                     </tr>
                     <tr>
                         <td><label for="sottocategoria">Categoria :</label></td>
@@ -55,6 +55,14 @@
                                 <?php endforeach; ?>
                             </select>
                         </td>
+                    </tr>
+                    <tr>
+                        <td><label for="gradazione">Gradazione:</label></td>
+                        <td><input type="number" id="gradazione" name="gradazione" class="col-12" value="<?php if (isset($templateParams['prodotto'])) echo $templateParams['prodotto']['gradazione']; ?>" required /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="formato">Formato:</label></td>
+                        <td><input type="number" id="formato" name="formato" class="col-12" value="<?php if (isset($templateParams['prodotto'])) echo $templateParams['prodotto']['formato']; ?>" required /></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="text-center"> <input type="submit" name="submit" class="btn-success" value="Modifica" /> </td>
