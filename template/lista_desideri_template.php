@@ -1,4 +1,4 @@
-<h2 class="text-center py-3">Lista dei desideri</h2>
+<h2 class="text-center page-title py-3">Lista dei desideri</h2>
 <div id="cartDetails" class="row py-3">
     <div class="col-lg-2"></div>
     <div class="itemContainer col-12 col-lg-8">

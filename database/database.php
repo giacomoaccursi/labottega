@@ -60,7 +60,7 @@ class DatabaseHelper
 
     public function getProductsByPopularity()
     {
-        $stmt = $this->db->prepare("SELECT prodotti.*,sum(dettagliOrdini.quantita) as totale from dettagliOrdini,prodotti WHERE prodotti.id = dettagliOrdini.idProdotto GROUP BY idProdotto ORDER BY totale DESC");
+        $stmt = $this->db->prepare("SELECT ROUND((prodotti.prezzo - prodotti.prezzo*prodotti.sconto/100), 2) as prezzoFin, prodotti.*,sum(dettagliOrdini.quantita) as totale from dettagliOrdini,prodotti WHERE prodotti.id = dettagliOrdini.idProdotto GROUP BY idProdotto ORDER BY totale DESC");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -76,7 +76,7 @@ class DatabaseHelper
     }
     public function getProductsBySubCategory($sottoCategoria)
     {
-        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, prodotti.id, prodotti.nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti, sottoCategorie WHERE idSottoCategoria = ?");
+        $stmt = $this->db->prepare("SELECT ROUND((prezzo - prezzo*sconto/100), 2) as prezzoFin, prodotti.id, prodotti.nome, marca, descrizione, prezzo, quantità, idSottoCategoria, immagine, sconto, dataInserimento FROM prodotti, sottoCategorie WHERE prodotti.idSottoCategoria = sottoCategorie.id AND idSottoCategoria = ?");
         $stmt->bind_param('i', $sottoCategoria);
         $stmt->execute();
         $result = $stmt->get_result();

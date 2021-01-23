@@ -23,6 +23,7 @@ if (isset($_POST["payed"])) {
         $dbh->addNewOrderDetail($prodotto["id"], $idOrdine, $prodotto["prezzoFin"], $prodotto["quantitàDaComprare"]);
     }
     $dbh->deleteCartProducts($_SESSION["id"]);
+    sendEMail($dbh->getEmailById($_SESSION["id"]),"Conferma Ordine","Il tuo ordine è stato confermato! ");
     require 'template/base.php';
 
 } else {

@@ -57,10 +57,6 @@ $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["sottoCategorie"] = $dbh->getSubCategories(); 
 $templateParams["js"] = JS_ROOT.'subscribe-validator.js';
 
-function checkNotifications(){
-
-}
-
 function addSessionCartToLoggedUser($dbh)
 {
     $carrello = getCartProducts(); 

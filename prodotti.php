@@ -54,13 +54,14 @@ if(isset($_GET["cat"])){
 } elseif(isset($_GET["sub"])){
     $templateParams["titoloCategoria"] = $dbh->getSubCategoryById((int)$_GET["sub"]);  
     $templateParams["sottoCategoriaCorrente"] = $_GET["sub"]; 
-
     foreach($templateParams["prodotti"] as $prodotto){
-        if(!in_array($prodotto, $dbh->getProductsBySubCategory((int)$_GET["sub"]))){
-            $key = array_search($prodotto, $templateParams["prodotti"]);
-            unset($templateParams["prodotti"][$key]);  
-        } 
+        foreach($dbh->getProductsBySubCategory($_GET["sub"]) as $prod_in_sub){
+            if($prodotto["id"] == $prod_in_sub["id"]){
+                $prodotti[] = $prodotto; 
+            }
+        }
     }
+    $templateParams["prodotti"]=$prodotti;
 }
 
 if(isset($_GET["sales"])){
@@ -68,12 +69,13 @@ if(isset($_GET["sales"])){
     $templateParams["titoloCategoria"] = "Offerte";  
     $templateParams["sales"] = 1; 
     foreach($templateParams["prodotti"] as $prodotto){
-        if(!in_array($prodotto, $dbh->getProductsInSale())){
-            $key = array_search($prodotto, $templateParams["prodotti"]);
-            unset($templateParams["prodotti"][$key]);  
-        } 
+        foreach($dbh->getProductsInSale() as $prod_in_sale){
+            if($prodotto["id"] == $prod_in_sale["id"]){
+                $prodotti[] = $prodotto; 
+            }
+        }
     } 
-
+    $templateParams["prodotti"]=$prodotti;
 }
 
 if(isset($_GET["cerca"])){
