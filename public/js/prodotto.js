@@ -9,6 +9,9 @@ $(document).ready(function () {
                 cartQuantity: true
             },
             success: function (value) {
+                if(!$.isNumeric(value)){
+                    value = 0;
+                }
                 $(".cart-quantity").text(value);
             }
         });

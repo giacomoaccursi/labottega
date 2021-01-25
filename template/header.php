@@ -9,7 +9,7 @@
     <div id="icon-container" class="col-md-3 col-4 text-left text-md-center pt-4">
         <div class="row justify-content-left justify-content-md-center">
             <a href="lista_desideri.php" class="icon-link pr-2 pr-md-3"><i class="white-icon fas fa-heart fa-lg "></i></a>
-            <a href="carrello.php" class="icon-link pr-2  pr-md-3"><i class="white-icon fas fa-shopping-cart fa-lg "></i> <span class="badge red cart-quantity">1</span></a>
+            <a href="carrello.php" class="icon-link pr-2  pr-md-3"><i class="white-icon fas fa-shopping-cart fa-lg "></i> <span class="badge red cart-quantity"></span></a>
             
             <?php if (isUserLoggedIn()) : ?>
                 <a class="dropdown icon-link pr-2 pr-md-3" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
