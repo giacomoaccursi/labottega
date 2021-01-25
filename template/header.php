@@ -6,35 +6,30 @@
             <h1 class="pt-4"><a class="text-white" href="index.php" id="title-link">LaBottega</a></h1>
         </div>
     </div>
-    <div id="icon-container" class="text-right text-md-center col-4 pt-4 col-md-3 ">
-        <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-        <div class="row">
-        <a href="lista_desideri.php" class="icon-link  col-4"><i class="white-icon fas fa-heart fa-lg"></i></a>
-        <a href="carrello.php" class="icon-link  col-4"><i class="white-icon fas fa-shopping-cart fa-lg"></i></a>
-        <?php if (isUserLoggedIn()) : ?>
-            <a class="dropdown-toggle col-4" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-                <i class="white-icon fas fa-user-circle fa-lg"></i></a>
-            <div class="dropdown-menu dropdown-menu-right dropdown-info col-2" >
-                <a class="dropdown-item" href="dashboard.php">Dashboard</a>
-                <a class="dropdown-item" href="logout.php">Logout</a>
-            </div>
-        <?php else : ?>
-            <a href="login.php" class="icon-link col-4"><i class="white-icon fas fa-user-circle fa-lg"></i></a>
-        <?php endif; ?>
+    <div id="icon-container" class="col-md-3 col-4 text-right text-md-center pt-4">
+        <div class="row justify-content-center">
+            <a href="lista_desideri.php" class="icon-link pr-3"><i class="white-icon fas fa-heart fa-lg "></i></a>
+            
+            <?php if (isUserLoggedIn()) : ?>
+                <a class="dropdown icon-link pr-3" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                    <i class="white-icon fas fa-user-circle fa-lg "></i></a>
+                <div class="dropdown-menu color-white dropdown-menu-right dropdown-info">
+                    <a class="dropdown-item" href="dashboard.php">Dashboard</a>
+                    <a class="dropdown-item" href="logout.php">Logout</a>
+                </div>
+            <?php else : ?>
+                <a href="login.php" class="icon-link pr-3"><i class="white-icon fas fa-user-circle fa-lg "></i></a>
+            <?php endif; ?>
+
+            <a href="carrello.php" class="icon-link pr-3"><i class="white-icon fas fa-shopping-cart fa-lg "></i> <span class="badge red cart-quantity">4</span></a>
         </div>
-        </div>
-        <div class="col-md-3"></div>
-        
-    </div>
     </div>
 </div>
 
 <!-- 
                 NAVBAR
             -->
-<div class="row">
+<div class="row navbar-header">
     <div class="col-12 col-md-12 p-0">
         <div class="header-section row pt-3 nopadding">
             <div class="col-md-2"></div>
@@ -75,7 +70,7 @@
 <!-- 
                 SEARCH FORM
             -->
-<div class="header-section row py-3">
+<div class="header-section search-header row py-3">
     <div class="col-md-3"></div>
     <div class="col-md-6">
         <form class="form-inline justify-content-center" action="prodotti.php" method="GET">

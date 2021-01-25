@@ -2,21 +2,27 @@
 .dati-cliente , .tabella-riepilogo, .spedizione-stimata{
     font-size: 20px;
 }
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
 
+main{
+    padding-top: 239px;
+    z-index: 1;
+}
 
-
+.cart-quantity{
+    border-radius: 20px;
+    background-color: red;
+    color: white;
+}
 
 html,body {
     height: 100%;
     position: relative;
 }
-
-/* footer {
-    position: fixed; 
-    bottom: 0;
-    width: ;
-
-} */
 
 a.prodottoConsigliato{
     text-decoration: none !important;
@@ -159,7 +165,7 @@ img#logo{
 
 
 h1{
-    font-size: 30px !important; 
+    font-size: 35px !important; 
     padding-top: 10px;
     font-family: 'Ubuntu', sans-serif !important;
 }
@@ -176,6 +182,7 @@ a#title-link{
 a.icon-link:hover{
     color:rgb(0, 0, 0);
     text-decoration: none;
+    
 }
 
 div#icon-container > a >i{
@@ -463,7 +470,7 @@ aside a:hover::after {
 @media(min-width:576px){
 
     div#icon-container > a.icon-link >i{
-        font-size: 1.70em; 
+        font-size: 1.90em; 
     }
     
     h1{
@@ -478,14 +485,18 @@ aside a:hover::after {
         height: 180px;
         position: relative;
     }
-    
+
+    a.icon-link{
+        font-size: 1.30em;
+        
+    }
     
 }
 
 @media(min-width:768px){
 
     h1{
-        font-size: 45px !important;
+        font-size: 50px !important;
     }
 
     img#logo{
