@@ -156,7 +156,7 @@ $(document).ready(function () {
                 updateCartQuantity();
             }
         });
-        parent.parent().remove();
+        parent.parent().parent().remove();
         checkItem();
         calculateOrderPrice();
         checkFooter();

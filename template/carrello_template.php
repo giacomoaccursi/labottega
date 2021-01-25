@@ -5,38 +5,41 @@
         <?php
         foreach ($templateParams["prodottiInCarrello"] as $prodotto) :
         ?>
-            <div class="notAvailableQuantity bg-warning font-weight-bold text-center">
-                Quantità selezionatà non disponibile
-            </div>
-            <div class="productDetails row align-items-center">
-                <div class="col-3 col-sm-2">
-                    <a href="<?php echo ("prodotto.php?id=" . $prodotto["id"]); ?>">
-                        <img src=<?php echo IMG_ROOT . $prodotto["immagine"]; ?> alt="" width="120" class="img-fluid">
-                    </a>
+            <div class="productContainer">
+                <div class="notAvailableQuantity bg-warning font-weight-bold text-center">
+                    Quantità selezionatà non disponibile
                 </div>
-                <div class="col-9 col-sm-4 ">
-                    <h5 class="mb-0"> <a href="<?php echo ("prodotto.php?id=" . $prodotto["id"]); ?>" class="text-dark d-inline-block align-middle"><?php echo $prodotto["nome"]; ?></a></h5><span class="text-muted font-weight-normal font-italic d-block"><?php echo $prodotto["marca"]; ?></span>
-                </div>
-                <div class="input-group col-7 col-sm-3 pt-1 text-md-center">
-                    <input type="button" value="-" class="button-minus" data-field="quantity">
-                    <input type="number" step="1" max="" value="<?php echo $prodotto["quantitàDaComprare"]; ?>" name="quantity" class="itemQuantity">
-                    <input type="button" value="+" class="button-plus" data-field="quantity">
-                </div>
+                <div class="productDetails row align-items-center">
+                    <div class="col-3 col-sm-2">
+                        <a href="<?php echo ("prodotto.php?id=" . $prodotto["id"]); ?>">
+                            <img src=<?php echo IMG_ROOT . $prodotto["immagine"]; ?> alt="" width="120" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="col-9 col-sm-4 ">
+                        <h5 class="mb-0"> <a href="<?php echo ("prodotto.php?id=" . $prodotto["id"]); ?>" class="text-dark d-inline-block align-middle"><?php echo $prodotto["nome"]; ?></a></h5><span class="text-muted font-weight-normal font-italic d-block"><?php echo $prodotto["marca"]; ?></span>
+                    </div>
+                    <div class="input-group col-7 col-sm-3 pt-1 text-md-center">
+                        <input type="button" value="-" class="button-minus" data-field="quantity">
+                        <input type="number" step="1" max="" value="<?php echo $prodotto["quantitàDaComprare"]; ?>" name="quantity" class="itemQuantity">
+                        <input type="button" value="+" class="button-plus" data-field="quantity">
+                    </div>
 
-                <div class="itemPrice col-3 col-sm-2 p-0" value="<?php echo number_format($prodotto["prezzoFin"], 2, ',', ' '); ?>">
-                    <?php if ($prodotto["sconto"] > 0) : ?>
-                        <span class=" text-danger font-weight-bold pr-2"><?php echo number_format($prodotto["prezzoFin"], 2, ',', ' '); ?>€</span>
-                        <span class="text-grey"><s><?php echo number_format($prodotto["prezzo"], 2, ',', ' '); ?>€</s></span>
-                    <?php else : ?>
-                        <span class="font-weight-bold mx-1"><?php echo number_format($prodotto["prezzo"], 2, ',', ' '); ?>€</span>
-                    <?php endif; ?>
+                    <div class="itemPrice col-3 col-sm-2 p-0" value="<?php echo number_format($prodotto["prezzoFin"], 2, ',', ' '); ?>">
+                        <?php if ($prodotto["sconto"] > 0) : ?>
+                            <span class=" text-danger font-weight-bold pr-2"><?php echo number_format($prodotto["prezzoFin"], 2, ',', ' '); ?>€</span>
+                            <span class="text-grey"><s><?php echo number_format($prodotto["prezzo"], 2, ',', ' '); ?>€</s></span>
+                        <?php else : ?>
+                            <span class="font-weight-bold mx-1"><?php echo number_format($prodotto["prezzo"], 2, ',', ' '); ?>€</span>
+                        <?php endif; ?>
+                    </div>
+                    <div class="deleteItem col-2 col-sm-1">
+                        <i class="fas fa-trash fa-lg"></i>
+                    </div>
+                    <input type="hidden" class="productId" value="<?php echo $prodotto["idProdotto"]; ?>">
                 </div>
-                <div class="deleteItem col-2 col-sm-1">
-                    <i class="fas fa-trash fa-lg"></i>
-                </div>
-                <input type="hidden" class="productId" value="<?php echo $prodotto["idProdotto"]; ?>">
+                <hr/>
             </div>
-            <hr />
+
         <?php endforeach; ?>
     </div>
 

@@ -30,7 +30,8 @@ if (isset($_POST["itemToAdd"])) {
     $productId = $_POST["itemToAdd"];
     if (isUserLoggedIn()) {
         $productId = $_POST["itemToAdd"];
-        $dbh->insertProductInCart($_SESSION["id"],  $productId);
+        $insert = $dbh->insertProductInCart($_SESSION["id"],  $productId);
+        print($insert); 
     } else {
         $prodottoDB = $dbh->getProductById($productId);
         insertProductsInCart($prodottoDB);

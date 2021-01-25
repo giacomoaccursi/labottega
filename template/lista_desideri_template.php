@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-8 col-md-4">
                         <form class="d-inline addToCartForm">
-                            <button class=" btn btn-sm mb-2">
+                            <button class=" addToCartButton btn btn-sm mb-2">
                                 <i class="fas fa-cart-plus fa-lg px-1 px-sm-0 pr-2"></i>
                             </button>
                             <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>">

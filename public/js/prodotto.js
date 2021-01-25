@@ -28,8 +28,13 @@ $(document).ready(function () {
             data: {
                 itemToAdd: itemToAdd
             },
-            success: function () {
-                updateCartQuantity(); 
+            success: function (insert) {
+                updateCartQuantity();
+                if(insert == true){
+                    $(e.target).closest(".card").find(".prod-aggiunto").fadeIn().delay(3000).fadeOut(); 
+                }else{
+                    $(e.target).closest(".card").find(".prod-non-aggiunto").fadeIn().delay(3000).fadeOut(); 
+                }
             }
         });
     }

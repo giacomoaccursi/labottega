@@ -1,4 +1,6 @@
 <div class="card col-6 col-md-3 rounded-0 nopadding">
+    <div class="prod-aggiunto">Prodotto Aggiunto Correttamente</div>
+    <div class="prod-non-aggiunto">Quantità non disponibile</div>
     <a href="prodotto.php?id=<?php echo $prodotto["id"]; ?>"><img src="<?php echo IMG_ROOT . $prodotto["immagine"]; ?>" class="card-image img-fluid w-100" alt="" /></a>
     <div class="card-body text-center px-1 py-1">
         <h5 class="font-weight-bold"><?php echo $prodotto["nome"]; ?></h5>

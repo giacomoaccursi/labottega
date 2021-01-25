@@ -8,6 +8,26 @@ header{
     z-index: 10;
 }
 
+.prod-aggiunto, .prod-non-aggiunto{
+    display: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 17px;
+    border:solid;
+    border-width: 0.5px; 
+    margin-bottom: 7px;
+}
+
+.prod-aggiunto{
+    background-color: #aaea7f; 
+    border-color: #42d342;
+}
+
+.prod-non-aggiunto{
+    background-color: #ea7f7f; 
+    border-color: #d34242;
+}
+
 main{
     padding-top: 210px;
     z-index: 1;
