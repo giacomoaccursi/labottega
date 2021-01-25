@@ -6,22 +6,22 @@
             <h1 class="pt-4"><a class="text-white" href="index.php" id="title-link">LaBottega</a></h1>
         </div>
     </div>
-    <div id="icon-container" class="col-md-3 col-4 text-right text-md-center pt-4">
-        <div class="row justify-content-center">
-            <a href="lista_desideri.php" class="icon-link pr-3"><i class="white-icon fas fa-heart fa-lg "></i></a>
+    <div id="icon-container" class="col-md-3 col-4 text-left text-md-center pt-4">
+        <div class="row justify-content-left justify-content-md-center">
+            <a href="lista_desideri.php" class="icon-link pr-2 pr-md-3"><i class="white-icon fas fa-heart fa-lg "></i></a>
+            <a href="carrello.php" class="icon-link pr-2  pr-md-3"><i class="white-icon fas fa-shopping-cart fa-lg "></i> <span class="badge red cart-quantity">4</span></a>
             
             <?php if (isUserLoggedIn()) : ?>
-                <a class="dropdown icon-link pr-3" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                <a class="dropdown icon-link pr-2 pr-md-3" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
                     <i class="white-icon fas fa-user-circle fa-lg "></i></a>
-                <div class="dropdown-menu color-white dropdown-menu-right dropdown-info">
+                <div class="mt-2 dropdown-menu color-white dropdown-menu-right dropdown-info">
                     <a class="dropdown-item" href="dashboard.php">Dashboard</a>
                     <a class="dropdown-item" href="logout.php">Logout</a>
                 </div>
             <?php else : ?>
-                <a href="login.php" class="icon-link pr-3"><i class="white-icon fas fa-user-circle fa-lg "></i></a>
+                <a href="login.php" class="icon-link pr-2  pr-md-3"><i class="white-icon fas fa-user-circle fa-lg "></i></a>
             <?php endif; ?>
 
-            <a href="carrello.php" class="icon-link pr-3"><i class="white-icon fas fa-shopping-cart fa-lg "></i> <span class="badge red cart-quantity">4</span></a>
         </div>
     </div>
 </div>
