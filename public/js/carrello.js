@@ -4,17 +4,17 @@ $(document).ready(function () {
         let subTotal = 0; 
         const shippingCost = 10;  
         $(".productDetails").each(function() { 
-            let itemCost = $(this).find(".itemPrice").text();
-            itemCost = parseFloat(itemCost.substring(0, itemCost.length - 1)); 
+            let itemCost = $(this).find(".itemPrice").text().replace(/,/g,".");
+            itemCost = parseFloat(itemCost.substring(0, itemCost.length - 1)).toFixed(2); 
             itemNumber = parseInt($(this).find(".itemQuantity").val()); 
-            subTotal += ((itemCost*10) * itemNumber)/10; 
+            subTotal += itemCost* itemNumber; 
 
         });
         
         let total = subTotal + shippingCost;
-        $("#orderInformation").find("#orderTotal > #totalPrice").text(Math.round(total*10)/10 + " €"); 
+        $("#orderInformation").find("#orderSubTotal > #subTotalPrice").text(subTotal.toString().replace(".",",")  + " €"); 
+        $("#orderInformation").find("#orderTotal > #totalPrice").text(total.toString().replace(".",",")+ " €"); 
         $("#orderInformation").find("#orderShippingCost > #shippingCost").text(shippingCost + " €"); 
-        $("#orderInformation").find("#orderSubTotal > #subTotalPrice").text(Math.round(subTotal*10)/10  + " €"); 
 
     }
 

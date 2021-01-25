@@ -35,14 +35,14 @@ $spedizione = strtotime("+1 week");
                     <tr>
                         <td headers="prod"><?php echo $prodotto["nome"]; ?></td>
                         <td headers="quantita"><?php echo $prodotto["quantitàDaComprare"]; ?></td>
-                        <td headers="prezzo"><?php echo ($prodotto["quantitàDaComprare"] * $prodotto["prezzoFin"]); ?>€</td>
+                        <td headers="prezzo"><?php echo number_format(($prodotto["quantitàDaComprare"] * $prodotto["prezzoFin"]), 2, ",", ""); ?>€</td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
             <tfoot>
                 <tr>
                     <th class="text-center" headers="prod quantita" colspan="2">Totale Ordine</th>
-                    <td header="prezzo"><?php echo $totaleOrdine; ?></td>
+                    <td header="prezzo"><?php echo number_format($totaleOrdine, 2, ",", ""); ?>€</td>
                 </tr>
             </tfoot>
         </table>

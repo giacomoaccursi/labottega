@@ -6,10 +6,10 @@
         <div class="card-bottom">
             <h6 class="mb-3 ">
                 <?php if ($prodotto["sconto"] > 0) : ?>
-                    <span class="text-danger font-weight-bold"><?php echo $prodotto["prezzoFin"]; ?>€</span>
-                    <span class="text-grey"><s><?php echo $prodotto["prezzo"]; ?>€</s></span>
+                    <span class="text-danger font-weight-bold"><?php echo number_format($prodotto["prezzoFin"], 2, ",", ""); ?>€</span>
+                    <span class="text-grey"><s><?php echo number_format($prodotto["prezzo"], 2, ",", ""); ?>€</s></span>
                 <?php else : ?>
-                    <span class="font-weight-bold mx-1"><?php echo $prodotto["prezzo"]; ?>€</span>
+                    <span class="font-weight-bold mx-1"><?php echo number_format($prodotto["prezzo"], 2, ",", ""); ?>€</span>
                 <?php endif; ?>
             </h6>
             <div>

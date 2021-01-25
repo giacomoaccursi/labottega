@@ -26,7 +26,7 @@
                 <td header="id"><?php echo ($ordine["id"]); ?></td>
                 <td header="data"><?php echo ($ordine["dataOrdine"]); ?></td>
                 <td header="stato"><?php echo ($ordine["stato"]); ?></td>
-                <td header="totale"><?php echo ($ordine["totaleOrdine"]); ?> €</td>
+                <td header="totale"><?php echo number_format($ordine["totaleOrdine"], 2, ",", ""); ?> €</td>
                 <td header="dettagli"><a href="order_details.php?id=<?php echo $ordine["id"]?>">Visualizza articoli </a></td>
               </tr>
             <?php endforeach; ?>

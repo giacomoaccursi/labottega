@@ -17,18 +17,18 @@
                 <div class="col-9 col-sm-4 ">
                     <h5 class="mb-0"> <a href="<?php echo ("prodotto.php?id=" . $prodotto["id"]); ?>" class="text-dark d-inline-block align-middle"><?php echo $prodotto["nome"]; ?></a></h5><span class="text-muted font-weight-normal font-italic d-block"><?php echo $prodotto["marca"]; ?></span>
                 </div>
-                <div class="input-group col-7 col-sm-4 pt-1 text-md-center">
+                <div class="input-group col-7 col-sm-3 pt-1 text-md-center">
                     <input type="button" value="-" class="button-minus" data-field="quantity">
                     <input type="number" step="1" max="" value="<?php echo $prodotto["quantitàDaComprare"]; ?>" name="quantity" class="itemQuantity">
                     <input type="button" value="+" class="button-plus" data-field="quantity">
                 </div>
 
-                <div class="itemPrice col-3 col-sm-1 p-0" value="<?php echo $prodotto["prezzoFin"]; ?>">
+                <div class="itemPrice col-3 col-sm-2 p-0" value="<?php echo number_format($prodotto["prezzoFin"], 2, ',', ' '); ?>">
                     <?php if ($prodotto["sconto"] > 0) : ?>
-                        <span class=" text-danger font-weight-bold pr-2"><?php echo $prodotto["prezzoFin"]; ?>€</span>
-                        <span class="text-grey"><s><?php echo $prodotto["prezzo"]; ?>€</s></span>
+                        <span class=" text-danger font-weight-bold pr-2"><?php echo number_format($prodotto["prezzoFin"], 2, ',', ' '); ?>€</span>
+                        <span class="text-grey"><s><?php echo number_format($prodotto["prezzo"], 2, ',', ' '); ?>€</s></span>
                     <?php else : ?>
-                        <span class="font-weight-bold mx-1"><?php echo $prodotto["prezzo"]; ?>€</span>
+                        <span class="font-weight-bold mx-1"><?php echo number_format($prodotto["prezzo"], 2, ',', ' '); ?>€</span>
                     <?php endif; ?>
                 </div>
                 <div class="deleteItem col-2 col-sm-1">

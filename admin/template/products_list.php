@@ -19,7 +19,7 @@
             <div class="col-4"><?php echo ($prodotto["nome"]); ?></div>
             <div class="col-3"><?php echo ($prodotto["marca"]); ?></div>
             <div class="col-2"><?php echo ($prodotto["quantità"]); ?></div>
-            <div class="col-2"><?php echo ($prodotto["prezzo"]); ?> €</div>
+            <div class="col-2"><?php echo number_format($prodotto["prezzo"], 2, ",", ""); ?> €</div>
             </div>
             <?php endforeach; ?>
             <div class="row text-center justify-content-center mt-2">

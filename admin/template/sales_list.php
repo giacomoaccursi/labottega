@@ -20,7 +20,7 @@
                             <tr class="py-3 my-3">
                                 <td header="id"><?php echo ($vendita["id"]); ?></td>
                                 <td header="data"><?php echo ($vendita["dataOrdine"]); ?></td>
-                                <td header="totale"><?php echo ($vendita["totaleOrdine"]); ?></td>
+                                <td header="totale"><?php echo number_format($vendita["totaleOrdine"], 2, ",", "");?></td>
                                 <?php if(isset($_GET["mod"]) && $_GET["mod"]==$vendita["id"]):?>
                                 <form action="#" id="stato-form" method="POST">
                                 <td header="stato"><select name="stato" id="stato" form="stato-form">

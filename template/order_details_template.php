@@ -19,7 +19,7 @@
                             <td header="img"><img class="table-image" src="<?php echo (IMG_ROOT . $prodotto["immagine"]); ?>" width="80" class="img-fluid" /></td>
                             <td header="nome"><?php echo ($prodotto["nome"]); ?></td>
                             <td header="quantita"><?php echo ($prodotto["quantita"]); ?></td>
-                            <td header="prezzo"><?php echo ($prodotto["prezzo"]); ?> €</td>
+                            <td header="prezzo"><?php echo number_format($prodotto["prezzo"], 2, ",", ""); ?> €</td>
                         </tr>
                     <?php endforeach; ?>
                     <tr>

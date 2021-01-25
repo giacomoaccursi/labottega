@@ -20,10 +20,10 @@
                     </div>
                     <div class="col-4 col-md-2 itemPrice col-md-2 p-0" value="<?php echo $prodotto["prezzoFin"]; ?>">
                         <?php if ($prodotto["sconto"] > 0) : ?>
-                            <span class=" text-danger font-weight-bold pr-2"><?php echo $prodotto["prezzoFin"]; ?>€</span>
-                            <span class="text-grey"><s><?php echo $prodotto["prezzo"]; ?>€</s></span>
+                            <span class=" text-danger font-weight-bold pr-2"><?php echo number_format($prodotto["prezzoFin"], 2, ",", ""); ?>€</span>
+                            <span class="text-grey"><s><?php echo number_format($prodotto["prezzo"], 2, ",", ""); ?>€</s></span>
                         <?php else : ?>
-                            <span class="font-weight-bold mx-1"><?php echo $prodotto["prezzo"]; ?>€</span>
+                            <span class="font-weight-bold mx-1"><?php echo number_format($prodotto["prezzo"], 2, ",", ""); ?>€</span>
                         <?php endif; ?>
                     </div>
                     <div class="col-8 col-md-4">
