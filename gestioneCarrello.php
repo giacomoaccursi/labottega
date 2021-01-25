@@ -8,8 +8,9 @@ if (isset($_POST["currentVal"])) {
         $update = $dbh->updateCartProductsQuantity($productId, $currentVal);
         print($update); 
     } else {
-        updateCartProductsQuantity($productId, $currentVal);
-        print(true); 
+        $prodotto = $dbh->getProductById($productId); 
+        $update = updateCartProductsQuantity($productId, $currentVal, $prodotto["quantità"]);
+        print($update); 
     }
     
 }

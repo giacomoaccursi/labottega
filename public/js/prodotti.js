@@ -11,9 +11,9 @@ $(document).ready(function () {
             data: {
                 itemToAdd: itemToAdd
             },
-            success: function () {
-                toastr.success("Prodotto aggiunto al carrello!");
-            }
+            // success: function () {
+            //     toastr.success("Prodotto aggiunto al carrello!");
+            // }
         });
     }
 

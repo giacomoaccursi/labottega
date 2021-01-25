@@ -6,6 +6,7 @@ if(isUserLoggedIn()){
         $templateParams["titolo"] = "LaBottega - Checkout";
         $templateParams["pagina"] = "checkout_template.php";
         $templateParams["header"] = "small_header.php"; 
+        $templateParams["footer"] = "small_footer.php"; 
         $templateParams["categorie"] = $dbh->getCategories();
         $templateParams["sottoCategorie"] = $dbh->getSubCategories();
         $templateParams["pagamenti"] = $dbh->getAllPaymentsType();

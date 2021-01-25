@@ -1,7 +1,7 @@
   <div id="home-image" class="row align-items-center hover-shadow">
 
       <div class="col-md-12 text-center">
-          <a id="compra-ora" class="btn" href="prodotti.php"><span>COMPRA ORA</span></a>
+          <a id="compra-ora" class="btn" href="prodotti.php"><span>VAI ALLO SHOP</span></a>
       </div>
 
   </div>

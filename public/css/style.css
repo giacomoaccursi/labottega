@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+.dati-cliente , .tabella-riepilogo, .spedizione-stimata{
+    font-size: 20px;
+}
+
 
 a.prodottoConsigliato{
     text-decoration: none !important;
