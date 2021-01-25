@@ -490,6 +490,10 @@ aside a:hover::after {
         font-size: 1.30em;
         
     }
+
+    main{
+        padding-top: 239px;
+    }
     
 }
 

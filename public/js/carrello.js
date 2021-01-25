@@ -1,9 +1,23 @@
 $(document).ready(function () {
-    
+
+    function updateCartQuantity() {
+        $.ajax({
+            url: "gestioneCarrello.php",
+            type: "POST",
+            cache: false,
+            data: {
+                cartQuantity: true
+            },
+            success: function (value) {
+                $(".cart-quantity").text(value);
+            }
+        });
+    }
+
     function checkFooter() {
-        
+
         if (!($(document).height() > $(window).height())) {
-            console.log("footer"); 
+            console.log("footer");
             $("footer").css("position", "fixed");
             $("footer").css("bottom", 0);
             $("footer").css("width", "100%");
@@ -16,7 +30,7 @@ $(document).ready(function () {
         $(".productDetails").each(function () {
             let itemCost = $(this).find(".itemPrice").text().replace(/,/g, ".");
             itemCost = parseFloat(itemCost.substring(0, itemCost.length - 1)).toFixed(2);
-            itemNumber = parseInt($(this).find(".itemQuantity").val());
+            itemNumber = parseFloat($(this).find(".itemQuantity").val());
             subTotal += itemCost * itemNumber;
 
         });
@@ -63,6 +77,7 @@ $(document).ready(function () {
                 }
                 parent.find('input[name=' + fieldName + ']').val(currentVal);
                 calculateOrderPrice();
+                updateCartQuantity(); 
             }
         });
     }
@@ -89,6 +104,7 @@ $(document).ready(function () {
         });
         parent.find('input[name=' + fieldName + ']').val(currentVal);
         calculateOrderPrice();
+        updateCartQuantity(); 
     }
 
 
@@ -117,6 +133,7 @@ $(document).ready(function () {
                 }
                 $(e.target).val(currentVal);
                 calculateOrderPrice();
+                updateCartQuantity(); 
             }
         });
     }
@@ -131,6 +148,9 @@ $(document).ready(function () {
             cache: false,
             data: {
                 itemToDelete: productId
+            },
+            success: function () {
+                updateCartQuantity();
             }
         });
         parent.parent().remove();
@@ -140,7 +160,7 @@ $(document).ready(function () {
 
     }
 
-   
+
 
     $("div#noItem").hide();
     $(".notAvailableQuantity").hide();

@@ -1,6 +1,21 @@
 $(document).ready(function () {
+    updateCartQuantity(); 
+
+    function updateCartQuantity() {
+        $.ajax({
+            url: "gestioneCarrello.php",
+            type: "POST",
+            cache: false,
+            data: {
+                cartQuantity: true
+            },
+            success: function (value) {
+                $(".cart-quantity").text(value);
+            }
+        });
+    }
+
     $(window).scroll(function() {
-        console.log("ciao"); 
         if ($(this).scrollTop() > 239){  
             $('.navbar-header, .search-header').slideUp("fast"); 
         }

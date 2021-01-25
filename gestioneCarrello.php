@@ -37,4 +37,13 @@ if (isset($_POST["itemToAdd"])) {
     }
 }
 
+
+if(isset($_POST["cartQuantity"])){
+    if (isUserLoggedIn()) {
+        $quantità = $dbh->getItemsQuantityInCart($_SESSION["id"]);
+        print($quantità[0]["quantità"]);  
+    } else {
+        return insertProductsInCart($prodottoDB);
+    }
+}
 ?>

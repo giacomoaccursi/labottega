@@ -1,5 +1,19 @@
 $(document).ready(function () {
 
+    function updateCartQuantity() {
+        $.ajax({
+            url: "gestioneCarrello.php",
+            type: "POST",
+            cache: false,
+            data: {
+                cartQuantity: true
+            },
+            success: function (value) {
+                $(".cart-quantity").text(value);
+            }
+        });
+    }
+
     function checkFooter() {
         
         if (!($(document).height() > $(window).height())) {
@@ -30,7 +44,7 @@ $(document).ready(function () {
                 itemToAdd: itemToAdd
             },
             success: function () { 
-                toastr.success("Prodotto aggiunto al carrello!"); 
+                updateCartQuantity(); 
             }
         });
     }

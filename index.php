@@ -9,7 +9,7 @@ $templateParams["pagina"] = "home.php";
 $templateParams["prodotti"] = $dbh->getBestProducts(8); 
 $templateParams["categorie"] = $dbh->getCategories(); 
 $templateParams["sottoCategorie"] = $dbh->getSubCategories(); 
-$templateParams["js"] = JS_ROOT."prodotti.js";
+$templateParams["js"] = JS_ROOT."prodotto.js";
 if(isUserLoggedIn()){
 
     $templateParams["wishlist"] = $dbh->getAllUserDesiredProductId($_SESSION["id"]); 

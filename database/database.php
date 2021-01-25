@@ -226,17 +226,17 @@ class DatabaseHelper
     }
 
 
-    public function insertNewProduct($nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria,$sconto,$gradazione,$formato)
+    public function insertNewProduct($nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria, $sconto, $gradazione, $formato)
     {
         $stmt = $this->db->prepare("INSERT INTO `prodotti`(`nome`, `marca`, `descrizione`, `prezzo`,`immagine`,`quantità`,`idSottoCategoria`,`sconto`,`gradazione`,`formato`) VALUES (?,?,?,?,?,?,?,?,?,?) ");
-        $stmt->bind_param('sssdsiiiss', $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria,$sconto,$gradazione,$formato);
+        $stmt->bind_param('sssdsiiiss', $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria, $sconto, $gradazione, $formato);
         $stmt->execute();
     }
 
-    public function modifyProduct($id, $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria, $sconto,$gradazione,$formato)
+    public function modifyProduct($id, $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria, $sconto, $gradazione, $formato)
     {
         $stmt = $this->db->prepare("UPDATE `prodotti` SET `nome` = ?, `marca` = ? ,`descrizione` = ?, `prezzo` = ?,`immagine` = ?,`quantità` = ?,`idSottoCategoria` = ?, `sconto` = ?,  `gradazione` = ? ,  `formato` = ? WHERE `prodotti`.`id` = ? ");
-        $stmt->bind_param('sssdsiiissi', $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria,$sconto,$gradazione,$formato, $id);
+        $stmt->bind_param('sssdsiiissi', $nome, $marca, $descrizione, $prezzo, $immagine, $quantita, $categoria, $sconto, $gradazione, $formato, $id);
         $stmt->execute();
     }
 
@@ -247,6 +247,16 @@ class DatabaseHelper
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getItemsQuantityInCart($idUtente)
+    {
+        $stmt = $this->db->prepare("SELECT SUM(quantitàDaComprare) as quantità FROM prodottiInCarrello WHERE idUtente = ?");
+        $stmt->bind_param('s', $idUtente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 
 
     public function getCartProducts($idUtente)
@@ -285,7 +295,7 @@ class DatabaseHelper
         $stmt->bind_param('ss', $pwd, $email);
         $stmt->execute();
     }
-    
+
 
     private function isProductInCart($idProdotto, $idUtente)
     {
@@ -349,7 +359,7 @@ class DatabaseHelper
         } else {
             return false;
         }
-        return false; 
+        return false;
     }
 
     public function getDataFromCartProductId($id)
@@ -364,26 +374,26 @@ class DatabaseHelper
 
     public function insertNotification($idCliente, $messaggio)
     {
-            $stmt = $this->db->prepare("INSERT INTO `notifiche`(`idCliente`, `messaggio`) VALUES (?, ?)");
-            $stmt->bind_param('is', $idCliente, $messaggio);
-            $stmt->execute();
+        $stmt = $this->db->prepare("INSERT INTO `notifiche`(`idCliente`, `messaggio`) VALUES (?, ?)");
+        $stmt->bind_param('is', $idCliente, $messaggio);
+        $stmt->execute();
     }
-    
+
     public function insertPwdToken($email, $token)
     {
-            $stmt = $this->db->prepare("INSERT INTO `tokens`(`email`, `token`) VALUES (?, ?)");
-            $stmt->bind_param('ss', $email, $token);
-            $stmt->execute();
+        $stmt = $this->db->prepare("INSERT INTO `tokens`(`email`, `token`) VALUES (?, ?)");
+        $stmt->bind_param('ss', $email, $token);
+        $stmt->execute();
     }
 
     public function getTokenByEmail($email)
     {
-            $stmt = $this->db->prepare("SELECT `token` FROM `tokens` WHERE email = ? ORDER BY id DESC");
-            $stmt->bind_param('s', $email);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $result = $result->fetch_all(MYSQLI_ASSOC);
-            return $result[0]["token"]; 
+        $stmt = $this->db->prepare("SELECT `token` FROM `tokens` WHERE email = ? ORDER BY id DESC");
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        return $result[0]["token"];
     }
 
 
@@ -519,5 +529,3 @@ class DatabaseHelper
     //FINE PROVA
     /**************************************** */
 }
-
-?>

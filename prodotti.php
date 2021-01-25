@@ -1,7 +1,7 @@
 <?php
 require_once 'bootstrap.php'; 
 
-$templateParams["js"] = JS_ROOT."prodotti.js";
+$templateParams["js"] = JS_ROOT."prodotto.js";
 $templateParams["titoloCategoria"] = "Tutti i prodotti"; 
 
 if(isUserLoggedIn()){
