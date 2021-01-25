@@ -1,4 +1,16 @@
 $(document).ready(function () {
+
+    function checkFooter() {
+        
+        if (!($(document).height() > $(window).height())) {
+            console.log("footer"); 
+            $("footer").css("position", "fixed");
+            $("footer").css("bottom", 0);
+            $("footer").css("width", "100%");
+        }
+    }
+
+
     function checkItem() {
         if ($(".productDetails").length < 1) {
             $("wishlistDetails").remove();
@@ -35,11 +47,13 @@ $(document).ready(function () {
         });
         e.target.closest(".productDetails").remove(); 
         checkItem();
+        checkFooter(); 
 
     }
 
     $("div#noItem").hide();
     checkItem();
+    checkFooter(); 
 
     $(".addToCartForm").submit(function (e) {
         addToCart(e);

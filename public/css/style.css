@@ -4,6 +4,20 @@
 }
 
 
+
+
+html,body {
+    height: 100%;
+    position: relative;
+}
+
+/* footer {
+    position: fixed; 
+    bottom: 0;
+    width: ;
+
+} */
+
 a.prodottoConsigliato{
     text-decoration: none !important;
 }
