@@ -53,7 +53,7 @@
                     <ul class="mt-4 list-unstyled">
                         <li class="mt-3 ">
                             <i class="fas fa-lg fa-wine-bottle"></i>
-                            <p class="d-inline">Formato: <?php echo $prodotto["formato"]; ?></p>
+                            <p class="d-inline">Formato: <?php echo $prodotto["formato"]; ?> cl</p>
                         </li>
                         <li class="mt-3">
                             <i class="pr-2 fas fa-lg fa-wine-glass-alt"></i>

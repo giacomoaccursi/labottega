@@ -12,7 +12,7 @@
             <div class="col-12 col-md-6 text-center pt-4">
                 <form class="form-inline" action="#" method="POST">
                     <div class="col-1 col-md-1"></div>
-                    <label for="newsletter-email"></label>
+                    <label for="newsletter-email" class="hidden-label">Inserisci la tua email </label>
                     <input name="newsletter" class="form-control col-7 col-md-6" id="newsletter-email" type="email" placeholder="Inserisci qui il tuo indirizzo email" />
                     <button class="btn btn-search" type="submit">OK</button>
                 </form>

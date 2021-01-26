@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<?php if(count($templateParams["prodottiConsigliati"]) > 0 ) :?><div class="container mt-5">
     <h3 class="text-center">Prodotti che potrebbero piacerti</h3>
     <div class="row col-12 nopadding">
         <div class="col-md-2"></div>
@@ -17,3 +17,4 @@
         <div class="col-md-2"></div>
     </div>
 </div>
+<?php endif; ?>

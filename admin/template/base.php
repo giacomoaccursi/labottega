@@ -49,6 +49,10 @@
                         Elenco vendite
                     </a>
                     <a href="notifications.php">
+                           <i class="fas fa-bell pr-2"></i>
+                        Notifiche
+                    </a>
+                    <a href="insert-notifications.php">
                         <i class="fas fa-envelope pr-2"></i>
                         Inserisci Notifica
                     </a>

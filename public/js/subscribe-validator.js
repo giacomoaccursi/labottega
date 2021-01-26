@@ -1,4 +1,4 @@
-const pattern =/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/i;
+const pattern =/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%.*#?&])[A-Za-z\d@$!%*.#?&]{8,}$/i;
 
 $(document).ready(function(){
 
