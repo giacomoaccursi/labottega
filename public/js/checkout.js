@@ -16,4 +16,5 @@ function validate_form() {
 
 $(document).ready(function () {
     validate_form();
+    $("main").css("padding-top", "135px"); 
 });

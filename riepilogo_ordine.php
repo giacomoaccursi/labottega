@@ -4,7 +4,7 @@ require_once 'bootstrap.php';
 if (isset($_POST["payed"])) {
     $templateParams["titolo"] = "LaBottega - Ordine Confermato";
     $templateParams["pagina"] = "riepilogo_ordine_template.php";
-    $templateParams["header"] = "small_header.php"; 
+    // $templateParams["header"] = "small_header.php"; 
 
     $templateParams["categorie"] = $dbh->getCategories();
     $templateParams["sottoCategorie"] = $dbh->getSubCategories();

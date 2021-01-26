@@ -19,7 +19,7 @@ $(document).ready(function () {
     }
 
     $(window).scroll(function() {
-        if ($(this).scrollTop() > 239){  
+        if ($(this).scrollTop() > 100){  
             $('.navbar-header, .search-header').slideUp("fast"); 
         }
         else{

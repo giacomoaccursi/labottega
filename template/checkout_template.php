@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="py-5 text-center">
+<div class="checkout container">
+    <div class="text-center">
         <h2 class="page-title">CHECKOUT</h2>
     </div>
     <div class="row justify-content-center">

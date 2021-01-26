@@ -31,9 +31,9 @@ $(document).ready(function () {
             success: function (insert) {
                 updateCartQuantity();
                 if(insert == true){
-                    $(e.target).closest(".card").find(".prod-aggiunto").fadeIn().delay(3000).fadeOut(); 
+                    $(e.target).closest(".product").find(".prod-aggiunto").fadeIn().delay(500).fadeOut(); 
                 }else{
-                    $(e.target).closest(".card").find(".prod-non-aggiunto").fadeIn().delay(3000).fadeOut(); 
+                    $(e.target).closest(".product").find(".prod-non-aggiunto").fadeIn().delay(1500).fadeOut(); 
                 }
             }
         });

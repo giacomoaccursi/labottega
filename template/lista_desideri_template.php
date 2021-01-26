@@ -34,7 +34,7 @@
                             <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>">
                         </form>
                         <form class="deleteItemFromWishList d-inline pl-2">
-                            <button class=" btn btn-sm mb-2">
+                            <button class="bg-transparent btn btn-sm mb-2">
 
                                 <i class="fas fa-trash fa-lg px-1 px-sm-0"></i>
 

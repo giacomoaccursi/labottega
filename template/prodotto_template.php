@@ -1,7 +1,7 @@
 <div class="mt-5">
-    <div class="container dark-grey-text mt-5">
+    <div class="container product dark-grey-text mt-5">
         <div class="prod-aggiunto">Prodotto aggiunto correttamente al carrello.</div>
-        <div class="prod-non-aggiunto">Ci dispiace. Non sono disponibili ulteriori quanità di questo prodotto</div>
+        <div class="prod-non-aggiunto">Ci dispiace. Non sono disponibili ulteriori quantità di questo prodotto</div>
         <div class="row">
             <div class="col-md-5 mb-4">
                 <img src="<?php echo IMG_ROOT . $prodotto["immagine"]; ?>" class="img-fluid" alt="">
