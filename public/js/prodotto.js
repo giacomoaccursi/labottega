@@ -31,8 +31,10 @@ $(document).ready(function () {
             success: function (insert) {
                 updateCartQuantity();
                 if(insert == true){
+                    console.log(insert); 
                     $(e.target).closest(".product").find(".prod-aggiunto").fadeIn().delay(500).fadeOut(); 
                 }else{
+                    console.log(insert); 
                     $(e.target).closest(".product").find(".prod-non-aggiunto").fadeIn().delay(1500).fadeOut(); 
                 }
             }

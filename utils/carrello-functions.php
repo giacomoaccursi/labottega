@@ -19,7 +19,7 @@ function isProductInCart($productId)
     }
 }
 
-function insertProductsInCart($prodotto)
+function insertProductsInCart($prodotto, $disponibilità)
 {
     $carrello = $_SESSION["carrello"];
     if (!isProductInCart($prodotto["id"])) {
@@ -36,10 +36,15 @@ function insertProductsInCart($prodotto)
         ];
         $carrello[$prodotto["id"]] = $prodottoInCarrello;
         $_SESSION["carrello"] = $carrello;
+        return true; 
     } else {
-
-        $carrello[$prodotto["id"]]["quantitàDaComprare"] += 1;
-        $_SESSION["carrello"] = $carrello;
+        if($disponibilità >  $carrello[$prodotto["id"]]["quantitàDaComprare"]){
+            $carrello[$prodotto["id"]]["quantitàDaComprare"] += 1;
+            $_SESSION["carrello"] = $carrello;
+            return true; 
+        }else{
+            return false; 
+        }
     }
 }
 
@@ -60,4 +65,13 @@ function updateCartProductsQuantity($productId, $currentVal, $disponibilità)
         return true;
     }
     return false;
+}
+
+function getItemsQuantityInCart(){
+    $carrello = $_SESSION["carrello"]; 
+    $totale = 0; 
+    foreach($carrello as $prodotto){
+        $totale += $prodotto["quantitàDaComprare"]; 
+    }
+    return $totale; 
 }

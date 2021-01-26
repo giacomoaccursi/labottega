@@ -9,7 +9,7 @@ if (isset($_POST["payed"])) {
     $templateParams["categorie"] = $dbh->getCategories();
     $templateParams["sottoCategorie"] = $dbh->getSubCategories();
 
-    $idSpedizione = $dbh->addNewSpedizione($_POST["nome"], $_POST["cognome"], $_POST["indirizzo"], $_POST["città"], $_POST["nazione"]);
+    $idSpedizione = $dbh->addNewSpedizione($_POST["nome"], $_POST["cognome"], $_POST["indirizzo"], $_POST["città"], $_POST["nazione"]); 
     $prodotti = $dbh->getCartProducts($_SESSION["id"]);
     $speseDiSpedizione = 10;
     $totaleOrdine = 0;
