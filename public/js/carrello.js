@@ -34,11 +34,13 @@ $(document).ready(function () {
             let itemCost = $(this).find(".itemPrice").text().replace(/,/g, ".");
             itemCost = parseFloat(itemCost.substring(0, itemCost.length - 1)).toFixed(2);
             itemNumber = parseFloat($(this).find(".itemQuantity").val());
-            subTotal += itemCost * itemNumber;
+            // subTotal += ((itemCost*10) * (itemNumber*10))/100;
+            subTotal += (itemCost * itemNumber);
 
         });
-
         let total = subTotal + shippingCost;
+        subTotal = subTotal.toFixed(2); 
+        total = total.toFixed(2); 
         $("#orderInformation").find("#orderSubTotal > #subTotalPrice").text(subTotal.toString().replace(".", ",") + " €");
         $("#orderInformation").find("#orderTotal > #totalPrice").text(total.toString().replace(".", ",") + " €");
         $("#orderInformation").find("#orderShippingCost > #shippingCost").text(shippingCost + " €");
@@ -46,7 +48,7 @@ $(document).ready(function () {
     }
 
     function checkItem() {
-        if ($(".productDetails").length < 1) {
+        if ($(".productContainer").length < 1) {
             $("#cartDetails").remove();
             $("div#noItem").show();
         }
@@ -76,7 +78,7 @@ $(document).ready(function () {
                 if (data == false) {
 
                     currentVal -= 1;
-                    $(e.target).closest(".productDetails").prev(".notAvailableQuantity").fadeIn().delay(3000).fadeOut();
+                    $(e.target).closest(".productDetails").prev(".prod-non-aggiunto").fadeIn().delay(3000).fadeOut();
                 }
                 parent.find('input[name=' + fieldName + ']').val(currentVal);
                 calculateOrderPrice();
@@ -166,7 +168,7 @@ $(document).ready(function () {
 
 
     $("div#noItem").hide();
-    $(".notAvailableQuantity").hide();
+    $(".prod-non-aggiunto").hide();
     checkItem();
     calculateOrderPrice();
     checkFooter();

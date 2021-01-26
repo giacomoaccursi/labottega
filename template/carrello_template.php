@@ -6,9 +6,8 @@
         foreach ($templateParams["prodottiInCarrello"] as $prodotto) :
         ?>
             <div class="productContainer">
-                <div class="notAvailableQuantity bg-warning font-weight-bold text-center">
-                    Quantità selezionatà non disponibile
-                </div>
+                <div class="prod-non-aggiunto"> Quantità selezionatà non disponibile</div>
+
                 <div class="productDetails row align-items-center">
                     <div class="col-3 col-sm-2">
                         <a href="<?php echo ("prodotto.php?id=" . $prodotto["id"]); ?>">
@@ -37,7 +36,7 @@
                     </div>
                     <input type="hidden" class="productId" value="<?php echo $prodotto["idProdotto"]; ?>">
                 </div>
-                <hr/>
+                <hr />
             </div>
 
         <?php endforeach; ?>

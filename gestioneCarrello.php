@@ -34,7 +34,8 @@ if (isset($_POST["itemToAdd"])) {
         print($insert); 
     } else {
         $prodottoDB = $dbh->getProductById($productId);
-        insertProductsInCart($prodottoDB);
+        $insert = insertProductsInCart($prodottoDB, $prodottoDB["quantità"]);
+        print($insert); 
     }
 }
 
@@ -44,7 +45,7 @@ if(isset($_POST["cartQuantity"])){
         $quantità = $dbh->getItemsQuantityInCart($_SESSION["id"]);
         print($quantità[0]["quantità"]);  
     } else {
-        return insertProductsInCart($prodottoDB);
+        print (getItemsQuantityInCart()); 
     }
 }
 ?>
