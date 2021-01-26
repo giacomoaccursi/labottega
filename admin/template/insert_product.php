@@ -27,7 +27,7 @@
                     </tr>
                     <tr>
                         <td class="table-dark"> <label for="immagine">Immagine:</label></td>
-                        <td><input type="file" name="immagine" id="immagine" class="col-12"value="" required /></td>
+                        <td><input type="file" name="immagine" id="immagine" class="col-12" required /></td>
                     </tr>
                     <tr>
                         <td class="table-dark"><label for="quantita">Quantità:</label></td>

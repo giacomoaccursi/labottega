@@ -5,9 +5,9 @@
             <h1>Modifica Prodotto</h1>
             <form action="#" id="modify-product-form" method="POST" class="text-center admin-basic-form" enctype="multipart/form-data">
                 <table class="table">
-                    <tr>
                         <thead class="table-dark">
-                        <td>Prodotto:</td>
+                        <tr>
+                        <td><label for="prodotto">Prodotto:</label></td>
                         <td>
                         <select name="prodotto" id="prodotto" class="col-12" onchange="location='modify-product.php?id='+this.value">
                         <option selected disabled value> --- Scegli un prodotto --- </option>
@@ -16,8 +16,9 @@
                                 <?php endforeach; ?>
                             </select>
                     </td>
-                    </thead>
                     </tr>
+                    </thead>
+                    <tbody>
                     <tr>
                         <td><label for="nome">Nome:</label></td>
                         <td><input type="text" id="nome" name="nome" class="col-12" value= "<?php if (isset($templateParams['prodotto'])) echo $templateParams['prodotto']['nome'] ?>" required /></td>
@@ -67,6 +68,7 @@
                     <tr>
                         <td colspan="2" class="text-center"> <input type="submit" name="submit" class="btn-success" value="Modifica" /> </td>
                     </tr>
+                    </tbody>
                 </table>
             </form>
         </div>

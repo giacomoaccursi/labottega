@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `newsletter` (
 CREATE TABLE IF NOT EXISTS `tokens` (
     `id` INT(5) NOT NULL AUTO_INCREMENT,
     `email` VARCHAR(50) NOT NULL,
-    `token` VARCHAR(20) NOT NULL,
+    `token` VARCHAR(80) NOT NULL,
     PRIMARY KEY(`id`)
 );
 

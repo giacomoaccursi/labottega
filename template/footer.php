@@ -12,7 +12,8 @@
             <div class="col-12 col-md-6 text-center pt-4">
                 <form class="form-inline" action="#" method="POST">
                     <div class="col-1 col-md-1"></div>
-                    <input name="newsletter" class="form-control col-7 col-md-6" type="email" placeholder="Inserisci qui il tuo indirizzo email" />
+                    <label for="newsletter-email"></label>
+                    <input name="newsletter" class="form-control col-7 col-md-6" id="newsletter-email" type="email" placeholder="Inserisci qui il tuo indirizzo email" />
                     <button class="btn btn-search" type="submit">OK</button>
                 </form>
             </div>
@@ -27,7 +28,7 @@
 
 <div id="accordion-footer" class="row text-center">
     <div class="col-sm-6 col-md-3 nopadding">
-        <div id="accordion" role="tablist" aria-multiselectable="true" class="widget">
+        <div  role="tablist" aria-multiselectable="true" class="widget accordion">
             <div role="tab" id="headingOne">
                 <div class="card-header py-3 border-0 text-uppercase bg-transparent">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="accordion-title">
@@ -46,7 +47,7 @@
         </div>
     </div>
     <div class="col-sm-6 col-md-3 nopadding">
-        <div id="accordion" role="tablist" aria-multiselectable="true" class="widget">
+        <div role="tablist" aria-multiselectable="true" class="widget accordion">
             <div role="tab" id="headingTwo">
                 <div class="card-header py-3 border-0 text-uppercase bg-transparent">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="accordion-title">
@@ -65,7 +66,7 @@
         </div>
     </div>
     <div class="col-sm-6 col-md-3 nopadding">
-        <div id="accordion" role="tablist" aria-multiselectable="true" class="widget">
+        <div  role="tablist" aria-multiselectable="true" class="widget accordion">
             <div role="tab" id="headingThree">
                 <div class="card-header py-3 border-0 text-uppercase bg-transparent">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" class="accordion-title">
@@ -86,7 +87,7 @@
         </div>
     </div>
     <div class="col-sm-6 col-md-3 nopadding">
-        <div id="accordion" role="tablist" aria-multiselectable="true" class="widget">
+        <div role="tablist" aria-multiselectable="true" class="widget accordion">
             <div role="tab" id="headingFour">
                 <div class="card-header py-3 border-0 text-uppercase bg-transparent">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour" class="accordion-title">

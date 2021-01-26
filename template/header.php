@@ -74,7 +74,8 @@
     <div class="col-md-3"></div>
     <div class="col-md-6">
         <form class="form-inline justify-content-center" action="prodotti.php" method="GET">
-            <input class="form-control col-9 col-md-7" name="cerca" type="text" placeholder="Cosa stai cercando ?" />
+            <label for="cerca"></label>
+            <input class="form-control col-9 col-md-7" name="cerca" id="cerca" type="text" placeholder="Cosa stai cercando ?" />
             <button class="btn btn-search" type="submit">
                 <i class="fas fa-search"></i>
             </button>

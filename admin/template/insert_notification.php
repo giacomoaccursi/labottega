@@ -7,7 +7,7 @@
             <table class=" table text-center mt-4">
                 <thead class="table-dark">
                     <tr>
-                        <td>Destinatario:</td>
+                        <td><label for="cliente">Destinatario:</label></td>
                         <td>
                             <select name="cliente" id="cliente" class="col-12" onchange="location='notifications.php?user_id='+this.value">
                             <option value="0">Tutti i clienti</option>
@@ -21,7 +21,7 @@
                 <tbody>
                     <tr>
                         <td><label for="messaggio">Messaggio:</label></td>
-                        <td><textarea id="messsaggio" name="messaggio" rows="7" class="col-12" required> </textarea></td>
+                        <td><textarea id="messaggio" name="messaggio" rows="7" class="col-12" required> </textarea></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="text-center"> <input type="submit" name="submit" class="btn-success" value="Invia" /> </td>

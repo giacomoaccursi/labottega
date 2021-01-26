@@ -16,7 +16,7 @@
                         <?php if(isset($templateParams["errorelogin"])): ?>
                               <p class="my-3"><?php echo $templateParams["errorelogin"]; ?></p>
                             <?php endif; ?>
-                            <div class="group "> <label for="email" class="label mt-3 mb-0">Email</label> <input type="email"  id="email" name="email" class="input col-10" placeholder="Inserisci la tua email" required  autocomplete="TRUE"/> </div>
+                            <div class="group "> <label for="email" class="label mt-3 mb-0">Email</label> <input type="email"  id="email" name="email" class="input col-10" placeholder="Inserisci la tua email" required  autocomplete="on"/> </div>
                             <div class="group "> <label for="pass" class="label mt-4 mb-0 pb-3">Password</label> <input type="password" id="pass" name="pass" class="input col-10 mb-3" data-type="password" placeholder="Inserisci la tua password" required /> </div>
                             <a href="password_reset.php">Password dimenticata ?</a>
                             <div class="group"> <input type="submit" name="submit" class="button mt-1 pt-2 col-5 " value="accedi"></div>

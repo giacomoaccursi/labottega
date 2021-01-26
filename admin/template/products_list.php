@@ -26,17 +26,17 @@
             <nav class="my-3 justify-content-center">
             <ul class="pagination">
                 <li class="page-item">
-                    <a class="page-link" href=<?php if ($templateParams["page"] > 1) {
+                    <a class="page-link" href="<?php if ($templateParams["page"] > 1) {
                                                     echo "index.php?&page=" . ($templateParams["page"] - 1) ;
-                                                } ?>>Previous</a>
+                                                } ?>">Previous</a>
                 </li>
                 <?php for ($i = 1; $i <= $templateParams["numPagine"]; $i++) : ?>
                     <li class="page-item"><a class="page-link" href="index.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                 <?php endfor; ?>
                 <li class="page-item">
-                    <a class="page-link" href=<?php if ($templateParams["page"] < $templateParams["numPagine"]) {
+                    <a class="page-link" href="<?php if ($templateParams["page"] < $templateParams["numPagine"]) {
                                                     echo "index.php?page=" . ($templateParams["page"] + 1);
-                                               } ?>>Next</a>
+                                               } ?>">Next</a>
                 </li>
             </ul>
         </nav>

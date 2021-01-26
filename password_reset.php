@@ -4,7 +4,8 @@ require_once 'bootstrap.php';
 if(isset($_POST["email"])){
         if(isPresentEmail($_POST["email"],$dbh->getAllEmails())){
             $code = generateRandomCode();
-            $dbh->insertPwdToken($_POST["email"],$code);
+            $hashed_code = password_hash($code, PASSWORD_DEFAULT);
+            $dbh->insertPwdToken($_POST["email"],$hashed_code);
             $templateParams["email"] = $_POST["email"];
             sendEMail($templateParams["email"],"Reset Password","Il Codice per cambiare la password è : ".$code);
             $templateParams["pagina"]='inserimento_codice.php';
@@ -16,9 +17,11 @@ if(isset($_POST["email"])){
     $templateParams["pagina"]='password_reset_template.php';
 }
 
-if(isset($_POST["code"]) && $_POST["code"]==$dbh->getTokenByEmail($_POST["confirmed_email"])){
-    $templateParams["pagina"]='new_password_template.php';
-    $templateParams["email"] = $_POST["confirmed_email"];
+if(isset($_POST["code"])){
+    if(password_verify($_POST["code"],$dbh->getTokenByEmail($_POST["confirmed_email"]))){
+        $templateParams["pagina"]='new_password_template.php';
+        $templateParams["email"] = $_POST["confirmed_email"];
+    }
 }
 
 if(isset($_POST["pass_1"]) && isset($_POST["pass_2"])){

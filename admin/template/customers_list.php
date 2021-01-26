@@ -5,7 +5,6 @@
         <h1>Elenco Clienti</h1>
         <?php if (count($templateParams["clienti"]) > 0) : ?>
             <table class=" table text-center admin-basic-table mt-4">
-                <div class="row ">
                     <thead class="table-dark">
                         <tr>
                             <th scope="col" id="nome"> Nome </th>

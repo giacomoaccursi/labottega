@@ -275,6 +275,15 @@ class DatabaseHelper
         $stmt->execute();
     }
 
+    public function deleteNotification($idNotifica)
+    {
+        $stmt = $this->db->prepare("DELETE FROM `notifiche` WHERE id = ?");
+        $stmt->bind_param('i', $idNotifica);
+        $stmt->execute();
+    }
+
+
+
     public function removeOrderedItemsFromDisponibility($idProdotto, $quantita)
     {
         $stmt = $this->db->prepare("UPDATE `prodotti` SET `quantità` = `quantità`- ? WHERE `id` = ?");
@@ -423,7 +432,7 @@ class DatabaseHelper
 
     public function getNotificationsByUser($idCliente)
     {
-        $stmt = $this->db->prepare("SELECT messaggio,data  FROM notifiche WHERE idCliente = ?  ORDER BY data DESC");
+        $stmt = $this->db->prepare("SELECT * FROM notifiche WHERE idCliente = ?  ORDER BY data DESC");
         $stmt->bind_param('i', $idCliente);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -443,7 +452,6 @@ class DatabaseHelper
 
     public function addNewSpedizione($nome, $cognome, $indirizzo, $citta, $nazione)
     {
-
         $stmt = $this->db->prepare("INSERT INTO `spedizioni`(`nome`, `cognome`, `indirizzo`, `citta`, `nazione`) VALUES (?,?,?,?,?)");
         $stmt->bind_param('sssss', $nome, $cognome, $indirizzo, $citta, $nazione);
         $stmt->execute();
