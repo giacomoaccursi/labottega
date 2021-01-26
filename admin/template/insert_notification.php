@@ -9,7 +9,7 @@
                     <tr>
                         <td><label for="cliente">Destinatario:</label></td>
                         <td>
-                            <select name="cliente" id="cliente" class="col-12" onchange="location='notifications.php?user_id='+this.value">
+                            <select name="cliente" id="cliente" class="col-12" onchange="location='insert-notifications.php?user_id='+this.value">
                             <option value="0">Tutti i clienti</option>
                                 <?php foreach ($templateParams["clienti"] as $cliente) : ?>
                                     <option value="<?php echo $cliente["id"]; ?>" <?php if( isset($templateParams["cliente"]) && $templateParams["cliente"]["id"] == $cliente["id"]) echo "selected"; ?>><?php echo ($cliente["nome"] . " " . $cliente["cognome"]); ?></option>
