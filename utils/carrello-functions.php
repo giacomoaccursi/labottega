@@ -5,7 +5,8 @@ function getCartProducts()
     if (isset($_SESSION["carrello"])) {
         return $_SESSION["carrello"];
     } else {
-        return [];
+        $_SESSION["carrello"] = [];
+        return $_SESSION["carrello"];
     }
 }
 
@@ -21,7 +22,8 @@ function isProductInCart($productId)
 
 function insertProductsInCart($prodotto, $disponibilità)
 {
-    $carrello = $_SESSION["carrello"];
+
+    $carrello = getCartProducts(); 
     if (!isProductInCart($prodotto["id"])) {
         $prodottoInCarrello = [
             "quantitàDaComprare" => 1,
