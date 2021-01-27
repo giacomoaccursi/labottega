@@ -9,7 +9,7 @@
                 <div class="col-4 col-md-3 p-0">
 
                     <a href="<?php echo ("prodotto.php?id=" . $prodotto["id"]); ?>">
-                        <img src=<?php echo IMG_ROOT . $prodotto["immagine"]; ?> alt="" width="120" class="img-fluid">
+                        <img src=<?php echo IMG_ROOT . $prodotto["immagine"]; ?> alt="<?php echo $prodotto["nome"]; ?>" width="120" class="img-fluid">
                     </a>
                 </div>
 

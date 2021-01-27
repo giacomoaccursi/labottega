@@ -7,11 +7,10 @@
         ?>
             <div class="productContainer">
                 <div class="prod-non-aggiunto"> Quantità selezionatà non disponibile</div>
-
                 <div class="productDetails row align-items-center">
                     <div class="col-3 col-sm-2">
                         <a href="<?php echo ("prodotto.php?id=" . $prodotto["id"]); ?>">
-                            <img src=<?php echo IMG_ROOT . $prodotto["immagine"]; ?> alt="" width="120" class="img-fluid">
+                            <img src=<?php echo IMG_ROOT . $prodotto["immagine"]; ?> alt="<?php echo $prodotto["nome"]; ?>" width="120" class="img-fluid">
                         </a>
                     </div>
                     <div class="col-9 col-sm-4 ">
@@ -19,7 +18,7 @@
                     </div>
                     <div class="input-group col-7 col-sm-3 pt-1 text-md-center">
                         <input type="button" value="-" class="button-minus" data-field="quantity">
-                        <input type="number" step="1" value="<?php echo $prodotto["quantitàDaComprare"]; ?>" name="quantity" class="itemQuantity">
+                        <label class="hidden-label" for="quantità">quantità</label><input id="quantità" type="number" step="1" value="<?php echo $prodotto["quantitàDaComprare"]; ?>" name="quantity" class="itemQuantity">
                         <input type="button" value="+" class="button-plus" data-field="quantity">
                     </div>
 

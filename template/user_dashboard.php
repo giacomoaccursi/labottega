@@ -7,7 +7,7 @@
 <div class="row text-center pt-4">
   <div class="col-lg-2 col-md-1"></div>
   <div id="Ordini" class="text-center col-12 col-md-10 col-lg-8 pt-3">
-    <h3 class="dashboard-section-title">I miei ordini </h3>
+    <h2 class="dashboard-section-title">I miei ordini </h2>
     <?php if (count($templateParams["ordini"]) > 0) : ?>
       <table class=" table text-center col-12">
           <thead class="table-dark">
