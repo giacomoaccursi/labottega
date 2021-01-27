@@ -12,7 +12,7 @@
             <a href="carrello.php" class="icon-link pr-2  pr-md-3"><i class="white-icon fas fa-shopping-cart fa-lg "></i> <span class="badge red cart-quantity"></span></a>
             
             <?php if (isUserLoggedIn()) : ?>
-                <a class="dropdown icon-link pr-2 pr-md-3" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+                <a class="dropdown icon-link pr-2 pr-md-3" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
                     <i class="white-icon fas fa-user-circle fa-lg "></i></a>
                 <div class="mt-2 dropdown-menu color-white dropdown-menu-right dropdown-info">
                     <a class="dropdown-item" href="dashboard.php">Dashboard</a>

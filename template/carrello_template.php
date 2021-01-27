@@ -19,11 +19,11 @@
                     </div>
                     <div class="input-group col-7 col-sm-3 pt-1 text-md-center">
                         <input type="button" value="-" class="button-minus" data-field="quantity">
-                        <input type="number" step="1" max="" value="<?php echo $prodotto["quantitàDaComprare"]; ?>" name="quantity" class="itemQuantity">
+                        <input type="number" step="1" value="<?php echo $prodotto["quantitàDaComprare"]; ?>" name="quantity" class="itemQuantity">
                         <input type="button" value="+" class="button-plus" data-field="quantity">
                     </div>
 
-                    <div class="itemPrice col-3 col-sm-2 p-0" value="<?php echo number_format($prodotto["prezzoFin"], 2, ',', ' '); ?>">
+                    <div class="itemPrice col-3 col-sm-2 p-0">
                         <?php if ($prodotto["sconto"] > 0) : ?>
                             <span class=" text-danger font-weight-bold pr-2"><?php echo number_format($prodotto["prezzoFin"], 2, ',', ' '); ?>€</span>
                             <span class="text-grey"><s><?php echo number_format($prodotto["prezzo"], 2, ',', ' '); ?>€</s></span>

@@ -18,7 +18,7 @@
                         <h5 class="mb-0"> <a href="<?php echo ("prodotto.php?id=" . $prodotto["id"]); ?>" class="text-dark d-inline-block align-middle"><?php echo $prodotto["nome"]; ?></a></h5>
                         <span class="text-muted font-weight-normal font-italic d-block"><?php echo $prodotto["marca"]; ?></span>
                     </div>
-                    <div class="col-4 col-md-2 itemPrice col-md-2 p-0" value="<?php echo $prodotto["prezzoFin"]; ?>">
+                    <div class="col-4 col-md-2 itemPrice col-md-2 p-0">
                         <?php if ($prodotto["sconto"] > 0) : ?>
                             <span class=" text-danger font-weight-bold pr-2"><?php echo number_format($prodotto["prezzoFin"], 2, ",", ""); ?>€</span>
                             <span class="text-grey"><s><?php echo number_format($prodotto["prezzo"], 2, ",", ""); ?>€</s></span>

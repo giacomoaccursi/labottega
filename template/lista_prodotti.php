@@ -47,12 +47,12 @@
                         </form>
                     <?php endif; ?>
                 <?php else : ?>
-                    <a href="login.php">
-                        <button class="btn bg-transparent btn-sm px-3 mb-2 material-tooltip-main">
+                    <form class="d-inline" action="login.php">
+                        <button type="submit" class="btn bg-transparent btn-sm px-3 mb-2 material-tooltip-main">
                             <i class="far fa-heart fa-lg"></i>
                         </button>
                         <input type="hidden" class="productId" value="<?php echo $prodotto["id"]; ?>" />
-                    </a>
+                    </form>
                 <?php endif; ?>
             </div>
 

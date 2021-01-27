@@ -15,16 +15,16 @@
             echo '&cerca=' . $templateParams['cerca'];
         } ?>'">
             <option <?php if ($templateParams["order"] == 1) {
-                        echo 'selected';
+                        echo 'selected ';
                     } ?>value="1">Nuovi Arrivi</option>
             <option <?php if ($templateParams["order"] == 2) {
-                        echo 'selected';
+                        echo 'selected ';
                     } ?> value="2">Prezzo Crescente</option>
             <option <?php if ($templateParams["order"] == 3) {
-                        echo 'selected';
+                        echo 'selected ';
                     } ?> value="3">Prezzo Decrescente</option>
             <option <?php if ($templateParams["order"] == 4) {
-                        echo 'selected';
+                        echo 'selected ';
                     } ?> value="4">Popolarità</option>
         </select>
     </div>
@@ -44,19 +44,19 @@
         <nav class="my-3">
             <ul class="pagination">
                 <li class="page-item">
-                    <a class="page-link" href=<?php if ($templateParams["page"] > 1) {
+                    <a class="page-link" href="<?php if ($templateParams["page"] > 1) {
                                                     echo "prodotti.php?&page=" . ($templateParams["page"] - 1) . "&order=" . ($templateParams["order"]);
                                                     if(isset($_GET["cat"])) echo ("&cat=".$_GET["cat"]);
-                                                } ?>>Previous</a>
+                                                } ?>">Previous</a>
                 </li>
                 <?php for ($i = 1; $i <= $templateParams["numPagine"]; $i++) : ?>
                     <li class="page-item"><a class="page-link" href="prodotti.php?page=<?php echo $i; ?>&order=<?php echo $templateParams["order"]; ?><?php if(isset($_GET["cat"])) echo ("&cat=".$_GET["cat"])?>"><?php echo $i; ?></a></li>
                 <?php endfor; ?>
                 <li class="page-item">
-                    <a class="page-link" href=<?php if ($templateParams["page"] < $templateParams["numPagine"]) {
+                    <a class="page-link" href="<?php if ($templateParams["page"] < $templateParams["numPagine"]) {
                                                     echo "prodotti.php?page=" . ($templateParams["page"] + 1) . "&order=" . ($templateParams["order"]);
                                                     if(isset($_GET["cat"])) echo ("&cat=".$_GET["cat"]);
-                                                } ?>>Next</a>
+                                                } ?>">Next</a>
                 </li>
             </ul>
         </nav>
