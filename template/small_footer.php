@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="col-sm-6 col-md-3 nopadding">
-        <div  role="tablist" aria-multiselectable="true" class="accordion widget">
+        <div role="tablist" aria-multiselectable="true" class="accordion widget">
             <div role="tab" id="headingTwo">
                 <div class="card-header py-3 border-0 text-uppercase bg-transparent">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="accordion-title">

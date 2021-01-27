@@ -1,10 +1,10 @@
-<?php if (isset($_SESSION["id"]) && $_SESSION["tipo"] == 1): ?>
-<div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-12 col-md-8 text-center my-4 nopadding">
-        <h1>Elenco Clienti</h1>
-        <?php if (count($templateParams["clienti"]) > 0) : ?>
-            <table class=" table text-center admin-basic-table mt-4">
+<?php if (isset($_SESSION["id"]) && $_SESSION["tipo"] == 1) : ?>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-12 col-md-8 text-center my-4 nopadding">
+            <h1>Elenco Clienti</h1>
+            <?php if (count($templateParams["clienti"]) > 0) : ?>
+                <table class=" table text-center admin-basic-table mt-4">
                     <thead class="table-dark">
                         <tr>
                             <th scope="col" id="nome"> Nome </th>
@@ -21,12 +21,12 @@
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
-            </table>
-        <?php else : ?>
-            <p> Non ci sono clienti da visualizzare. </p>
-        <?php endif; ?>
+                </table>
+            <?php else : ?>
+                <p> Non ci sono clienti da visualizzare. </p>
+            <?php endif; ?>
+        </div>
+        <div class="col-md-2"></div>
     </div>
-    <div class="col-md-2"></div>
-</div>
 
 <?php endif; ?>

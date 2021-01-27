@@ -36,14 +36,14 @@ function insertProductsInCart($prodotto, $disponibilità)
         ];
         $carrello[$prodotto["id"]] = $prodottoInCarrello;
         $_SESSION["carrello"] = $carrello;
-        return true; 
+        return true;
     } else {
-        if($disponibilità >  $carrello[$prodotto["id"]]["quantitàDaComprare"]){
+        if ($disponibilità >  $carrello[$prodotto["id"]]["quantitàDaComprare"]) {
             $carrello[$prodotto["id"]]["quantitàDaComprare"] += 1;
             $_SESSION["carrello"] = $carrello;
-            return true; 
-        }else{
-            return false; 
+            return true;
+        } else {
+            return false;
         }
     }
 }
@@ -67,11 +67,14 @@ function updateCartProductsQuantity($productId, $currentVal, $disponibilità)
     return false;
 }
 
-function getItemsQuantityInCart(){
-    $carrello = $_SESSION["carrello"]; 
-    $totale = 0; 
-    foreach($carrello as $prodotto){
-        $totale += $prodotto["quantitàDaComprare"]; 
+function getItemsQuantityInCart()
+{
+    $carrello = $_SESSION["carrello"];
+    $totale = 0;
+    foreach ($carrello as $prodotto) {
+        $totale += $prodotto["quantitàDaComprare"];
     }
-    return $totale; 
+    return $totale;
 }
+
+?>

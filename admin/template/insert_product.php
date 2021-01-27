@@ -3,7 +3,7 @@
         <div class="col-md-2"></div>
         <div class="col-12 col-md-8 text-center my-2 nopadding">
             <h1>Inserimento Prodotto</h1>
-            <form action="#"  method="POST" class="text-center admin-basic-form" id="new-product-form" enctype="multipart/form-data">
+            <form action="#" method="POST" class="text-center admin-basic-form" id="new-product-form" enctype="multipart/form-data">
                 <table class="table mt-2">
                     <tr>
                         <td class="table-dark"><label for="nome">Nome:</label></td>

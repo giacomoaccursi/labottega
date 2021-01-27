@@ -25,5 +25,4 @@ if (isset($_SESSION["id"]) && $_SESSION["tipo"] == 1) {
 } else {
     header("location: ".ROOT."login.php");
 }
-
 ?>

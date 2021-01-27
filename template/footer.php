@@ -28,7 +28,7 @@
 
 <div id="accordion-footer" class="row text-center">
     <div class="col-sm-6 col-md-3 nopadding">
-        <div  role="tablist" aria-multiselectable="true" class="widget accordion">
+        <div role="tablist" aria-multiselectable="true" class="widget accordion">
             <div role="tab" id="headingOne">
                 <div class="card-header py-3 border-0 text-uppercase bg-transparent">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="accordion-title">
@@ -66,7 +66,7 @@
         </div>
     </div>
     <div class="col-sm-6 col-md-3 nopadding">
-        <div  role="tablist" aria-multiselectable="true" class="widget accordion">
+        <div role="tablist" aria-multiselectable="true" class="widget accordion">
             <div role="tab" id="headingThree">
                 <div class="card-header py-3 border-0 text-uppercase bg-transparent">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" class="accordion-title">
