@@ -4,7 +4,7 @@ $cognome = $_POST["cognome"];
 $indirizzo = $_POST["indirizzo"];
 $città = $_POST["città"];
 $nazione = $_POST["nazione"];
-$spedizione = strtotime("+1 week"); 
+$spedizione = strtotime("+1 week");
 ?>
 
 
@@ -46,7 +46,7 @@ $spedizione = strtotime("+1 week");
                 </tr>
             </tfoot>
         </table>
-        <p class="spedizione-stimata"><i class="fas fa-lg fa-shipping-fast"></i> Giorno di spedizione stimato: <?php echo date('d/m/Y', $spedizione);?></p>
+        <p class="spedizione-stimata"><i class="fas fa-lg fa-shipping-fast"></i> Giorno di spedizione stimato: <?php echo date('d/m/Y', $spedizione); ?></p>
 
     </section>
     <div class="col-md-1"></div>
